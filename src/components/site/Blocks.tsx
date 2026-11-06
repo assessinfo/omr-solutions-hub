@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
-import { ArrowRight, Check, Phone } from "lucide-react";
+import { ArrowRight, Check, Download, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { company, type DetailPage } from "@/lib/content";
 

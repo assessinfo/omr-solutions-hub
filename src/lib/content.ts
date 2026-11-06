@@ -7,6 +7,16 @@ import ngo from "@/assets/ngo.jpg";
 import corporate from "@/assets/corporate.jpg";
 import ewaste from "@/assets/ewaste.jpg";
 import documents from "@/assets/documents.jpg";
+import img11000 from "@/assets/scanners/sr11000.jpg.asset.json";
+import img6500h from "@/assets/scanners/sr6500h.jpg.asset.json";
+import img6500 from "@/assets/scanners/sr6500.jpg.asset.json";
+import img3500h from "@/assets/scanners/sr3500h.jpg.asset.json";
+import img3500 from "@/assets/scanners/sr3500.jpg.asset.json";
+import pdf11000 from "@/assets/brochures/sr11000.pdf.asset.json";
+import pdfHybrid from "@/assets/brochures/hybrid.pdf.asset.json";
+import pdf35006500 from "@/assets/brochures/sr3500-6500.pdf.asset.json";
+import pdf3500h from "@/assets/brochures/sr3500h.pdf.asset.json";
+import pdf8000 from "@/assets/brochures/sr8000.pdf.asset.json";
 
 export const company = {
   name: "OMR Solutions",
@@ -54,6 +64,8 @@ export type DetailPage = {
   features: FeatureGroup[];
   seoTitle: string;
   seoDescription: string;
+  brochure?: string;
+  video?: string;
 };
 
 export const solutions: DetailPage[] = [

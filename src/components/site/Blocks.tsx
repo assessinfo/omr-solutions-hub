@@ -9,12 +9,14 @@ export function PageHero({
   title,
   intro,
   image,
+  imageAlt,
   children,
 }: {
   eyebrow: string;
   title: string;
   intro: string;
   image?: string;
+  imageAlt?: string;
   children?: ReactNode;
 }) {
   return (
@@ -41,7 +43,7 @@ export function PageHero({
         {image && (
           <div className="relative">
             <div className="absolute -bottom-5 -right-5 h-2/3 w-2/3 rounded-3xl bubble-dots" aria-hidden />
-            <img src={image} alt="" width={1400} height={1000} className="relative aspect-[4/3] w-full rounded-3xl object-cover shadow-lift" />
+            <img src={image} alt={imageAlt ?? ""} width={1400} height={1000} className="relative aspect-[4/3] w-full rounded-3xl object-cover shadow-lift" />
           </div>
         )}
       </div>
@@ -99,7 +101,7 @@ export function CtaBand({ title = "Let's find the right OMR setup for you", text
 export function DetailView({ page, related }: { page: DetailPage; related: { label: string; to: string; summary: string }[] }) {
   return (
     <>
-      <PageHero eyebrow={page.group === "Solutions" ? `Solutions · ${page.name}` : `Products · ${page.name}`} title={page.title} intro={page.intro} image={page.image} />
+      <PageHero eyebrow={page.group === "Solutions" ? `Solutions · ${page.name}` : `Products · ${page.name}`} title={page.title} intro={page.intro} image={page.image} imageAlt={page.imageAlt ?? page.title} />
       {page.stats && (
         <div className="container-x -mt-px pt-12">
           <Stats items={page.stats} />

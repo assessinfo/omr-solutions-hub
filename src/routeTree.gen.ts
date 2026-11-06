@@ -10,179 +10,206 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as Omr_webAbout_omr_solutionsphpF8c503f6ea0cd34aRouteImport } from './routes/omr_web_.about_omr_solutionsphp-f8c503f6ea0cd34a'
-import { Route as Omr_webCareerphpB74987bb2d02f0beRouteImport } from './routes/omr_web_.careerphp-b74987bb2d02f0be'
-import { Route as Omr_webOmr_application_areaphp148e32150e549d5bRouteImport } from './routes/omr_web_.omr_application_areaphp-148e32150e549d5b'
-import { Route as Omr_webOmr_clientsphp2b4f7e0f5680a823RouteImport } from './routes/omr_web_.omr_clientsphp-2b4f7e0f5680a823'
-import { Route as Omr_webContactContact_usphp9f39c8e90fd3b42aRouteImport } from './routes/omr_web_.contact_.contact_usphp-9f39c8e90fd3b42a'
-import { Route as Omr_webSolutionsCorporateNewcorp_indexphpAf5dde7752b3202bRouteImport } from './routes/omr_web_.solutions_.corporate_.newcorp_indexphp-af5dde7752b3202b'
-import { Route as Omr_webSolutionsEducationNewedu_indexphp1c28afcd465278f1RouteImport } from './routes/omr_web_.solutions_.education_.newedu_indexphp-1c28afcd465278f1'
-import { Route as Omr_webSolutionsGovernmentNew_ewaste_managementphpC2d0ee6db896cf32RouteImport } from './routes/omr_web_.solutions_.government_.new_ewaste_managementphp-c2d0ee6db896cf32'
-import { Route as Omr_webSolutionsGovernmentNewgov_indexphpBe63d4a123e2548eRouteImport } from './routes/omr_web_.solutions_.government_.newgov_indexphp-be63d4a123e2548e'
-import { Route as Omr_webSolutionsNgosNew_ngophp9b6ac22205fad002RouteImport } from './routes/omr_web_.solutions_.ngos_.new_ngophp-9b6ac22205fad002'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ApplicationsRouteImport } from './routes/applications'
+import { Route as CareersRouteImport } from './routes/careers'
+import { Route as CaseStudiesRouteImport } from './routes/case-studies'
+import { Route as ClientsRouteImport } from './routes/clients'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as NewsRouteImport } from './routes/news'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as Omr_webSplatRouteImport } from './routes/omr_web.$'
+import { Route as ProductsIndexRouteImport } from './routes/products.index'
+import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
+import { Route as SolutionsIndexRouteImport } from './routes/solutions.index'
+import { Route as SolutionsSlugRouteImport } from './routes/solutions.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const Omr_webAbout_omr_solutionsphpF8c503f6ea0cd34aRoute =
-  Omr_webAbout_omr_solutionsphpF8c503f6ea0cd34aRouteImport.update({
-    id: '/omr_web_/about_omr_solutionsphp-f8c503f6ea0cd34a',
-    path: '/omr_web/about_omr_solutionsphp-f8c503f6ea0cd34a',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const Omr_webCareerphpB74987bb2d02f0beRoute =
-  Omr_webCareerphpB74987bb2d02f0beRouteImport.update({
-    id: '/omr_web_/careerphp-b74987bb2d02f0be',
-    path: '/omr_web/careerphp-b74987bb2d02f0be',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const Omr_webOmr_application_areaphp148e32150e549d5bRoute =
-  Omr_webOmr_application_areaphp148e32150e549d5bRouteImport.update({
-    id: '/omr_web_/omr_application_areaphp-148e32150e549d5b',
-    path: '/omr_web/omr_application_areaphp-148e32150e549d5b',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const Omr_webOmr_clientsphp2b4f7e0f5680a823Route =
-  Omr_webOmr_clientsphp2b4f7e0f5680a823RouteImport.update({
-    id: '/omr_web_/omr_clientsphp-2b4f7e0f5680a823',
-    path: '/omr_web/omr_clientsphp-2b4f7e0f5680a823',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const Omr_webContactContact_usphp9f39c8e90fd3b42aRoute =
-  Omr_webContactContact_usphp9f39c8e90fd3b42aRouteImport.update({
-    id: '/omr_web_/contact_/contact_usphp-9f39c8e90fd3b42a',
-    path: '/omr_web/contact/contact_usphp-9f39c8e90fd3b42a',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const Omr_webSolutionsCorporateNewcorp_indexphpAf5dde7752b3202bRoute =
-  Omr_webSolutionsCorporateNewcorp_indexphpAf5dde7752b3202bRouteImport.update({
-    id: '/omr_web_/solutions_/corporate_/newcorp_indexphp-af5dde7752b3202b',
-    path: '/omr_web/solutions/corporate/newcorp_indexphp-af5dde7752b3202b',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const Omr_webSolutionsEducationNewedu_indexphp1c28afcd465278f1Route =
-  Omr_webSolutionsEducationNewedu_indexphp1c28afcd465278f1RouteImport.update({
-    id: '/omr_web_/solutions_/education_/newedu_indexphp-1c28afcd465278f1',
-    path: '/omr_web/solutions/education/newedu_indexphp-1c28afcd465278f1',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const Omr_webSolutionsGovernmentNew_ewaste_managementphpC2d0ee6db896cf32Route =
-  Omr_webSolutionsGovernmentNew_ewaste_managementphpC2d0ee6db896cf32RouteImport.update(
-    {
-      id: '/omr_web_/solutions_/government_/new_ewaste_managementphp-c2d0ee6db896cf32',
-      path: '/omr_web/solutions/government/new_ewaste_managementphp-c2d0ee6db896cf32',
-      getParentRoute: () => rootRouteImport,
-    } as any,
-  )
-const Omr_webSolutionsGovernmentNewgov_indexphpBe63d4a123e2548eRoute =
-  Omr_webSolutionsGovernmentNewgov_indexphpBe63d4a123e2548eRouteImport.update({
-    id: '/omr_web_/solutions_/government_/newgov_indexphp-be63d4a123e2548e',
-    path: '/omr_web/solutions/government/newgov_indexphp-be63d4a123e2548e',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const Omr_webSolutionsNgosNew_ngophp9b6ac22205fad002Route =
-  Omr_webSolutionsNgosNew_ngophp9b6ac22205fad002RouteImport.update({
-    id: '/omr_web_/solutions_/ngos_/new_ngophp-9b6ac22205fad002',
-    path: '/omr_web/solutions/ngos/new_ngophp-9b6ac22205fad002',
-    getParentRoute: () => rootRouteImport,
-  } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApplicationsRoute = ApplicationsRouteImport.update({
+  id: '/applications',
+  path: '/applications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesRoute = CaseStudiesRouteImport.update({
+  id: '/case-studies',
+  path: '/case-studies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClientsRoute = ClientsRouteImport.update({
+  id: '/clients',
+  path: '/clients',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsRoute = NewsRouteImport.update({
+  id: '/news',
+  path: '/news',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Omr_webSplatRoute = Omr_webSplatRouteImport.update({
+  id: '/omr_web/$',
+  path: '/omr_web/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsIndexRoute = ProductsIndexRouteImport.update({
+  id: '/products/',
+  path: '/products/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsSlugRoute = ProductsSlugRouteImport.update({
+  id: '/products/$slug',
+  path: '/products/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsIndexRoute = SolutionsIndexRouteImport.update({
+  id: '/solutions/',
+  path: '/solutions/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsSlugRoute = SolutionsSlugRouteImport.update({
+  id: '/solutions/$slug',
+  path: '/solutions/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/omr_web/about_omr_solutionsphp-f8c503f6ea0cd34a': typeof Omr_webAbout_omr_solutionsphpF8c503f6ea0cd34aRoute
-  '/omr_web/careerphp-b74987bb2d02f0be': typeof Omr_webCareerphpB74987bb2d02f0beRoute
-  '/omr_web/omr_application_areaphp-148e32150e549d5b': typeof Omr_webOmr_application_areaphp148e32150e549d5bRoute
-  '/omr_web/omr_clientsphp-2b4f7e0f5680a823': typeof Omr_webOmr_clientsphp2b4f7e0f5680a823Route
-  '/omr_web/contact/contact_usphp-9f39c8e90fd3b42a': typeof Omr_webContactContact_usphp9f39c8e90fd3b42aRoute
-  '/omr_web/solutions/corporate/newcorp_indexphp-af5dde7752b3202b': typeof Omr_webSolutionsCorporateNewcorp_indexphpAf5dde7752b3202bRoute
-  '/omr_web/solutions/education/newedu_indexphp-1c28afcd465278f1': typeof Omr_webSolutionsEducationNewedu_indexphp1c28afcd465278f1Route
-  '/omr_web/solutions/government/new_ewaste_managementphp-c2d0ee6db896cf32': typeof Omr_webSolutionsGovernmentNew_ewaste_managementphpC2d0ee6db896cf32Route
-  '/omr_web/solutions/government/newgov_indexphp-be63d4a123e2548e': typeof Omr_webSolutionsGovernmentNewgov_indexphpBe63d4a123e2548eRoute
-  '/omr_web/solutions/ngos/new_ngophp-9b6ac22205fad002': typeof Omr_webSolutionsNgosNew_ngophp9b6ac22205fad002Route
+  '/about': typeof AboutRoute
+  '/applications': typeof ApplicationsRoute
+  '/careers': typeof CareersRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/clients': typeof ClientsRoute
+  '/contact': typeof ContactRoute
+  '/news': typeof NewsRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/omr_web/$': typeof Omr_webSplatRoute
+  '/products/$slug': typeof ProductsSlugRoute
+  '/solutions/$slug': typeof SolutionsSlugRoute
+  '/products/': typeof ProductsIndexRoute
+  '/solutions/': typeof SolutionsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/omr_web/about_omr_solutionsphp-f8c503f6ea0cd34a': typeof Omr_webAbout_omr_solutionsphpF8c503f6ea0cd34aRoute
-  '/omr_web/careerphp-b74987bb2d02f0be': typeof Omr_webCareerphpB74987bb2d02f0beRoute
-  '/omr_web/omr_application_areaphp-148e32150e549d5b': typeof Omr_webOmr_application_areaphp148e32150e549d5bRoute
-  '/omr_web/omr_clientsphp-2b4f7e0f5680a823': typeof Omr_webOmr_clientsphp2b4f7e0f5680a823Route
-  '/omr_web/contact/contact_usphp-9f39c8e90fd3b42a': typeof Omr_webContactContact_usphp9f39c8e90fd3b42aRoute
-  '/omr_web/solutions/corporate/newcorp_indexphp-af5dde7752b3202b': typeof Omr_webSolutionsCorporateNewcorp_indexphpAf5dde7752b3202bRoute
-  '/omr_web/solutions/education/newedu_indexphp-1c28afcd465278f1': typeof Omr_webSolutionsEducationNewedu_indexphp1c28afcd465278f1Route
-  '/omr_web/solutions/government/new_ewaste_managementphp-c2d0ee6db896cf32': typeof Omr_webSolutionsGovernmentNew_ewaste_managementphpC2d0ee6db896cf32Route
-  '/omr_web/solutions/government/newgov_indexphp-be63d4a123e2548e': typeof Omr_webSolutionsGovernmentNewgov_indexphpBe63d4a123e2548eRoute
-  '/omr_web/solutions/ngos/new_ngophp-9b6ac22205fad002': typeof Omr_webSolutionsNgosNew_ngophp9b6ac22205fad002Route
+  '/about': typeof AboutRoute
+  '/applications': typeof ApplicationsRoute
+  '/careers': typeof CareersRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/clients': typeof ClientsRoute
+  '/contact': typeof ContactRoute
+  '/news': typeof NewsRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/omr_web/$': typeof Omr_webSplatRoute
+  '/products/$slug': typeof ProductsSlugRoute
+  '/solutions/$slug': typeof SolutionsSlugRoute
+  '/products': typeof ProductsIndexRoute
+  '/solutions': typeof SolutionsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/omr_web_/about_omr_solutionsphp-f8c503f6ea0cd34a': typeof Omr_webAbout_omr_solutionsphpF8c503f6ea0cd34aRoute
-  '/omr_web_/careerphp-b74987bb2d02f0be': typeof Omr_webCareerphpB74987bb2d02f0beRoute
-  '/omr_web_/omr_application_areaphp-148e32150e549d5b': typeof Omr_webOmr_application_areaphp148e32150e549d5bRoute
-  '/omr_web_/omr_clientsphp-2b4f7e0f5680a823': typeof Omr_webOmr_clientsphp2b4f7e0f5680a823Route
-  '/omr_web_/contact_/contact_usphp-9f39c8e90fd3b42a': typeof Omr_webContactContact_usphp9f39c8e90fd3b42aRoute
-  '/omr_web_/solutions_/corporate_/newcorp_indexphp-af5dde7752b3202b': typeof Omr_webSolutionsCorporateNewcorp_indexphpAf5dde7752b3202bRoute
-  '/omr_web_/solutions_/education_/newedu_indexphp-1c28afcd465278f1': typeof Omr_webSolutionsEducationNewedu_indexphp1c28afcd465278f1Route
-  '/omr_web_/solutions_/government_/new_ewaste_managementphp-c2d0ee6db896cf32': typeof Omr_webSolutionsGovernmentNew_ewaste_managementphpC2d0ee6db896cf32Route
-  '/omr_web_/solutions_/government_/newgov_indexphp-be63d4a123e2548e': typeof Omr_webSolutionsGovernmentNewgov_indexphpBe63d4a123e2548eRoute
-  '/omr_web_/solutions_/ngos_/new_ngophp-9b6ac22205fad002': typeof Omr_webSolutionsNgosNew_ngophp9b6ac22205fad002Route
+  '/about': typeof AboutRoute
+  '/applications': typeof ApplicationsRoute
+  '/careers': typeof CareersRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/clients': typeof ClientsRoute
+  '/contact': typeof ContactRoute
+  '/news': typeof NewsRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/omr_web/$': typeof Omr_webSplatRoute
+  '/products/$slug': typeof ProductsSlugRoute
+  '/solutions/$slug': typeof SolutionsSlugRoute
+  '/products/': typeof ProductsIndexRoute
+  '/solutions/': typeof SolutionsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/omr_web/about_omr_solutionsphp-f8c503f6ea0cd34a'
-    | '/omr_web/careerphp-b74987bb2d02f0be'
-    | '/omr_web/omr_application_areaphp-148e32150e549d5b'
-    | '/omr_web/omr_clientsphp-2b4f7e0f5680a823'
-    | '/omr_web/contact/contact_usphp-9f39c8e90fd3b42a'
-    | '/omr_web/solutions/corporate/newcorp_indexphp-af5dde7752b3202b'
-    | '/omr_web/solutions/education/newedu_indexphp-1c28afcd465278f1'
-    | '/omr_web/solutions/government/new_ewaste_managementphp-c2d0ee6db896cf32'
-    | '/omr_web/solutions/government/newgov_indexphp-be63d4a123e2548e'
-    | '/omr_web/solutions/ngos/new_ngophp-9b6ac22205fad002'
+    | '/about'
+    | '/applications'
+    | '/careers'
+    | '/case-studies'
+    | '/clients'
+    | '/contact'
+    | '/news'
+    | '/privacy-policy'
+    | '/omr_web/$'
+    | '/products/$slug'
+    | '/solutions/$slug'
+    | '/products/'
+    | '/solutions/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/omr_web/about_omr_solutionsphp-f8c503f6ea0cd34a'
-    | '/omr_web/careerphp-b74987bb2d02f0be'
-    | '/omr_web/omr_application_areaphp-148e32150e549d5b'
-    | '/omr_web/omr_clientsphp-2b4f7e0f5680a823'
-    | '/omr_web/contact/contact_usphp-9f39c8e90fd3b42a'
-    | '/omr_web/solutions/corporate/newcorp_indexphp-af5dde7752b3202b'
-    | '/omr_web/solutions/education/newedu_indexphp-1c28afcd465278f1'
-    | '/omr_web/solutions/government/new_ewaste_managementphp-c2d0ee6db896cf32'
-    | '/omr_web/solutions/government/newgov_indexphp-be63d4a123e2548e'
-    | '/omr_web/solutions/ngos/new_ngophp-9b6ac22205fad002'
+    | '/about'
+    | '/applications'
+    | '/careers'
+    | '/case-studies'
+    | '/clients'
+    | '/contact'
+    | '/news'
+    | '/privacy-policy'
+    | '/omr_web/$'
+    | '/products/$slug'
+    | '/solutions/$slug'
+    | '/products'
+    | '/solutions'
   id:
     | '__root__'
     | '/'
-    | '/omr_web_/about_omr_solutionsphp-f8c503f6ea0cd34a'
-    | '/omr_web_/careerphp-b74987bb2d02f0be'
-    | '/omr_web_/omr_application_areaphp-148e32150e549d5b'
-    | '/omr_web_/omr_clientsphp-2b4f7e0f5680a823'
-    | '/omr_web_/contact_/contact_usphp-9f39c8e90fd3b42a'
-    | '/omr_web_/solutions_/corporate_/newcorp_indexphp-af5dde7752b3202b'
-    | '/omr_web_/solutions_/education_/newedu_indexphp-1c28afcd465278f1'
-    | '/omr_web_/solutions_/government_/new_ewaste_managementphp-c2d0ee6db896cf32'
-    | '/omr_web_/solutions_/government_/newgov_indexphp-be63d4a123e2548e'
-    | '/omr_web_/solutions_/ngos_/new_ngophp-9b6ac22205fad002'
+    | '/about'
+    | '/applications'
+    | '/careers'
+    | '/case-studies'
+    | '/clients'
+    | '/contact'
+    | '/news'
+    | '/privacy-policy'
+    | '/omr_web/$'
+    | '/products/$slug'
+    | '/solutions/$slug'
+    | '/products/'
+    | '/solutions/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  Omr_webAbout_omr_solutionsphpF8c503f6ea0cd34aRoute: typeof Omr_webAbout_omr_solutionsphpF8c503f6ea0cd34aRoute
-  Omr_webCareerphpB74987bb2d02f0beRoute: typeof Omr_webCareerphpB74987bb2d02f0beRoute
-  Omr_webOmr_application_areaphp148e32150e549d5bRoute: typeof Omr_webOmr_application_areaphp148e32150e549d5bRoute
-  Omr_webOmr_clientsphp2b4f7e0f5680a823Route: typeof Omr_webOmr_clientsphp2b4f7e0f5680a823Route
-  Omr_webContactContact_usphp9f39c8e90fd3b42aRoute: typeof Omr_webContactContact_usphp9f39c8e90fd3b42aRoute
-  Omr_webSolutionsCorporateNewcorp_indexphpAf5dde7752b3202bRoute: typeof Omr_webSolutionsCorporateNewcorp_indexphpAf5dde7752b3202bRoute
-  Omr_webSolutionsEducationNewedu_indexphp1c28afcd465278f1Route: typeof Omr_webSolutionsEducationNewedu_indexphp1c28afcd465278f1Route
-  Omr_webSolutionsGovernmentNew_ewaste_managementphpC2d0ee6db896cf32Route: typeof Omr_webSolutionsGovernmentNew_ewaste_managementphpC2d0ee6db896cf32Route
-  Omr_webSolutionsGovernmentNewgov_indexphpBe63d4a123e2548eRoute: typeof Omr_webSolutionsGovernmentNewgov_indexphpBe63d4a123e2548eRoute
-  Omr_webSolutionsNgosNew_ngophp9b6ac22205fad002Route: typeof Omr_webSolutionsNgosNew_ngophp9b6ac22205fad002Route
+  AboutRoute: typeof AboutRoute
+  ApplicationsRoute: typeof ApplicationsRoute
+  CareersRoute: typeof CareersRoute
+  CaseStudiesRoute: typeof CaseStudiesRoute
+  ClientsRoute: typeof ClientsRoute
+  ContactRoute: typeof ContactRoute
+  NewsRoute: typeof NewsRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  Omr_webSplatRoute: typeof Omr_webSplatRoute
+  ProductsSlugRoute: typeof ProductsSlugRoute
+  SolutionsSlugRoute: typeof SolutionsSlugRoute
+  ProductsIndexRoute: typeof ProductsIndexRoute
+  SolutionsIndexRoute: typeof SolutionsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -194,74 +221,95 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/omr_web_/about_omr_solutionsphp-f8c503f6ea0cd34a': {
-      id: '/omr_web_/about_omr_solutionsphp-f8c503f6ea0cd34a'
-      path: '/omr_web/about_omr_solutionsphp-f8c503f6ea0cd34a'
-      fullPath: '/omr_web/about_omr_solutionsphp-f8c503f6ea0cd34a'
-      preLoaderRoute: typeof Omr_webAbout_omr_solutionsphpF8c503f6ea0cd34aRouteImport
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/omr_web_/careerphp-b74987bb2d02f0be': {
-      id: '/omr_web_/careerphp-b74987bb2d02f0be'
-      path: '/omr_web/careerphp-b74987bb2d02f0be'
-      fullPath: '/omr_web/careerphp-b74987bb2d02f0be'
-      preLoaderRoute: typeof Omr_webCareerphpB74987bb2d02f0beRouteImport
+    '/applications': {
+      id: '/applications'
+      path: '/applications'
+      fullPath: '/applications'
+      preLoaderRoute: typeof ApplicationsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/omr_web_/omr_application_areaphp-148e32150e549d5b': {
-      id: '/omr_web_/omr_application_areaphp-148e32150e549d5b'
-      path: '/omr_web/omr_application_areaphp-148e32150e549d5b'
-      fullPath: '/omr_web/omr_application_areaphp-148e32150e549d5b'
-      preLoaderRoute: typeof Omr_webOmr_application_areaphp148e32150e549d5bRouteImport
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/omr_web_/omr_clientsphp-2b4f7e0f5680a823': {
-      id: '/omr_web_/omr_clientsphp-2b4f7e0f5680a823'
-      path: '/omr_web/omr_clientsphp-2b4f7e0f5680a823'
-      fullPath: '/omr_web/omr_clientsphp-2b4f7e0f5680a823'
-      preLoaderRoute: typeof Omr_webOmr_clientsphp2b4f7e0f5680a823RouteImport
+    '/case-studies': {
+      id: '/case-studies'
+      path: '/case-studies'
+      fullPath: '/case-studies'
+      preLoaderRoute: typeof CaseStudiesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/omr_web_/contact_/contact_usphp-9f39c8e90fd3b42a': {
-      id: '/omr_web_/contact_/contact_usphp-9f39c8e90fd3b42a'
-      path: '/omr_web/contact/contact_usphp-9f39c8e90fd3b42a'
-      fullPath: '/omr_web/contact/contact_usphp-9f39c8e90fd3b42a'
-      preLoaderRoute: typeof Omr_webContactContact_usphp9f39c8e90fd3b42aRouteImport
+    '/clients': {
+      id: '/clients'
+      path: '/clients'
+      fullPath: '/clients'
+      preLoaderRoute: typeof ClientsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/omr_web_/solutions_/corporate_/newcorp_indexphp-af5dde7752b3202b': {
-      id: '/omr_web_/solutions_/corporate_/newcorp_indexphp-af5dde7752b3202b'
-      path: '/omr_web/solutions/corporate/newcorp_indexphp-af5dde7752b3202b'
-      fullPath: '/omr_web/solutions/corporate/newcorp_indexphp-af5dde7752b3202b'
-      preLoaderRoute: typeof Omr_webSolutionsCorporateNewcorp_indexphpAf5dde7752b3202bRouteImport
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/omr_web_/solutions_/education_/newedu_indexphp-1c28afcd465278f1': {
-      id: '/omr_web_/solutions_/education_/newedu_indexphp-1c28afcd465278f1'
-      path: '/omr_web/solutions/education/newedu_indexphp-1c28afcd465278f1'
-      fullPath: '/omr_web/solutions/education/newedu_indexphp-1c28afcd465278f1'
-      preLoaderRoute: typeof Omr_webSolutionsEducationNewedu_indexphp1c28afcd465278f1RouteImport
+    '/news': {
+      id: '/news'
+      path: '/news'
+      fullPath: '/news'
+      preLoaderRoute: typeof NewsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/omr_web_/solutions_/government_/new_ewaste_managementphp-c2d0ee6db896cf32': {
-      id: '/omr_web_/solutions_/government_/new_ewaste_managementphp-c2d0ee6db896cf32'
-      path: '/omr_web/solutions/government/new_ewaste_managementphp-c2d0ee6db896cf32'
-      fullPath: '/omr_web/solutions/government/new_ewaste_managementphp-c2d0ee6db896cf32'
-      preLoaderRoute: typeof Omr_webSolutionsGovernmentNew_ewaste_managementphpC2d0ee6db896cf32RouteImport
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/omr_web_/solutions_/government_/newgov_indexphp-be63d4a123e2548e': {
-      id: '/omr_web_/solutions_/government_/newgov_indexphp-be63d4a123e2548e'
-      path: '/omr_web/solutions/government/newgov_indexphp-be63d4a123e2548e'
-      fullPath: '/omr_web/solutions/government/newgov_indexphp-be63d4a123e2548e'
-      preLoaderRoute: typeof Omr_webSolutionsGovernmentNewgov_indexphpBe63d4a123e2548eRouteImport
+    '/omr_web/$': {
+      id: '/omr_web/$'
+      path: '/omr_web/$'
+      fullPath: '/omr_web/$'
+      preLoaderRoute: typeof Omr_webSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/omr_web_/solutions_/ngos_/new_ngophp-9b6ac22205fad002': {
-      id: '/omr_web_/solutions_/ngos_/new_ngophp-9b6ac22205fad002'
-      path: '/omr_web/solutions/ngos/new_ngophp-9b6ac22205fad002'
-      fullPath: '/omr_web/solutions/ngos/new_ngophp-9b6ac22205fad002'
-      preLoaderRoute: typeof Omr_webSolutionsNgosNew_ngophp9b6ac22205fad002RouteImport
+    '/products/': {
+      id: '/products/'
+      path: '/products'
+      fullPath: '/products/'
+      preLoaderRoute: typeof ProductsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/$slug': {
+      id: '/products/$slug'
+      path: '/products/$slug'
+      fullPath: '/products/$slug'
+      preLoaderRoute: typeof ProductsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/': {
+      id: '/solutions/'
+      path: '/solutions'
+      fullPath: '/solutions/'
+      preLoaderRoute: typeof SolutionsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/$slug': {
+      id: '/solutions/$slug'
+      path: '/solutions/$slug'
+      fullPath: '/solutions/$slug'
+      preLoaderRoute: typeof SolutionsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -269,25 +317,19 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  Omr_webAbout_omr_solutionsphpF8c503f6ea0cd34aRoute:
-    Omr_webAbout_omr_solutionsphpF8c503f6ea0cd34aRoute,
-  Omr_webCareerphpB74987bb2d02f0beRoute: Omr_webCareerphpB74987bb2d02f0beRoute,
-  Omr_webOmr_application_areaphp148e32150e549d5bRoute:
-    Omr_webOmr_application_areaphp148e32150e549d5bRoute,
-  Omr_webOmr_clientsphp2b4f7e0f5680a823Route:
-    Omr_webOmr_clientsphp2b4f7e0f5680a823Route,
-  Omr_webContactContact_usphp9f39c8e90fd3b42aRoute:
-    Omr_webContactContact_usphp9f39c8e90fd3b42aRoute,
-  Omr_webSolutionsCorporateNewcorp_indexphpAf5dde7752b3202bRoute:
-    Omr_webSolutionsCorporateNewcorp_indexphpAf5dde7752b3202bRoute,
-  Omr_webSolutionsEducationNewedu_indexphp1c28afcd465278f1Route:
-    Omr_webSolutionsEducationNewedu_indexphp1c28afcd465278f1Route,
-  Omr_webSolutionsGovernmentNew_ewaste_managementphpC2d0ee6db896cf32Route:
-    Omr_webSolutionsGovernmentNew_ewaste_managementphpC2d0ee6db896cf32Route,
-  Omr_webSolutionsGovernmentNewgov_indexphpBe63d4a123e2548eRoute:
-    Omr_webSolutionsGovernmentNewgov_indexphpBe63d4a123e2548eRoute,
-  Omr_webSolutionsNgosNew_ngophp9b6ac22205fad002Route:
-    Omr_webSolutionsNgosNew_ngophp9b6ac22205fad002Route,
+  AboutRoute: AboutRoute,
+  ApplicationsRoute: ApplicationsRoute,
+  CareersRoute: CareersRoute,
+  CaseStudiesRoute: CaseStudiesRoute,
+  ClientsRoute: ClientsRoute,
+  ContactRoute: ContactRoute,
+  NewsRoute: NewsRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  Omr_webSplatRoute: Omr_webSplatRoute,
+  ProductsSlugRoute: ProductsSlugRoute,
+  SolutionsSlugRoute: SolutionsSlugRoute,
+  ProductsIndexRoute: ProductsIndexRoute,
+  SolutionsIndexRoute: SolutionsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

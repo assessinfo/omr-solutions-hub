@@ -1,4 +1,5 @@
 import heroScanner from "@/assets/hero-scanner.jpg";
+import sr8000 from "@/assets/sr8000-hybrid-clean.jpg";
 import software from "@/assets/software.jpg";
 import education from "@/assets/education.jpg";
 import government from "@/assets/government.jpg";
@@ -182,6 +183,27 @@ export const solutions: DetailPage[] = [
 ];
 
 export const products: DetailPage[] = [
+  {
+    slug: "sr8000-hybrid-scanner",
+    name: "SR-8000 Hybrid Scanner",
+    group: "Hardware",
+    title: "Sekonic SR-8000 Hybrid Scanner",
+    intro: "Read OMR marks and capture document images in one pass, with optional barcode reading and sorting for high-volume exam and form processing.",
+    summary: "OMR and image capture at up to 8,000 sheets/hour.",
+    image: sr8000,
+    highlights: [
+      { title: "Marks and images in one pass", text: "Photo-reflector mark sensing combines with double-sided CIS image capture in colour or greyscale." },
+      { title: "High-volume paper handling", text: "A 500-sheet hopper and receiver support large batches. The optional select stacker offers a 500-sheet main tray and 150-sheet select tray." },
+      { title: "Flexible reading options", text: "Single-sided OMR reading is standard; double-sided OMR reading, pen recognition, 1D/QR barcode reading and inkjet printing are optional." },
+      { title: "Throughput depends on your workflow", text: "The catalogue specifies up to 8,000 sheets/hour for marks alone or marks plus images. Actual speed depends on software, PC specifications and settings." },
+    ],
+    features: [
+      { title: "Scanning specifications", items: ["OMR or OMR + images: up to 8,000 sheets/hour", "Image resolution: 100, 150, 200, 300 or 600 dpi", "Double-sided image capture: colour / greyscale", "Image output: BMP or JPEG (continuous feed: JPEG only)", "16-level mark discrimination", "USB 3.0 connection"] },
+      { title: "Paper handling & installation", items: ["Paper length: 110–355.6 mm", "Paper weight: 84–157 gsm", "OCR or woodfree paper", "Hopper / paper receiver: 500 sheets", "Main body: 947 × 227 × 365 mm (W × H × D)", "Main body weight: 19.7 kg", "Power: 100–240 V AC, 50–60 Hz", "Operating temperature: 5–35°C; humidity: 30–80%"] },
+    ],
+    seoTitle: "Sekonic SR-8000 Hybrid Scanner Specifications | OMR Solutions",
+    seoDescription: "Explore the Sekonic SR-8000 Hybrid OMR scanner: up to 8,000 sheets/hour, double-sided image capture, 500-sheet hopper and optional barcode reading and sorting.",
+  },
   {
     slug: "omr-scanners",
     name: "OMR Scanners",

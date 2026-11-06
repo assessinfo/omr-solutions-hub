@@ -53,10 +53,14 @@ function Home() {
           </div>
           <div className="relative">
             <div className="absolute -left-6 -top-6 h-40 w-40 bubble-dots" aria-hidden />
-            <img src={hero} alt="Sekonic SR-8000 Hybrid OMR scanner with optional select stacker" width={1600} height={1200} className="relative aspect-[4/3] w-full rounded-3xl object-contain shadow-lift" />
-            <div className="absolute -bottom-6 left-6 rounded-2xl border bg-card px-5 py-4 shadow-lift">
-              <div className="font-display text-2xl font-bold text-primary">10M+</div>
-              <div className="text-xs text-muted-foreground">sheets processed</div>
+            <Link to="/products/$slug" params={{ slug: "sr8000-hybrid-scanner" }} aria-label="View SR-8000 Hybrid Scanner details and specifications" className="relative block rounded-3xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+              <img src={hero} alt="Sekonic SR-8000 Hybrid OMR scanner with optional select stacker" width={1600} height={1200} className="aspect-[4/3] w-full rounded-3xl object-contain shadow-lift" />
+            </Link>
+            <div className="relative mt-5 flex flex-wrap items-center justify-between gap-3">
+              <h2 className="text-lg font-semibold">SR-8000 Hybrid Scanner</h2>
+              <Button asChild size="lg" className="h-auto min-h-10 whitespace-normal px-5 text-left">
+                <Link to="/products/$slug" params={{ slug: "sr8000-hybrid-scanner" }}>Details & specifications <ArrowRight /></Link>
+              </Button>
             </div>
           </div>
         </div>

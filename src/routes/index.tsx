@@ -36,7 +36,7 @@ function Home() {
               Exam results you can trust, <span className="text-primary">delivered in days.</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              OMR scanners, software and answer sheets that turn stacks of paper into accurate results — for schools, universities, recruiters and government.
+              OMR scanners, software and answer sheets that turn stacks of paper into accurate results for schools, universities, recruiters and government.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg">

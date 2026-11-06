@@ -25,6 +25,8 @@ import g8_5 from "@/assets/sr8000/sensor.jpg.asset.json";
 import g8_6 from "@/assets/sr8000/model-name-label-1.jpg.asset.json";
 import g8_7 from "@/assets/sr8000/model-name-label-2.jpg.asset.json";
 import img6500photo from "@/assets/scanners/sr6500-photo.jpg.asset.json";
+import img6000 from "@/assets/scanners/sr6000-photo.jpg.asset.json";
+import pdf6000 from "@/assets/brochures/sr6000.pdf.asset.json";
 import pdf8000 from "@/assets/brochures/sr8000.pdf.asset.json";
 
 export const company = {
@@ -315,6 +317,34 @@ export const products: DetailPage[] = [
     seoTitle: "Sekonic SR-6500 OMR Scanner Specifications | OMR Solutions",
     seoDescription: "Sekonic SR-6500 OMR scanner: approx. 5,500 sheets/hour, 99.99% accuracy, select stacker and printer standard, USB/RS-232C. Price and support in India.",
     brochure: pdf35006500.url,
+  },
+  {
+    slug: "sr6000-scanner",
+    name: "SR-6000 Scanner",
+    group: "Hardware",
+    title: "Sekonic SR-6000 OMR Scanner",
+    intro: "Fast mark-only OMR reader that processes over 100 sheets a minute from a 500-sheet hopper, with 99.99% reading accuracy and USB or RS-232C connection.",
+    summary: "OMR reader at approx. 6,000 sheets/hour.",
+    image: img6000.url,
+    stats: [
+      { value: "6,000", label: "Sheets per hour" },
+      { value: "99.99%", label: "Reading accuracy*" },
+      { value: "500", label: "Sheet hopper" },
+      { value: "USB 2.0", label: "Or RS-232C" },
+    ],
+    highlights: [
+      { title: "Fastest without a stacker", text: "A step up from the SR-3500, reading cards up to A4, Letter and Legal forms at over 100 sheets per minute." },
+      { title: "Accurate mark detection", text: "256-level density detection (16 steps in software) plus double-feed and no-feed checks." },
+      { title: "Easy upgrade", text: "Works in place of older Sekonic SR-900 (RS-232C), SR-2300 or SR-3500 (USB) readers without changing software." },
+      { title: "Valuable options", text: "Add dual-side reading, black or blue ball-point pen reading, a barcode reader, or a select stacker with ink-jet printer." },
+    ],
+    features: [
+      { title: "Reading specifications", items: ["Speed: approx. 6,000 sheets/hour", "Mark sensing: photo-reflector", "Pencil (infra-red); pen & pencil option (visible red)", "Read head: 1 (standard) or 2 (option)", "256 levels (16 steps of discrimination)", "LCD panel: 20 characters × 2 lines, 5 buttons", "USB 2.0 / RS-232C"] },
+      { title: "Paper handling & installation", items: ["Hopper: up to 500 sheets", "Forms: JIS card to A4 (up to 9\")", "Dimensions: 365 × 227 × 575 mm", "Select stacker and printer: option", "FCC, UL, BSMI, KC, BIS approved; CE / RoHS"] },
+    ],
+    seoTitle: "Sekonic SR-6000 OMR Scanner Specifications | OMR Solutions",
+    seoDescription: "Sekonic SR-6000 OMR scanner: approx. 6,000 sheets/hour, 99.99% accuracy, 500-sheet hopper, USB/RS-232C. Price, installation and support in India.",
+    brochure: pdf6000.url,
   },
   {
     slug: "sr3500-hybrid-scanner",

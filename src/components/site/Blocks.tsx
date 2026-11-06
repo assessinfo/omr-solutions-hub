@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
-import { ArrowRight, Check, Phone } from "lucide-react";
+import { ArrowRight, Check, Download, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { company, type DetailPage } from "@/lib/content";
 
@@ -117,6 +117,39 @@ export function DetailView({ page, related }: { page: DetailPage; related: { lab
           ))}
         </div>
       </section>
+      {(page.brochure || page.video) && (
+        <section className="container-x pb-20">
+          <div className={`grid items-center gap-10 ${page.video ? "lg:grid-cols-2" : ""}`}>
+            {page.video && (
+              <div className="aspect-video overflow-hidden rounded-2xl border shadow-card">
+                <iframe
+                  className="size-full"
+                  src={`https://www.youtube-nocookie.com/embed/${page.video}`}
+                  title={`${page.name} video`}
+                  loading="lazy"
+                  allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            )}
+            <div className="rounded-2xl border bg-card p-8 shadow-card">
+              <h2 className="text-2xl font-bold">{page.name} brochure</h2>
+              <p className="mt-2 text-muted-foreground">Full manufacturer specifications from Sekonic, in PDF.</p>
+              {page.brochure && (
+                <a
+                  href={page.brochure}
+                  target="_blank"
+                  rel="noopener"
+                  download
+                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+                >
+                  <Download className="size-4" /> Download brochure (PDF)
+                </a>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
       {page.features.length > 0 && (
         <section className="border-y bg-secondary">
           <div className={`container-x grid gap-8 py-16 ${page.features.length > 1 ? "md:grid-cols-2" : ""}`}>

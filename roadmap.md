@@ -12,4 +12,4 @@
 - [x] Search fixes: per-page titles/descriptions, structured data, old-URL redirects
 - [x] Ranking opportunities report (Semrush, India)
 - [ ] Contact form sends via visitor's email app — real form delivery needs backend (awaiting user decision)
-- [ ] Add SR-8000 Hybrid photo gallery + SR-6500 photos
+- [x] Add SR-8000 Hybrid photo gallery + SR-6500 photos

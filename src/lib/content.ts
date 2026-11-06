@@ -16,6 +16,15 @@ import pdf11000 from "@/assets/brochures/sr11000.pdf.asset.json";
 import pdfHybrid from "@/assets/brochures/hybrid.pdf.asset.json";
 import pdf35006500 from "@/assets/brochures/sr3500-6500.pdf.asset.json";
 import pdf3500h from "@/assets/brochures/sr3500h.pdf.asset.json";
+import g8_0 from "@/assets/sr8000/main-body-stacker-1.jpg.asset.json";
+import g8_1 from "@/assets/sr8000/main-body-stacker-2.jpg.asset.json";
+import g8_2 from "@/assets/sr8000/main-body.jpg.asset.json";
+import g8_3 from "@/assets/sr8000/control-panel.jpg.asset.json";
+import g8_4 from "@/assets/sr8000/hopper.jpg.asset.json";
+import g8_5 from "@/assets/sr8000/sensor.jpg.asset.json";
+import g8_6 from "@/assets/sr8000/model-name-label-1.jpg.asset.json";
+import g8_7 from "@/assets/sr8000/model-name-label-2.jpg.asset.json";
+import img6500photo from "@/assets/scanners/sr6500-photo.jpg.asset.json";
 import pdf8000 from "@/assets/brochures/sr8000.pdf.asset.json";
 
 export const company = {
@@ -66,6 +75,7 @@ export type DetailPage = {
   seoDescription: string;
   brochure?: string;
   video?: string;
+  gallery?: { src: string; alt: string }[];
 };
 
 export const solutions: DetailPage[] = [
@@ -203,7 +213,8 @@ export const products: DetailPage[] = [
     intro: "Read OMR marks and capture document images in one pass, with optional barcode reading and sorting for high-volume exam and form processing.",
     summary: "OMR and image capture at up to 8,000 sheets/hour.",
     image: sr8000,
-    highlights: [
+    gallery: [{ src: g8_0.url, alt: "SR-8000 Hybrid with select stacker" }, { src: g8_1.url, alt: "SR-8000 Hybrid with select stacker, side view" }, { src: g8_2.url, alt: "SR-8000 Hybrid main body" }, { src: g8_3.url, alt: "Control panel" }, { src: g8_4.url, alt: "Paper hopper" }, { src: g8_5.url, alt: "Reading sensor" }, { src: g8_6.url, alt: "Model label" }, { src: g8_7.url, alt: "Model label close-up" }],
+        highlights: [
       { title: "Marks and images in one pass", text: "Photo-reflector mark sensing combines with double-sided CIS image capture in colour or greyscale." },
       { title: "High-volume paper handling", text: "A 500-sheet hopper and receiver support large batches. The optional select stacker offers a 500-sheet main tray and 150-sheet select tray." },
       { title: "Flexible reading options", text: "Single-sided OMR reading is standard; double-sided OMR reading, pen recognition, 1D/QR barcode reading and inkjet printing are optional." },
@@ -284,7 +295,7 @@ export const products: DetailPage[] = [
     title: "Sekonic SR-6500 OMR Scanner",
     intro: "High-spec OMR reader for higher-volume users, with select stacker and in-line printer as standard and 99.99% reading accuracy.",
     summary: "OMR reader at approx. 5,500 sheets/hour with stacker.",
-    image: img6500.url,
+    image: img6500photo.url,
     stats: [
       { value: "5,500", label: "Sheets per hour" },
       { value: "99.99%", label: "Reading accuracy*" },

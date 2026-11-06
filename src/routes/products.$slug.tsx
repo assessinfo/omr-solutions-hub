@@ -31,8 +31,8 @@ export const Route = createFileRoute("/products/$slug")({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Products", item: "/products" },
-              { "@type": "ListItem", position: 2, name: loaderData.name, item: `/products/${params.slug}` },
+              { "@type": "ListItem", position: 1, name: "Products", item: "https://omr-solutions-hub.lovable.app/products" },
+              { "@type": "ListItem", position: 2, name: loaderData.name, item: `https://omr-solutions-hub.lovable.app/products/${params.slug}` },
             ],
           }),
         },
@@ -45,7 +45,9 @@ export const Route = createFileRoute("/products/$slug")({
 function ProductPage() {
   const page = Route.useLoaderData();
   const related = products
-    .filter((p) => p.slug !== page.slug && p.group === page.group)
+    .filter((p) => page.slug === "omr-sheets"
+      ? ["omr-form-design", "omr-scanners", "omr-software"].includes(p.slug)
+      : p.slug !== page.slug && p.group === page.group)
     .slice(0, 3)
     .map((p) => ({ label: p.name, to: `/products/${p.slug}`, summary: p.summary }));
   return <DetailView page={page} related={related} />;

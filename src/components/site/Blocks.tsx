@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
-import { ArrowRight, Check, Download, Phone } from "lucide-react";
+import { ArrowRight, Check, Download, ExternalLink, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { company, type DetailPage } from "@/lib/content";
 
@@ -162,6 +162,22 @@ export function DetailView({ page, related }: { page: DetailPage; related: { lab
                 </a>
               )}
             </div>
+          </div>
+        </section>
+      )}
+      {page.links && page.links.length > 0 && (
+        <section className="container-x pb-20">
+          <h2 className="text-2xl font-bold">Learn more about {page.name}</h2>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {page.links.map((l) => (
+              <a key={l.href} href={l.href} target="_blank" rel="noopener" className="group flex items-start justify-between gap-3 rounded-2xl border bg-card p-5 shadow-card transition-colors hover:border-primary">
+                <span>
+                  <span className="block font-semibold">{l.label}</span>
+                  {l.text && <span className="mt-1 block text-sm text-muted-foreground">{l.text}</span>}
+                </span>
+                <ExternalLink className="size-4 shrink-0 text-primary" />
+              </a>
+            ))}
           </div>
         </section>
       )}

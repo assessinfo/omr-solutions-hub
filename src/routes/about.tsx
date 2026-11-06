@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CtaBand, PageHero, SectionHead, Stats, seo } from "@/components/site/Blocks";
-import building from "/site-assets/omrsolutions.jpg?url";
+import building from "@/assets/building.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () =>

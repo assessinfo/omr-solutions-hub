@@ -13,3 +13,4 @@
 - [x] Ranking opportunities report (Semrush, India)
 - [ ] Contact form sends via visitor's email app — real form delivery needs backend (awaiting user decision)
 - [x] Add SR-8000 Hybrid photo gallery + SR-6500 photos
+- [x] Group scanner models under OMR Scanners in the menu and footer (no standalone model links)

@@ -21,10 +21,30 @@ export function Footer() {
           </div>
         </div>
         <FooterCol title="Solutions" links={solutions.map((s) => ({ label: s.name, to: `/solutions/${s.slug}` }))} />
-        <FooterCol
-          title="Products"
-          links={products.slice(0, 7).map((p) => ({ label: p.name, to: `/products/${p.slug}` }))}
-        />
+        <div>
+          <h3 className="text-sm font-semibold text-ink-foreground">Products</h3>
+          <ul className="mt-4 space-y-2.5 text-sm">
+            <li>
+              <Link to="/products/omr-scanners" className="font-semibold text-ink-foreground hover:text-primary">
+                OMR Scanners
+              </Link>
+              <div className="mt-1.5 flex flex-wrap gap-x-3 gap-y-1 text-xs">
+                {products.filter((p) => isScannerModel(p.slug)).map((m) => (
+                  <Link key={m.slug} to={`/products/${m.slug}`} className="hover:text-primary">
+                    {m.name.replace(" Scanner", "")}
+                  </Link>
+                ))}
+              </div>
+            </li>
+            {products
+              .filter((p) => !isScannerModel(p.slug) && p.slug !== "omr-scanners")
+              .map((p) => (
+                <li key={p.slug}>
+                  <Link to={`/products/${p.slug}`} className="hover:text-primary">{p.name}</Link>
+                </li>
+              ))}
+          </ul>
+        </div>
         <div>
           <h3 className="text-sm font-semibold text-ink-foreground">Contact</h3>
           <ul className="mt-4 space-y-3 text-sm">

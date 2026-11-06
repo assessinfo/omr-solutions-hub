@@ -1,7 +1,7 @@
 # Roadmap
 
-- [ ] Link the home-page SR8000 photo prominently to product details and specifications.
-- [ ] Add an AI Gateway scanner recommendation tool for buyer requirements.
+- [x] Link the home-page SR8000 photo prominently to product details and specifications.
+- [x] Add an AI Gateway scanner recommendation tool for buyer requirements.
 
 - [x] Clean the actual SR8000 Hybrid Scanner catalogue photo and use it on the home page.
 

@@ -117,6 +117,19 @@ export function DetailView({ page, related }: { page: DetailPage; related: { lab
           ))}
         </div>
       </section>
+      {page.gallery && page.gallery.length > 0 && (
+        <section className="container-x pb-20">
+          <h2 className="text-2xl font-bold">{page.name} photos</h2>
+          <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
+            {page.gallery.map((g) => (
+              <a key={g.src} href={g.src} target="_blank" rel="noopener" className="group overflow-hidden rounded-2xl border bg-card shadow-card">
+                <img src={g.src} alt={g.alt} loading="lazy" className="aspect-square w-full object-contain p-2 transition-transform duration-300 group-hover:scale-105" />
+                <p className="border-t px-3 py-2 text-xs text-muted-foreground">{g.alt}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
       {(page.brochure || page.video) && (
         <section className="container-x pb-20">
           <div className={`grid items-center gap-10 ${page.video ? "lg:grid-cols-2" : ""}`}>

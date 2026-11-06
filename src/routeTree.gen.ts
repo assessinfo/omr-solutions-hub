@@ -11,6 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as ApplicationsRouteImport } from './routes/applications'
+import { Route as CareersRouteImport } from './routes/careers'
+import { Route as CaseStudiesRouteImport } from './routes/case-studies'
+import { Route as ClientsRouteImport } from './routes/clients'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as NewsRouteImport } from './routes/news'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as Omr_webSplatRouteImport } from './routes/omr_web.$'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
 import { Route as SolutionsIndexRouteImport } from './routes/solutions.index'
@@ -24,6 +32,46 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApplicationsRoute = ApplicationsRouteImport.update({
+  id: '/applications',
+  path: '/applications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesRoute = CaseStudiesRouteImport.update({
+  id: '/case-studies',
+  path: '/case-studies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClientsRoute = ClientsRouteImport.update({
+  id: '/clients',
+  path: '/clients',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsRoute = NewsRouteImport.update({
+  id: '/news',
+  path: '/news',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Omr_webSplatRoute = Omr_webSplatRouteImport.update({
+  id: '/omr_web/$',
+  path: '/omr_web/$',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProductsIndexRoute = ProductsIndexRouteImport.update({
@@ -50,6 +98,14 @@ const SolutionsSlugRoute = SolutionsSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/applications': typeof ApplicationsRoute
+  '/careers': typeof CareersRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/clients': typeof ClientsRoute
+  '/contact': typeof ContactRoute
+  '/news': typeof NewsRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/omr_web/$': typeof Omr_webSplatRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
   '/products/': typeof ProductsIndexRoute
@@ -58,6 +114,14 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/applications': typeof ApplicationsRoute
+  '/careers': typeof CareersRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/clients': typeof ClientsRoute
+  '/contact': typeof ContactRoute
+  '/news': typeof NewsRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/omr_web/$': typeof Omr_webSplatRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
   '/products': typeof ProductsIndexRoute
@@ -67,6 +131,14 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/applications': typeof ApplicationsRoute
+  '/careers': typeof CareersRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/clients': typeof ClientsRoute
+  '/contact': typeof ContactRoute
+  '/news': typeof NewsRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/omr_web/$': typeof Omr_webSplatRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
   '/products/': typeof ProductsIndexRoute
@@ -77,6 +149,14 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/applications'
+    | '/careers'
+    | '/case-studies'
+    | '/clients'
+    | '/contact'
+    | '/news'
+    | '/privacy-policy'
+    | '/omr_web/$'
     | '/products/$slug'
     | '/solutions/$slug'
     | '/products/'
@@ -85,6 +165,14 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/applications'
+    | '/careers'
+    | '/case-studies'
+    | '/clients'
+    | '/contact'
+    | '/news'
+    | '/privacy-policy'
+    | '/omr_web/$'
     | '/products/$slug'
     | '/solutions/$slug'
     | '/products'
@@ -93,6 +181,14 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/applications'
+    | '/careers'
+    | '/case-studies'
+    | '/clients'
+    | '/contact'
+    | '/news'
+    | '/privacy-policy'
+    | '/omr_web/$'
     | '/products/$slug'
     | '/solutions/$slug'
     | '/products/'
@@ -102,6 +198,14 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  ApplicationsRoute: typeof ApplicationsRoute
+  CareersRoute: typeof CareersRoute
+  CaseStudiesRoute: typeof CaseStudiesRoute
+  ClientsRoute: typeof ClientsRoute
+  ContactRoute: typeof ContactRoute
+  NewsRoute: typeof NewsRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  Omr_webSplatRoute: typeof Omr_webSplatRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
   SolutionsSlugRoute: typeof SolutionsSlugRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
@@ -122,6 +226,62 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/applications': {
+      id: '/applications'
+      path: '/applications'
+      fullPath: '/applications'
+      preLoaderRoute: typeof ApplicationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-studies': {
+      id: '/case-studies'
+      path: '/case-studies'
+      fullPath: '/case-studies'
+      preLoaderRoute: typeof CaseStudiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/clients': {
+      id: '/clients'
+      path: '/clients'
+      fullPath: '/clients'
+      preLoaderRoute: typeof ClientsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/news': {
+      id: '/news'
+      path: '/news'
+      fullPath: '/news'
+      preLoaderRoute: typeof NewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/omr_web/$': {
+      id: '/omr_web/$'
+      path: '/omr_web/$'
+      fullPath: '/omr_web/$'
+      preLoaderRoute: typeof Omr_webSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/products/': {
@@ -158,6 +318,14 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  ApplicationsRoute: ApplicationsRoute,
+  CareersRoute: CareersRoute,
+  CaseStudiesRoute: CaseStudiesRoute,
+  ClientsRoute: ClientsRoute,
+  ContactRoute: ContactRoute,
+  NewsRoute: NewsRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  Omr_webSplatRoute: Omr_webSplatRoute,
   ProductsSlugRoute: ProductsSlugRoute,
   SolutionsSlugRoute: SolutionsSlugRoute,
   ProductsIndexRoute: ProductsIndexRoute,

@@ -200,9 +200,9 @@ export const products: DetailPage[] = [
     features: [
       { title: "Why Sekonic", items: ["Official partner of Sekonic Corporation, Japan", "Low maintenance, built for Indian conditions", "Works with Remark and Optic View software", "Installation, training and service support"] },
     ],
-    seoTitle: "Sekonic OMR Scanners in India | SR-11000, SR-6500, SR-3500",
+    seoTitle: "OMR Scanner & OMR Checking Machine in India | Sekonic SR Series",
     seoDescription:
-      "Buy Sekonic OMR scanners in India — SR-11000, SR-8000 Hybrid, SR-6500, SR-3500 and SR-1800 EX. Authorised partner with installation and support.",
+      "OMR scanner machines for checking answer sheets — ask for the OMR machine price. Buy Sekonic OMR scanners in India — SR-11000, SR-8000 Hybrid, SR-6500, SR-3500 and SR-1800 EX. Authorised partner with installation and support.",
   },
   {
     slug: "omr-software",

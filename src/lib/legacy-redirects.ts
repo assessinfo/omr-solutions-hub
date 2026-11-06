@@ -28,8 +28,30 @@ const map: Record<string, string> = {
   "products/document_managment/newdocument_managment.php": "/products/document-management",
 };
 
+const sectionFallbacks: [string, string][] = [
+  ["omr_scanner", "/products/omr-scanners"],
+  ["omr_sheet", "/products/omr-sheets"],
+  ["remark_office_omr", "/products/remark-office-omr"],
+  ["remark_classic", "/products/remark-classic-omr"],
+  ["omr_software", "/products/omr-software"],
+  ["form_design", "/products/omr-form-design"],
+  ["document_scanner", "/products/document-scanners"],
+  ["book_scanner", "/products/book-scanners"],
+  ["document_manag", "/products/document-management"],
+  ["solutions/education", "/solutions/education"],
+  ["solutions/government", "/solutions/government"],
+  ["solutions/corporate", "/solutions/corporate"],
+  ["solutions/ngo", "/solutions/ngos"],
+  ["news", "/news"],
+  ["case_stud", "/case-studies"],
+  ["contact", "/contact"],
+];
+
 /** Maps an old /omr_web/<path> URL to its page on the new site (falls back to home). */
 export function legacyRedirect(path: string): string {
   const key = path.replace(/\\/g, "/").replace(/^\/+|\/+$/g, "").toLowerCase();
-  return map[key] ?? "/";
+  if (map[key]) return map[key];
+  // Older URL generations (e.g. products/omr_scanners/index.php) still rank on Google.
+  const hit = sectionFallbacks.find(([needle]) => key.includes(needle));
+  return hit ? hit[1] : "/";
 }

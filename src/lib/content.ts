@@ -77,6 +77,7 @@ export type DetailPage = {
   seoDescription: string;
   brochure?: string;
   video?: string;
+  imageAlt?: string;
   gallery?: { src: string; alt: string }[];
 };
 
@@ -298,6 +299,8 @@ export const products: DetailPage[] = [
     intro: "High-spec OMR reader for higher-volume users, with select stacker and in-line printer as standard and 99.99% reading accuracy.",
     summary: "OMR reader at approx. 5,500 sheets/hour with stacker.",
     image: img6500photo.url,
+    imageAlt: "Sekonic SR-6500 OMR scanner with select stacker on its stand",
+    gallery: [{ src: img6500photo.url, alt: "Sekonic SR-6500 OMR scanner with select stacker on its stand" }],
     stats: [
       { value: "5,500", label: "Sheets per hour" },
       { value: "99.99%", label: "Reading accuracy*" },
@@ -326,6 +329,8 @@ export const products: DetailPage[] = [
     intro: "Fast mark-only OMR reader that processes over 100 sheets a minute from a 500-sheet hopper, with 99.99% reading accuracy and USB or RS-232C connection.",
     summary: "OMR reader at approx. 6,000 sheets/hour.",
     image: img6000.url,
+    imageAlt: "Sekonic SR-6000 OMR scanner with OMR answer sheets loaded in the hopper",
+    gallery: [{ src: img6000.url, alt: "Sekonic SR-6000 OMR scanner with OMR answer sheets loaded in the hopper" }],
     stats: [
       { value: "6,000", label: "Sheets per hour" },
       { value: "99.99%", label: "Reading accuracy*" },

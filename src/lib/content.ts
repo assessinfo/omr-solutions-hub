@@ -82,6 +82,8 @@ export type DetailPage = {
   gallery?: { src: string; alt: string }[];
 };
 
+export const isScannerModel = (slug: string) => /^sr\d/.test(slug);
+
 export const solutions: DetailPage[] = [
   {
     slug: "education",

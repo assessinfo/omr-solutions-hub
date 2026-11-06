@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { company, products, solutions } from "@/lib/content";
+import { company, isScannerModel, products, solutions } from "@/lib/content";
 import { Logo } from "./Logo";
 
 export function Footer() {

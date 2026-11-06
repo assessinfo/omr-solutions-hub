@@ -98,7 +98,7 @@ export function CtaBand({ title = "Let's find the right OMR setup for you", text
   );
 }
 
-export function DetailView({ page, related }: { page: DetailPage; related: { label: string; to: string; summary: string }[] }) {
+export function DetailView({ page, related, relatedTitle = "Related" }: { page: DetailPage; related: { label: string; to: string; summary: string }[]; relatedTitle?: string }) {
   return (
     <>
       <PageHero eyebrow={page.group === "Solutions" ? `Solutions · ${page.name}` : `Products · ${page.name}`} title={page.title} intro={page.intro} image={page.image} imageAlt={page.imageAlt ?? page.title} />
@@ -201,7 +201,7 @@ export function DetailView({ page, related }: { page: DetailPage; related: { lab
       )}
       {related.length > 0 && (
         <section className="container-x pt-20">
-          <h2 className="text-2xl font-bold">Related</h2>
+          <h2 className="text-2xl font-bold">{relatedTitle}</h2>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {related.map((r) => (
               <Link key={r.to} to={r.to} className="group rounded-2xl border p-6 transition-colors hover:border-primary">

@@ -44,6 +44,12 @@ export const Route = createFileRoute("/products/$slug")({
 
 function ProductPage() {
   const page = Route.useLoaderData();
+  if (page.slug === "omr-scanners") {
+    const models = products
+      .filter((p) => /^sr\d/.test(p.slug))
+      .map((p) => ({ label: p.name, to: `/products/${p.slug}`, summary: p.summary }));
+    return <DetailView page={page} related={models} relatedTitle="Sekonic OMR scanner models" />;
+  }
   const related = products
     .filter((p) => page.slug === "omr-sheets"
       ? ["omr-form-design", "omr-scanners", "omr-software"].includes(p.slug)

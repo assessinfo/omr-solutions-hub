@@ -5,7 +5,9 @@ import { Button } from "@/components/ui/button";
 import { company, products, solutions } from "@/lib/content";
 import { Logo } from "./Logo";
 
-type NavItem = { label: string; to: string; children?: { label: string; to: string; desc?: string }[] };
+type NavItem = { label: string; to: string; children?: { label: string; to: string; desc?: string; sub?: { label: string; to: string }[] }[] };
+
+const isScannerModel = (slug: string) => /^sr\d/.test(slug);
 
 const nav: NavItem[] = [
   {
@@ -16,7 +18,15 @@ const nav: NavItem[] = [
   {
     label: "Products",
     to: "/products",
-    children: products.map((p) => ({ label: p.name, to: `/products/${p.slug}` })),
+    children: products
+      .filter((p) => !isScannerModel(p.slug))
+      .map((p) => ({
+        label: p.name,
+        to: `/products/${p.slug}`,
+        sub: p.slug === "omr-scanners"
+          ? products.filter((m) => isScannerModel(m.slug)).map((m) => ({ label: m.name.replace(" Scanner", ""), to: `/products/${m.slug}` }))
+          : undefined,
+      })),
   },
   { label: "Clients", to: "/clients" },
   { label: "About", to: "/about" },
@@ -58,17 +68,32 @@ export function Header() {
                 {open === item.label && (
                   <div className="absolute left-1/2 top-full w-[34rem] -translate-x-1/2 pt-3">
                     <div className="grid grid-cols-2 gap-1 rounded-2xl border bg-popover p-3 shadow-lift">
-                      {item.children.map((c) => (
-                        <Link
-                          key={c.to}
-                          to={c.to}
-                          onClick={() => setOpen(null)}
-                          className="rounded-lg px-3 py-2.5 transition-colors hover:bg-accent"
-                        >
-                          <span className="block text-sm font-semibold">{c.label}</span>
-                          {c.desc && <span className="mt-0.5 block text-xs text-muted-foreground">{c.desc}</span>}
-                        </Link>
-                      ))}
+                      {item.children.map((c) =>
+                        c.sub ? (
+                          <div key={c.to} className="col-span-2 rounded-lg bg-secondary px-3 py-2.5">
+                            <Link to={c.to} onClick={() => setOpen(null)} className="block text-sm font-semibold hover:text-primary">
+                              {c.label} →
+                            </Link>
+                            <div className="mt-1.5 flex flex-wrap gap-x-3 gap-y-1">
+                              {c.sub.map((m) => (
+                                <Link key={m.to} to={m.to} onClick={() => setOpen(null)} className="text-xs text-muted-foreground hover:text-primary">
+                                  {m.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        ) : (
+                          <Link
+                            key={c.to}
+                            to={c.to}
+                            onClick={() => setOpen(null)}
+                            className="rounded-lg px-3 py-2.5 transition-colors hover:bg-accent"
+                          >
+                            <span className="block text-sm font-semibold">{c.label}</span>
+                            {c.desc && <span className="mt-0.5 block text-xs text-muted-foreground">{c.desc}</span>}
+                          </Link>
+                        ),
+                      )}
                       <Link
                         to={item.to}
                         onClick={() => setOpen(null)}
@@ -132,9 +157,20 @@ export function Header() {
                     {mobileSub === item.label && (
                       <div className="flex flex-col pb-3 pl-3">
                         {item.children.map((c) => (
-                          <Link key={c.to} to={c.to} onClick={() => setMobile(false)} className="py-2 text-sm text-muted-foreground">
-                            {c.label}
-                          </Link>
+                          <div key={c.to}>
+                            <Link to={c.to} onClick={() => setMobile(false)} className="block py-2 text-sm text-muted-foreground">
+                              {c.label}
+                            </Link>
+                            {c.sub && (
+                              <div className="flex flex-col border-l pl-3">
+                                {c.sub.map((m) => (
+                                  <Link key={m.to} to={m.to} onClick={() => setMobile(false)} className="py-1.5 text-xs text-muted-foreground">
+                                    {m.label}
+                                  </Link>
+                                ))}
+                              </div>
+                            )}
+                          </div>
                         ))}
                         <Link to={item.to} onClick={() => setMobile(false)} className="py-2 text-sm font-semibold text-primary">
                           View all

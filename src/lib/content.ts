@@ -31,10 +31,10 @@ export const company = {
     },
   ],
   social: {
-    facebook: "https://www.facebook.com/omrsolutions",
+    facebook: "https://www.facebook.com/IndiaOutsources",
     youtube: "https://www.youtube.com/@omrsolutions",
-    instagram: "https://www.instagram.com/omrsolutions",
-    linkedin: "https://www.linkedin.com/company/omr-solutions",
+    instagram: "https://www.instagram.com/omrindiaoutsources/",
+    linkedin: "https://www.linkedin.com/company/omr-india-outsources-pvt-ltd/",
   },
 };
 

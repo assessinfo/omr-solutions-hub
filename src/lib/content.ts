@@ -384,24 +384,28 @@ export const products: DetailPage[] = [
   },
   {
     slug: "omr-sheets",
-    name: "OMR Sheets",
+    name: "OMR Answer Sheets",
     group: "Printing",
-    title: "Security-printed OMR sheets that scan clean",
+    title: "OMR Answer Sheets",
     intro:
-      "Answer sheets designed to be hard to forge yet instantly verifiable — printed to exact tolerances for every major OMR reader, in any size.",
-    summary: "Forgery-resistant printed answer sheets.",
+      "Custom OMR sheet design and printing for exams, surveys and feedback forms in India. Match your answer layout, candidate fields and printing requirements to the reader or software you use.",
+    summary: "Custom OMR answer sheet design and security printing.",
     image: education,
     highlights: [
-      { title: "Forgery resistant", text: "Security print features checked at every stage of production." },
-      { title: "Any size", text: "Sheets and forms for every requirement — with free precision cutting." },
-      { title: "Reader-ready", text: "Printed to tolerances that keep read accuracy high." },
+      { title: "What is an OMR sheet?", text: "An OMR sheet is a paper form with predefined response areas, usually bubbles, that people fill to record answers or information. OMR stands for Optical Mark Recognition: a reader or compatible software detects those marks and turns them into data for grading or analysis. An OMR answer sheet records multiple-choice responses separately from the question paper." },
+      { title: "OMR answer sheets for exams", text: "Schools, coaching institutes, universities and recruitment teams use OMR sheets to collect multiple-choice answers in a consistent format. A layout can include question numbers, answer options and candidate identification fields. The question count, number of options and marking instructions should be agreed before the form is printed." },
+      { title: "Custom OMR sheet design", text: "A suitable sheet starts with the test and scanning workflow, not just a blank bubble template. We design exam sheets, surveys, questionnaires and registration forms around the required questions, ID fields and reader. Tell us whether you use a dedicated Sekonic OMR reader or image-based OMR software so the layout can be reviewed for that workflow." },
+      { title: "OMR sheet printing & security", text: "OMR Solutions supplies custom printed answer sheets and forms, including security printing. Print positioning and consistent cutting matter because the reader expects marks in defined locations. Our sheet printing service includes precision cutting; discuss sheet dimensions and required security features with the team before ordering." },
+      { title: "How to fill an OMR sheet", text: "Read the instructions on the specific exam sheet first. Use only the permitted pen or pencil, fill the intended bubble clearly and keep marks inside its boundary. Check candidate details and question numbers before answering. For a single-answer question, mark only one option. Follow the exam's correction rules rather than assuming erasers, overwriting or correction fluid are allowed." },
+      { title: "OMR scanning & result processing", text: "The completed sheet must match the reader or software template used to process it. Dedicated OMR readers and image-based OMR software use different workflows; a form that works with one setup is not automatically suitable for every other setup. Review a sample sheet, test scanning and confirm the answer key and exception-handling process before producing the full batch." },
     ],
     features: [
-      { title: "Used for", items: ["Entrance & competitive exams", "School MCQ tests", "Teacher evaluation surveys", "Commercial feedback forms"] },
+      { title: "Plan your OMR answer sheet order", items: ["Question count and answer options", "Candidate ID and registration fields", "Sheet dimensions and layout", "Reader model or OMR software", "Required quantity and delivery date", "Security printing requirements", "Permitted pen or pencil instructions", "Sample-form review and scan testing"] },
+      { title: "OMR sheet questions", items: ["What affects price? Quantity, layout, dimensions and printing requirements. Request a quote for your specification.", "Can I use an OMR sheet PDF? A PDF is a layout file, not proof of compatibility. Confirm print scale, paper and the scanning template before use.", "Are all exam sheets interchangeable? No. Use the form and marking instructions approved for your particular exam.", "Can sheets be used for surveys? Yes. We also design questionnaires, registrations and feedback forms.", "Can I print on ordinary paper? Paper and print requirements depend on your reader or software; confirm them before printing.", "Do you supply official NEET or board exam sheets? This page describes custom institutional forms, not an official examination body's answer sheet."] },
     ],
-    seoTitle: "OMR Sheet Printing in India | Custom OMR Answer Sheets",
+    seoTitle: "OMR Sheet & OMR Answer Sheet Printing in India | OMR Solutions",
     seoDescription:
-      "Custom OMR answer sheet printing with security features, any size and free cutting. Sheets designed for Sekonic and all major OMR readers.",
+      "Explore OMR answer sheets for exams and surveys: what an OMR sheet is, how to fill it, and custom sheet design and security printing in India.",
   },
   {
     slug: "omr-form-design",

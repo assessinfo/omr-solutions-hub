@@ -19,7 +19,7 @@ export const Route = createFileRoute("/")({
 const pillars = [
   { icon: ScanLine, title: "OMR scanners", text: "Sekonic readers from 1,800 to 11,000 sheets an hour.", to: "/products/omr-scanners" },
   { icon: Cpu, title: "OMR software", text: "Remark, Optic View and on-screen marking.", to: "/products/omr-software" },
-  { icon: Printer, title: "OMR sheets & forms", text: "Security-printed sheets designed to scan clean.", to: "/products/omr-sheets" },
+  { icon: Printer, title: "OMR answer sheets", text: "Custom sheet design and security printing for exams and forms.", to: "/products/omr-sheets" },
   { icon: FileScan, title: "Document digitisation", text: "Document and book scanners, records management.", to: "/products/document-scanners" },
 ];
 

@@ -154,18 +154,19 @@ export function DetailView({ page, related }: { page: DetailPage; related: { lab
 }
 
 export function seo(title: string, description: string, path: string, type = "website") {
+  const pageUrl = new URL(path, "https://omr-solutions-hub.lovable.app").href;
   return {
     meta: [
       { title },
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
-      { property: "og:url", content: path },
+      { property: "og:url", content: pageUrl },
       { property: "og:type", content: type },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
     ],
-    links: [{ rel: "canonical", href: path }],
+    links: [{ rel: "canonical", href: pageUrl }],
   };
 }

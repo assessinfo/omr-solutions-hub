@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { company, products, solutions } from "@/lib/content";
 import { Logo } from "./Logo";
 
-type NavItem = { label: string; to: string; children?: { label: string; to: string; desc?: string; sub?: { label: string; to: string }[] }[] };
+type NavItem = { label: string; to: string; children?: { label: string; to: string; desc?: string; sub?: { label: string; to: string }[] | undefined }[] };
 
 const isScannerModel = (slug: string) => /^sr\d/.test(slug);
 

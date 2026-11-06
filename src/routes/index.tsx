@@ -3,7 +3,7 @@ import { ArrowRight, CheckCircle2, Cpu, FileScan, Printer, ScanLine } from "luci
 import { Button } from "@/components/ui/button";
 import { CtaBand, SectionHead, Stats, seo } from "@/components/site/Blocks";
 import { clientSectors, products, solutions } from "@/lib/content";
-import hero from "@/assets/hero-scanner.jpg";
+import hero from "@/assets/sr8000-hybrid-clean.jpg";
 
 export const Route = createFileRoute("/")({
   head: () =>
@@ -53,7 +53,7 @@ function Home() {
           </div>
           <div className="relative">
             <div className="absolute -left-6 -top-6 h-40 w-40 bubble-dots" aria-hidden />
-            <img src={hero} alt="High-speed OMR scanner reading a stack of answer sheets" width={1600} height={1104} className="relative aspect-[4/3] w-full rounded-3xl object-cover shadow-lift" />
+            <img src={hero} alt="Sekonic SR-8000 Hybrid OMR scanner with optional select stacker" width={1600} height={1200} className="relative aspect-[4/3] w-full rounded-3xl object-contain shadow-lift" />
             <div className="absolute -bottom-6 left-6 rounded-2xl border bg-card px-5 py-4 shadow-lift">
               <div className="font-display text-2xl font-bold text-primary">10M+</div>
               <div className="text-xs text-muted-foreground">sheets processed</div>

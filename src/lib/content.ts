@@ -78,6 +78,7 @@ export type DetailPage = {
   brochure?: string;
   video?: string;
   imageAlt?: string;
+  links?: { label: string; href: string; text?: string }[];
   gallery?: { src: string; alt: string }[];
 };
 
@@ -480,6 +481,16 @@ export const products: DetailPage[] = [
     features: [
       { title: "Recognition features", items: ["Award-winning OMR (Optical Mark Recognition)", "Handles cross-outs, multiple marks and damaged forms", "Barcode and OCR (typed text) reading", "Handwriting (ICR) via a Microsoft Computer Vision account (your own subscription)", "Form, page and respondent identifiers for complex forms", "Mix different form types in one batch", "Data validation, exception flags and corrections"] },
       { title: "Benefits", items: ["Use your existing office scanner or copier", "Respondents can use pen, pencil or marker", "Test grading and survey analysis reports built in", "Export to Excel, Access, SPSS, CSV, SQL and custom text formats", "Windows application", "Used for exams, surveys, evaluations, ballots, assessments and safety forms"] },
+    ],
+    links: [
+      { label: "Free trial", href: "https://remarksoftware.com/products/office-omr/try-remark-office-omr/", text: "Download a trial version." },
+      { label: "Live demo", href: "https://remarksoftware.com/products/office-omr/schedule-roo-demonstration/", text: "Book an online demonstration." },
+      { label: "Features", href: "https://remarksoftware.com/products/office-omr/features/", text: "Full feature list." },
+      { label: "Survey analysis reports", href: "https://remarksoftware.com/products/office-omr/survey-analysis/", text: "Sample survey reports." },
+      { label: "Test grading reports", href: "https://remarksoftware.com/products/office-omr/test-grading/", text: "Sample grading reports." },
+      { label: "Sample forms", href: "https://remarksoftware.com/products/office-omr/sample-forms/", text: "Example bubble sheets." },
+      { label: "User stories", href: "https://remarksoftware.com/products/office-omr/user-stories/", text: "How customers use Remark." },
+      { label: "What's new in version 12", href: "https://remarksoftware.com/blog/2025/06/introducing-remark-office-omr-12/", text: "Latest release." },
     ],
     seoTitle: "Remark Office OMR Software in India | Authorised Partner",
     seoDescription:

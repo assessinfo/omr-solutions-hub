@@ -435,7 +435,7 @@ export const products: DetailPage[] = [
     title: "Turn paper into searchable digital records",
     intro:
       "High-speed document scanners from trusted brands — the first step to a paperless office, faster retrieval and safer archives.",
-    summary: "Miru, Plustek, IRIS, Kodak, DRS and more.",
+    summary: "Latest Ricoh Scanners.",
     image: documents,
     stats: [
       { value: "60 ppm", label: "Scan speed" },

@@ -25,12 +25,12 @@ export function Footer() {
           <h3 className="text-sm font-semibold text-ink-foreground">Products</h3>
           <ul className="mt-4 space-y-2.5 text-sm">
             <li>
-              <Link to="/products/omr-scanners" className="font-semibold text-ink-foreground hover:text-primary">
+              <Link to="/products/$slug" params={{ slug: "omr-scanners" }} className="font-semibold text-ink-foreground hover:text-primary">
                 OMR Scanners
               </Link>
               <div className="mt-1.5 flex flex-wrap gap-x-3 gap-y-1 text-xs">
                 {products.filter((p) => isScannerModel(p.slug)).map((m) => (
-                  <Link key={m.slug} to={`/products/${m.slug}`} className="hover:text-primary">
+                  <Link key={m.slug} to="/products/$slug" params={{ slug: m.slug }} className="hover:text-primary">
                     {m.name.replace(" Scanner", "")}
                   </Link>
                 ))}
@@ -40,7 +40,7 @@ export function Footer() {
               .filter((p) => !isScannerModel(p.slug) && p.slug !== "omr-scanners")
               .map((p) => (
                 <li key={p.slug}>
-                  <Link to={`/products/${p.slug}`} className="hover:text-primary">{p.name}</Link>
+                  <Link to="/products/$slug" params={{ slug: p.slug }} className="hover:text-primary">{p.name}</Link>
                 </li>
               ))}
           </ul>

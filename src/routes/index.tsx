@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { CtaBand, SectionHead, Stats, seo } from "@/components/site/Blocks";
 import { clientSectors, products, solutions } from "@/lib/content";
 import hero from "@/assets/sr8000-hybrid-clean.jpg";
+import { ScannerAdvisor } from "@/components/site/ScannerAdvisor";
 
 export const Route = createFileRoute("/")({
   head: () =>
@@ -140,6 +141,7 @@ function Home() {
         </div>
       </section>
 
+      <ScannerAdvisor />
       <CtaBand />
     </>
   );

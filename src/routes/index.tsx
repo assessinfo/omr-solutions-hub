@@ -46,7 +46,7 @@ function Home() {
               </Button>
             </div>
             <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-              {["99.9% read accuracy", "Installation & training", "Support across India"].map((t) => (
+              {["99.99% read accuracy", "Installation & training", "Support across Globe,\u00a0"].map((t) => (
                 <li key={t} className="flex items-center gap-2"><CheckCircle2 className="size-4 text-primary" />{t}</li>
               ))}
             </ul>

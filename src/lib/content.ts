@@ -230,6 +230,7 @@ export const products: DetailPage[] = [
       { value: "11,000", label: "Sheets per hour" },
       { value: "99.99%", label: "Reading accuracy*" },
       { value: "500", label: "Sheet hopper" },
+      { value: "37 kg", label: "Unit weight" },
     ],
     highlights: [
       { title: "World's fastest desktop OMR", text: "Feeds around 183 forms per minute (A4, Letter and Legal), for national-level exams and recruitment drives." },
@@ -260,6 +261,7 @@ export const products: DetailPage[] = [
       { value: "5,300", label: "OMR sheets/hour" },
       { value: "5,000", label: "OMR + image sheets/hour" },
       { value: "99.99%", label: "Reading accuracy*" },
+      { value: "300 dpi", label: "Colour image capture" },
     ],
     highlights: [
       { title: "Twin-head sensors", text: "A photo-reflection OMR sensor and contact image sensor capture marks and images at the same time." },
@@ -287,6 +289,7 @@ export const products: DetailPage[] = [
       { value: "5,500", label: "Sheets per hour" },
       { value: "99.99%", label: "Reading accuracy*" },
       { value: "500", label: "Sheet hopper" },
+      { value: "USB 2.0", label: "Or RS-232C" },
     ],
     highlights: [
       { title: "Stacker and printer as standard", text: "Reverse discharge keeps sheets in their original order; the ink-jet printer adds numbers or dates to each sheet." },
@@ -314,6 +317,7 @@ export const products: DetailPage[] = [
       { value: "3,500", label: "OMR sheets/hour" },
       { value: "2,200", label: "Image sheets/hour" },
       { value: "99.99%", label: "Reading accuracy*" },
+      { value: "18.3 kg", label: "Compact desktop" },
     ],
     highlights: [
       { title: "Twin-head sensors", text: "Photo reflector and contact image sensor capture marks and images at the same time." },
@@ -341,6 +345,7 @@ export const products: DetailPage[] = [
       { value: "3,500", label: "Sheets per hour" },
       { value: "99.99%", label: "Reading accuracy*" },
       { value: "17 kg", label: "Compact desktop" },
+      { value: "500", label: "Sheet hopper" },
     ],
     highlights: [
       { title: "High cost-effectiveness", text: "Reliable mark reading for schools, coaching institutes and survey teams." },

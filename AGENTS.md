@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Site content (solutions, products, clients, news) lives in `src/lib/content.ts`; solutions/products render via dynamic `$slug` routes and shared `DetailView` — add pages by adding data, not route files.
+- Shared header/footer are rendered in `src/routes/__root.tsx`; every route uses the `seo()` helper from `src/components/site/Blocks.tsx` for its head metadata.
+- Old `omrsolutions.com/omr_web/*` URLs 301-redirect via `src/routes/omr_web.$.tsx` + `src/lib/legacy-redirects.ts` to preserve existing Google rankings.

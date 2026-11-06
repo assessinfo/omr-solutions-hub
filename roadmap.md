@@ -1,7 +1,7 @@
 # Roadmap
 
-- [x] Import home page
-- [x] Import 10 main pages
-- [ ] Redesign complete site (clean corporate tech, keep orange, all ~26 pages, rewritten copy)
-- [ ] Search review: per-page titles/descriptions, structured data, robots, AI-search friendliness
-- [ ] Ranking opportunities report (Semrush, India market)
+- [x] Import home page and main pages (used as content source)
+- [x] Redesign complete site (clean corporate tech, keep orange, all pages, rewritten copy)
+- [x] Search fixes: per-page titles/descriptions, structured data, old-URL redirects
+- [x] Ranking opportunities report (Semrush, India)
+- [ ] Contact form sends via visitor's email app — real form delivery needs backend (awaiting user decision)

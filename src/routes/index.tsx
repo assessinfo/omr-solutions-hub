@@ -236,7 +236,7 @@ function Index() {
           <div className="omr-container max-w-[1250px]">
             <div className="omr-about-grid items-center grid">
               <div className="omr-about-image omr-frame">
-                <img alt="About OMR Solutions" />
+                <img src="/site-assets/omrsolutions.jpg" alt="About OMR Solutions" />
               </div>
               <div className="omr-about-content">
                 <span>About OMR Solutions</span>

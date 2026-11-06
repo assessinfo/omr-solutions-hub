@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Expand the dedicated OMR answer sheet page with focused content and search metadata.
+- [x] Expand the dedicated OMR answer sheet page with focused content and search metadata.
 
 - [x] Link the home-page SR8000 photo prominently to product details and specifications.
 - [x] Add an AI Gateway scanner recommendation tool for buyer requirements.

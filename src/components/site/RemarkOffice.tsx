@@ -4,6 +4,15 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { DetailPage } from "@/lib/content";
 import remarkLogo from "@/assets/remark/remark-logo.jpg.asset.json";
+import teacherTeamwork from "@/assets/remark/teacher-teamwork.jpg.asset.json";
+import classroomTeachers from "@/assets/remark/classroom-teachers.jpg.asset.json";
+import educationComputerWork from "@/assets/remark/education-computer-work.jpg.asset.json";
+
+const educatorPhotos = [
+  { image: teacherTeamwork.url, alt: "Smiling teacher sharing a high five with adult students working with a laptop and papers", caption: "Teaching & assessment", credit: "Kampus Production", source: "https://www.pexels.com/photo/multiracial-group-of-students-and-teacher-having-fun-during-teamwork-5940837/" },
+  { image: classroomTeachers.url, alt: "Happy teachers and pupils celebrating together in a classroom", caption: "Classroom learning", credit: "Yan Krukau", source: "https://www.pexels.com/photo/students-and-their-teacher-talking-in-the-classroom-8617838/" },
+  { image: educationComputerWork.url, alt: "Adult educator helping a learner at a library computer while others review books", caption: "Collaborative review", credit: "Yan Krukau", source: "https://www.pexels.com/photo/people-inside-the-library-8199624/" },
+];
 
 const resources = [
   {
@@ -78,6 +87,26 @@ export function RemarkHero({ page }: { page: DetailPage }) {
 
 export function RemarkResources() {
   return (
+    <>
+    <section id="remark-educators" className="border-b">
+      <div className="container-x py-12 md:py-16">
+        <p className="eyebrow">Education & evaluation</p>
+        <h2 className="mt-4 text-2xl font-bold md:text-3xl">More time for teaching. Less time on paperwork.</h2>
+        <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">Remark Office OMR helps educators process answer sheets, course evaluations and surveys, with grading and analysis reports in one place.</p>
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          {educatorPhotos.map((photo) => (
+            <figure key={photo.image} className="min-w-0">
+              <img src={photo.image} alt={photo.alt} width={1400} height={933} loading="lazy" className="aspect-[3/2] w-full rounded-lg object-cover" />
+              <figcaption className="mt-3 flex flex-wrap items-baseline justify-between gap-2">
+                <span className="font-semibold">{photo.caption}</span>
+                <a href={photo.source} target="_blank" rel="noopener noreferrer" className="text-xs text-muted-foreground underline underline-offset-4 hover:text-primary">{photo.credit} / Pexels</a>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+        <p className="mt-5 text-xs text-muted-foreground">Stock photography for illustration; people shown are not identified as Remark customers or endorsers.</p>
+      </div>
+    </section>
     <section id="remark-resources" className="container-x scroll-mt-28 py-12 md:py-16">
       <p className="eyebrow">Explore Remark Office OMR</p>
       <h2 className="mt-4 text-2xl font-bold md:text-3xl">Product information & resources</h2>
@@ -97,5 +126,6 @@ export function RemarkResources() {
         ))}
       </Tabs>
     </section>
+    </>
   );
 }

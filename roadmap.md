@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Use Envato stock photos/videos on the website (awaiting selected licensed media files).
+
 - [x] Add real stock photographs of teachers and evaluators to the Remark Office OMR page.
 
 - [x] Replace Remark imagery with official version 12 image/logo and bring resource information into product-page tabs.

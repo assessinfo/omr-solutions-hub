@@ -33,3 +33,4 @@ use the editor.
 - Shared header/footer are rendered in `src/routes/__root.tsx`; every route uses the `seo()` helper from `src/components/site/Blocks.tsx` for its head metadata.
 - Old `omrsolutions.com/omr_web/*` URLs 301-redirect via `src/routes/omr_web.$.tsx` + `src/lib/legacy-redirects.ts` to preserve existing Google rankings.
 - Scanner advice uses a public validated server function and server-only AI Gateway Responses helpers; ground recommendations in catalogue data and never infer specifications from model numbers.
+- Product-specific presentations use the shared DetailView hero/afterHero slots; Remark resource tabs contain local summaries rather than embedding third-party websites, so navigation stays on-site.

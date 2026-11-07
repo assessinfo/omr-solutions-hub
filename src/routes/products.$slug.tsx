@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { DetailView, seo } from "@/components/site/Blocks";
 import { company, products } from "@/lib/content";
+import { RemarkHero, RemarkResources } from "@/components/site/RemarkOffice";
 
 export const Route = createFileRoute("/products/$slug")({
   loader: ({ params }) => {
@@ -74,5 +75,5 @@ function ProductPage() {
       : p.slug !== page.slug && p.group === page.group)
     .slice(0, 3)
     .map((p) => ({ label: p.name, to: `/products/${p.slug}`, summary: p.summary }));
-  return <DetailView page={page} related={related} />;
+  return <DetailView page={page} related={related} {...(page.slug === "remark-office-omr" ? { hero: <RemarkHero page={page} />, afterHero: <RemarkResources /> } : {})} />;
 }

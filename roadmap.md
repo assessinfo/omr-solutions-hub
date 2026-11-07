@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Replace Remark imagery with official version 12 image/logo and bring resource information into product-page tabs.
+
 - [x] Expand the dedicated OMR answer sheet page with focused content and search metadata.
 
 - [x] Link the home-page SR8000 photo prominently to product details and specifications.

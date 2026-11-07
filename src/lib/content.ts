@@ -1,4 +1,3 @@
-import heroScanner from "@/assets/hero-scanner.jpg";
 import sr8000 from "@/assets/sr8000-hybrid-clean.jpg";
 import software from "@/assets/software.jpg";
 import education from "@/assets/education.jpg";
@@ -418,7 +417,7 @@ export const products: DetailPage[] = [
     intro:
       "Japanese-engineered OMR readers from Sekonic — from compact desktop units to high-volume hybrid scanners that read bubbles, barcodes and images in one pass.",
     summary: "Sekonic SR series, from 1,800 to 11,000 sheets/hour.",
-    image: heroScanner,
+    image: sr8000,
     highlights: [
       { title: "Sekonic SR-11000", text: "Our fastest reader for large exams and national-level recruitment drives." },
       { title: "SR-8000 & SR-6500 Hybrid", text: "Read OMR marks plus images, barcodes, photos and handwriting in one pass." },

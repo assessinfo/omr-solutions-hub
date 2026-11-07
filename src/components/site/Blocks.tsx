@@ -98,10 +98,11 @@ export function CtaBand({ title = "Let's find the right OMR setup for you", text
   );
 }
 
-export function DetailView({ page, related, relatedTitle = "Related" }: { page: DetailPage; related: { label: string; to: string; summary: string }[]; relatedTitle?: string }) {
+export function DetailView({ page, related, relatedTitle = "Related", afterHero }: { page: DetailPage; related: { label: string; to: string; summary: string }[]; relatedTitle?: string; afterHero?: ReactNode }) {
   return (
     <>
       <PageHero eyebrow={page.group === "Solutions" ? `Solutions · ${page.name}` : `Products · ${page.name}`} title={page.title} intro={page.intro} image={page.image} imageAlt={page.imageAlt ?? page.title} />
+      {afterHero}
       {page.stats && (
         <div className="container-x -mt-px pt-12">
           <Stats items={page.stats} />

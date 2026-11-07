@@ -23,6 +23,16 @@ import g8_4 from "@/assets/sr8000/hopper.jpg.asset.json";
 import g8_5 from "@/assets/sr8000/sensor.jpg.asset.json";
 import g8_6 from "@/assets/sr8000/model-name-label-1.jpg.asset.json";
 import g8_7 from "@/assets/sr8000/model-name-label-2.jpg.asset.json";
+import f11_feed from "@/assets/sr11000/high-speed-feed.jpg.asset.json";
+import f11_sensor from "@/assets/sr11000/reading-sensor.jpg.asset.json";
+import f11_paper from "@/assets/sr11000/paper-handling.jpg.asset.json";
+import f11_suction from "@/assets/sr11000/suction-system.jpg.asset.json";
+import f11_prism from "@/assets/sr11000/prism-sensors.jpg.asset.json";
+import f11_stacker from "@/assets/sr11000/stacker-sensor.jpg.asset.json";
+import f11_stopper from "@/assets/sr11000/sheet-stopper.jpg.asset.json";
+import f11_reverse from "@/assets/sr11000/reverse-discharge.jpg.asset.json";
+import f11_printer from "@/assets/sr11000/inkjet-printer.jpg.asset.json";
+import f11_usb from "@/assets/sr11000/usb-network.jpg.asset.json";
 import img6500photo from "@/assets/scanners/sr6500-photo.jpg.asset.json";
 import img6000 from "@/assets/scanners/sr6000-photo.jpg.asset.json";
 import pdf6000 from "@/assets/brochures/sr6000.pdf.asset.json";
@@ -242,6 +252,18 @@ export const products: DetailPage[] = [
     intro: "Sekonic's flagship desktop OMR reader — up to 11,000 sheets per hour with 99.99% reading accuracy, a select stacker and built-in ink-jet printer as standard.",
     summary: "Flagship OMR reader at up to 11,000 sheets/hour.",
     image: img11000.url,
+    gallery: [
+      { src: f11_feed.url, alt: "SR-11000 high-speed feed at 11,000 sheets per hour" },
+      { src: f11_sensor.url, alt: "High-precision reading sensor for 99.99% accuracy" },
+      { src: f11_paper.url, alt: "Improved feed system and double-feed prevention rollers" },
+      { src: f11_suction.url, alt: "Suction system that removes dust and eraser shavings" },
+      { src: f11_prism.url, alt: "Prism position sensors that monitor sheet feeding" },
+      { src: f11_stacker.url, alt: "Sheet detection sensor in the selection tray" },
+      { src: f11_stopper.url, alt: "Adjustable sheet stopper" },
+      { src: f11_reverse.url, alt: "Reverse discharge keeps sheets in original order" },
+      { src: f11_printer.url, alt: "Built-in ink-jet printer" },
+      { src: f11_usb.url, alt: "USB distributed network with multiple SR-11000 units" },
+    ],
     stats: [
       { value: "11,000", label: "Sheets per hour" },
       { value: "99.99%", label: "Reading accuracy*" },

@@ -14,6 +14,10 @@ deployment:
     - npm install --include=dev --no-audit --no-fund
     - NITRO_PRESET=node-server npm run build
     - mkdir -p "$DEPLOYPATH"
+    # CloudLinux Node.js Selector owns "node_modules" in the app root as a
+    # symlink to its virtual environment. Remove only a real folder/file with
+    # that name; never touch the selector's symlink.
+    - if [ -e "$DEPLOYPATH/node_modules" ] && [ ! -L "$DEPLOYPATH/node_modules" ]; then rm -rf "$DEPLOYPATH/node_modules"; fi
     - rm -rf "$DEPLOYPATH/.output"
     - cp -R .output "$DEPLOYPATH/"
     - cp package.json "$DEPLOYPATH/package.json"

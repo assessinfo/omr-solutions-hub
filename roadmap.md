@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Add cPanel deployment configuration (awaiting hosting type and deployment path).
+
 - [x] Exclude the rejected Canva Remark presentation images; leave existing website photos unchanged.
 
 - [ ] Use Envato stock photos/videos on the website (awaiting selected licensed media files).

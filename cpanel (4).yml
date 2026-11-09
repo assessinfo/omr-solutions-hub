@@ -1,0 +1,28 @@
+---
+# cPanel → Git Version Control → Deploy HEAD Commit.
+#
+# Create the cPanel Node.js application once with:
+#   Node.js version: 22 or later
+#   Application root: omrsolutions-app
+#   Application URL: omrsolutions.co.in (leave the path empty = site root)
+#   Application startup file: app.cjs
+#   (app.cjs loads .output/server/index.mjs; Passenger can't start ESM directly)
+#
+# LOVABLE_API_KEY is automatically provisioned and managed by Lovable; never
+# add it here or ask for its value. Self-hosted AI needs separate configuration.
+deployment:
+  tasks:
+    - export DEPLOYPATH="$HOME/omrsolutions-app"
+    - npm install --include=dev --no-audit --no-fund
+    - NITRO_PRESET=node-server npm run build
+    - mkdir -p "$DEPLOYPATH"
+    # CloudLinux Node.js Selector owns "node_modules" in the app root as a
+    # symlink to its virtual environment. Remove only a real folder/file with
+    # that name; never touch the selector's symlink.
+    - if [ -e "$DEPLOYPATH/node_modules" ] && [ ! -L "$DEPLOYPATH/node_modules" ]; then rm -rf "$DEPLOYPATH/node_modules"; fi
+    - rm -rf "$DEPLOYPATH/.output"
+    - cp -R .output "$DEPLOYPATH/"
+    - printf '{"name":"omrsolutions-app","private":true}\n' > "$DEPLOYPATH/package.json"
+    - printf 'import("./.output/server/index.mjs").catch(function(e){console.error(e);process.exit(1);});\n' > "$DEPLOYPATH/app.cjs"
+    - mkdir -p "$DEPLOYPATH/tmp"
+    - touch "$DEPLOYPATH/tmp/restart.txt"

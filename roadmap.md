@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Add cPanel deployment configuration (awaiting hosting type and deployment path).
+- [x] Add cPanel Node.js deployment configuration for `public_html/web`.
 
 - [x] Exclude the rejected Canva Remark presentation images; leave existing website photos unchanged.
 

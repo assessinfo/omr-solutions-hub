@@ -3,9 +3,9 @@
 #
 # Create the cPanel Node.js application once with:
 #   Node.js version: 22 or later
-Application root: omrsolutions-app
-Application URL: omrsolutions.co.in (leave the path empty = site root)
-Application startup file: app.cjs
+#   Application root: omrsolutions-app
+#   Application URL: omrsolutions.co.in (leave the path empty = site root)
+#   Application startup file: app.cjs
 #   (app.cjs loads .output/server/index.mjs; Passenger can't start ESM directly)
 #
 # LOVABLE_API_KEY is automatically provisioned and managed by Lovable; never

@@ -3,14 +3,15 @@
 #
 # Create the cPanel Node.js application once with:
 #   Node.js version: 22 or later
-#   Application root: public_html/web
+#   Application root: omrsolutions-app
+#   Application URL: omrsolutions.co.in (leave the path empty = site root)
 #   Application startup file: .output/server/index.mjs
 #
 # LOVABLE_API_KEY is automatically provisioned and managed by Lovable; never
 # add it here or ask for its value. Self-hosted AI needs separate configuration.
 deployment:
   tasks:
-    - export DEPLOYPATH="$HOME/public_html/web"
+    - export DEPLOYPATH="$HOME/omrsolutions-app"
     - npm install --include=dev --no-audit --no-fund
     - NITRO_PRESET=node-server npm run build
     - mkdir -p "$DEPLOYPATH"

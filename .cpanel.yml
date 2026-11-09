@@ -6,8 +6,8 @@
 #   Application root: public_html/web
 #   Application startup file: .output/server/index.mjs
 #
-# Set LOVABLE_API_KEY in the cPanel Node.js application's environment
-# variables to enable AI scanner recommendations. Never commit that secret.
+# LOVABLE_API_KEY is automatically provisioned and managed by Lovable; never
+# add it here or ask for its value. Self-hosted AI needs separate configuration.
 deployment:
   tasks:
     - export DEPLOYPATH="$HOME/public_html/web"

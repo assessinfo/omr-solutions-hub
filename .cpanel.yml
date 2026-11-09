@@ -1,0 +1,21 @@
+---
+# cPanel → Git Version Control → Deploy HEAD Commit.
+#
+# Create the cPanel Node.js application once with:
+#   Node.js version: 22 or later
+#   Application root: public_html/web
+#   Application startup file: .output/server/index.mjs
+#
+# Set LOVABLE_API_KEY in the cPanel Node.js application's environment
+# variables to enable AI scanner recommendations. Never commit that secret.
+deployment:
+  tasks:
+    - export DEPLOYPATH="$HOME/public_html/web"
+    - npm install --include=dev --no-audit --no-fund
+    - NITRO_PRESET=node-server npm run build
+    - mkdir -p "$DEPLOYPATH"
+    - rm -rf "$DEPLOYPATH/.output"
+    - cp -R .output "$DEPLOYPATH/"
+    - cp package.json "$DEPLOYPATH/package.json"
+    - mkdir -p "$DEPLOYPATH/tmp"
+    - touch "$DEPLOYPATH/tmp/restart.txt"

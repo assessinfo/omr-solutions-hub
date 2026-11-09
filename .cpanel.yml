@@ -13,8 +13,11 @@
 deployment:
   tasks:
     - export DEPLOYPATH="$HOME/omrsolutions-app"
-    - npm install --include=dev --no-audit --no-fund
-    - NITRO_PRESET=node-server npm run build
+    # Use the Node.js 22 environment created by Setup Node.js App (CloudLinux
+    # nodevenv). The server's default "node" is too old to build or run the site.
+    - for v in 24 22; do if [ -f "$HOME/nodevenv/omrsolutions-app/$v/bin/activate" ]; then . "$HOME/nodevenv/omrsolutions-app/$v/bin/activate"; break; fi; done; node -e 'var m=+process.versions.node.split(".")[0]; if(m<22){console.error("Node.js "+process.version+" is too old. In Setup Node.js App choose Node.js 22 for omrsolutions-app, then deploy again.");process.exit(1)}'
+    - . "$HOME/nodevenv/omrsolutions-app/24/bin/activate" 2>/dev/null || . "$HOME/nodevenv/omrsolutions-app/22/bin/activate"; npm install --include=dev --no-audit --no-fund
+    - . "$HOME/nodevenv/omrsolutions-app/24/bin/activate" 2>/dev/null || . "$HOME/nodevenv/omrsolutions-app/22/bin/activate"; NITRO_PRESET=node-server npm run build
     - mkdir -p "$DEPLOYPATH"
     # CloudLinux Node.js Selector owns "node_modules" in the app root as a
     # symlink to its virtual environment. Remove only a real folder/file with
@@ -23,6 +26,6 @@ deployment:
     - rm -rf "$DEPLOYPATH/.output"
     - cp -R .output "$DEPLOYPATH/"
     - printf '{"name":"omrsolutions-app","private":true}\n' > "$DEPLOYPATH/package.json"
-    - printf 'import("./.output/server/index.mjs").catch(function(e){console.error(e);process.exit(1);});\n' > "$DEPLOYPATH/app.cjs"
+    - printf 'var m=+process.versions.node.split(".")[0];\nif(m<22){console.error("Node.js "+process.version+" is too old for this site. In cPanel Setup Node.js App, set Node.js version 22 and restart.");process.exit(1);}\nimport("./.output/server/index.mjs").catch(function(e){console.error(e);process.exit(1);});\n' > "$DEPLOYPATH/app.cjs"
     - mkdir -p "$DEPLOYPATH/tmp"
     - touch "$DEPLOYPATH/tmp/restart.txt"

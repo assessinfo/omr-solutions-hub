@@ -5,7 +5,8 @@
 #   Node.js version: 22 or later
 #   Application root: omrsolutions-app
 #   Application URL: omrsolutions.co.in (leave the path empty = site root)
-#   Application startup file: .output/server/index.mjs
+#   Application startup file: app.cjs
+#   (app.cjs loads .output/server/index.mjs; Passenger can't start ESM directly)
 #
 # LOVABLE_API_KEY is automatically provisioned and managed by Lovable; never
 # add it here or ask for its value. Self-hosted AI needs separate configuration.
@@ -21,6 +22,7 @@ deployment:
     - if [ -e "$DEPLOYPATH/node_modules" ] && [ ! -L "$DEPLOYPATH/node_modules" ]; then rm -rf "$DEPLOYPATH/node_modules"; fi
     - rm -rf "$DEPLOYPATH/.output"
     - cp -R .output "$DEPLOYPATH/"
-    - cp package.json "$DEPLOYPATH/package.json"
+    - printf '{"name":"omrsolutions-app","private":true}\n' > "$DEPLOYPATH/package.json"
+    - printf 'import("./.output/server/index.mjs").catch(function(e){console.error(e);process.exit(1);});\n' > "$DEPLOYPATH/app.cjs"
     - mkdir -p "$DEPLOYPATH/tmp"
     - touch "$DEPLOYPATH/tmp/restart.txt"

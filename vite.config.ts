@@ -10,7 +10,7 @@ export default defineConfig({
   tanstackStart: {
     // Lovable uses the Worker error wrapper. cPanel's Node build must use
     // TanStack Start's default Node entry instead of that Worker export.
-    ...(process.env.NITRO_PRESET === "node-server"
+    ...(process.env["NITRO_PRESET"] === "node-server"
       ? {}
       : { server: { entry: "server" } }),
   },

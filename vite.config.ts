@@ -8,8 +8,10 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
   tanstackStart: {
-    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
-    server: { entry: "server" },
+    // Lovable uses the Worker error wrapper. cPanel's Node build must use
+    // TanStack Start's default Node entry instead of that Worker export.
+    ...(process.env.NITRO_PRESET === "node-server"
+      ? {}
+      : { server: { entry: "server" } }),
   },
 });

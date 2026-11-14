@@ -122,7 +122,7 @@ export function Header() {
             <Phone className="size-4 text-primary" /> {company.phone}
           </a>
           <Button asChild>
-            <Link to="/contact">Get a quote</Link>
+            <Link to="/get-a-quote">Get a quote</Link>
           </Button>
         </div>
 
@@ -185,7 +185,7 @@ export function Header() {
               </div>
             ))}
             <Button asChild size="lg" className="mt-4">
-              <Link to="/contact" onClick={() => setMobile(false)}>Get a quote</Link>
+              <Link to="/get-a-quote" onClick={() => setMobile(false)}>Get a quote</Link>
             </Button>
           </nav>
         </div>

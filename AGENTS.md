@@ -34,3 +34,4 @@ use the editor.
 - Old `omrsolutions.com/omr_web/*` URLs 301-redirect via `src/routes/omr_web.$.tsx` + `src/lib/legacy-redirects.ts` to preserve existing Google rankings.
 - Scanner advice uses a public validated server function and server-only AI Gateway Responses helpers; ground recommendations in catalogue data and never infer specifications from model numbers.
 - Product-specific presentations use the shared DetailView hero/afterHero slots; Remark resource tabs contain local summaries rather than embedding third-party websites, so navigation stays on-site.
+- The quote landing page embeds the externally hosted CRM form and offers its direct link as a fallback; submissions stay owned by the CRM rather than duplicating lead capture locally.

@@ -16,6 +16,7 @@ import { Route as CareersRouteImport } from './routes/careers'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as ClientsRouteImport } from './routes/clients'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as GetAQuoteRouteImport } from './routes/get-a-quote'
 import { Route as NewsRouteImport } from './routes/news'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as Omr_webSplatRouteImport } from './routes/omr_web.$'
@@ -57,6 +58,11 @@ const ClientsRoute = ClientsRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GetAQuoteRoute = GetAQuoteRouteImport.update({
+  id: '/get-a-quote',
+  path: '/get-a-quote',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NewsRoute = NewsRouteImport.update({
@@ -103,6 +109,7 @@ export interface FileRoutesByFullPath {
   '/case-studies': typeof CaseStudiesRoute
   '/clients': typeof ClientsRoute
   '/contact': typeof ContactRoute
+  '/get-a-quote': typeof GetAQuoteRoute
   '/news': typeof NewsRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/omr_web/$': typeof Omr_webSplatRoute
@@ -119,6 +126,7 @@ export interface FileRoutesByTo {
   '/case-studies': typeof CaseStudiesRoute
   '/clients': typeof ClientsRoute
   '/contact': typeof ContactRoute
+  '/get-a-quote': typeof GetAQuoteRoute
   '/news': typeof NewsRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/omr_web/$': typeof Omr_webSplatRoute
@@ -136,6 +144,7 @@ export interface FileRoutesById {
   '/case-studies': typeof CaseStudiesRoute
   '/clients': typeof ClientsRoute
   '/contact': typeof ContactRoute
+  '/get-a-quote': typeof GetAQuoteRoute
   '/news': typeof NewsRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/omr_web/$': typeof Omr_webSplatRoute
@@ -154,6 +163,7 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/clients'
     | '/contact'
+    | '/get-a-quote'
     | '/news'
     | '/privacy-policy'
     | '/omr_web/$'
@@ -170,6 +180,7 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/clients'
     | '/contact'
+    | '/get-a-quote'
     | '/news'
     | '/privacy-policy'
     | '/omr_web/$'
@@ -186,6 +197,7 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/clients'
     | '/contact'
+    | '/get-a-quote'
     | '/news'
     | '/privacy-policy'
     | '/omr_web/$'
@@ -203,6 +215,7 @@ export interface RootRouteChildren {
   CaseStudiesRoute: typeof CaseStudiesRoute
   ClientsRoute: typeof ClientsRoute
   ContactRoute: typeof ContactRoute
+  GetAQuoteRoute: typeof GetAQuoteRoute
   NewsRoute: typeof NewsRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   Omr_webSplatRoute: typeof Omr_webSplatRoute
@@ -261,6 +274,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/get-a-quote': {
+      id: '/get-a-quote'
+      path: '/get-a-quote'
+      fullPath: '/get-a-quote'
+      preLoaderRoute: typeof GetAQuoteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/news': {
@@ -323,6 +343,7 @@ const rootRouteChildren: RootRouteChildren = {
   CaseStudiesRoute: CaseStudiesRoute,
   ClientsRoute: ClientsRoute,
   ContactRoute: ContactRoute,
+  GetAQuoteRoute: GetAQuoteRoute,
   NewsRoute: NewsRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   Omr_webSplatRoute: Omr_webSplatRoute,

@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Add a matching quote landing page with the supplied Bitrix24 form and home/header links.
+
 - [x] Add cPanel Node.js deployment configuration for `public_html/web`.
 
 - [x] Exclude the rejected Canva Remark presentation images; leave existing website photos unchanged.

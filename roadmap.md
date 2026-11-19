@@ -33,4 +33,4 @@
 
 - [x] Google Ads: count WhatsApp chats started from the site as conversions (Google tag + conversion on "Continue in WhatsApp").
 - [x] Add a cookie notice shown only in privacy regions (EU/EEA, UK, Switzerland, Canada) with a footer "Cookie settings" link; update privacy policy.
-- [ ] Create the OMR scanner Google Search campaign (paused until billing clears) after approval.
+- [x] Create the OMR scanner Google Search campaign (created paused, id 24513728855).

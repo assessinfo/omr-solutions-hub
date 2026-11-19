@@ -14,13 +14,78 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      blog_posts: {
+        Row: {
+          brand_id: string
+          content_html: string
+          excerpt: string
+          featured_image: string | null
+          id: string
+          meta_description: string
+          meta_title: string
+          published_at: string
+          slug: string
+          source_sent_at: string
+          title: string
+        }
+        Insert: {
+          brand_id: string
+          content_html: string
+          excerpt: string
+          featured_image?: string | null
+          id: string
+          meta_description: string
+          meta_title: string
+          published_at: string
+          slug: string
+          source_sent_at: string
+          title: string
+        }
+        Update: {
+          brand_id?: string
+          content_html?: string
+          excerpt?: string
+          featured_image?: string | null
+          id?: string
+          meta_description?: string
+          meta_title?: string
+          published_at?: string
+          slug?: string
+          source_sent_at?: string
+          title?: string
+        }
+        Relationships: []
+      }
+      holo_webhook_events: {
+        Row: {
+          article_id: string
+          delivery_id: string
+          event: string
+          is_test: boolean
+          received_at: string
+        }
+        Insert: {
+          article_id: string
+          delivery_id: string
+          event: string
+          is_test?: boolean
+          received_at?: string
+        }
+        Update: {
+          article_id?: string
+          delivery_id?: string
+          event?: string
+          is_test?: boolean
+          received_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      apply_holo_article: { Args: { p_payload: Json }; Returns: undefined }
     }
     Enums: {
       [_ in never]: never

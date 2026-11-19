@@ -72,7 +72,7 @@ const orgJsonLd = {
   legalName: company.legalName,
   foundingDate: String(company.founded),
   email: company.email,
-  telephone: "+91-9319123429",
+  telephone: "+91-8591303477",
   sameAs: Object.values(company.social),
   address: company.offices.map((o) => ({
     "@type": "PostalAddress",

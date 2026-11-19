@@ -42,8 +42,8 @@ import remark12 from "@/assets/remark/remark12-product.png.asset.json";
 export const company = {
   name: "OMR Solutions",
   legalName: "OMR India Outsources Pvt. Ltd.",
-  phone: "+91 93191 23429",
-  phoneHref: "tel:+919319123429",
+  phone: "+91 85913 03477",
+  phoneHref: "tel:+918591303477",
   phoneAlt: "+91 89548 00532",
   whatsapp: "+91 85913 03477",
   whatsappHref: "https://wa.me/918591303477",
@@ -54,7 +54,7 @@ export const company = {
       label: "Head office",
       city: "New Delhi",
       address: "503, DLF Prime Towers, Okhla Industrial Area Phase 1, New Delhi 110020",
-      phone: "+91 93191 23429",
+      phone: "+91 85913 03477",
     },
     {
       label: "Branch office",

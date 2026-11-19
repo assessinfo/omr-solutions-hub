@@ -11,8 +11,8 @@ import { company } from "@/lib/content";
 export const Route = createFileRoute("/contact")({
   head: () =>
     seo(
-      "Contact OMR Solutions — Delhi & Mumbai Offices | +91 93191 23429",
-      "Get a quote for OMR scanners, software, sheets or exam processing. Call +91 93191 23429 or email sales@omr.co.in. Offices in New Delhi and Mumbai.",
+      "Contact OMR Solutions — Delhi & Mumbai Offices | +91 85913 03477",
+      "Get a quote for OMR scanners, software, sheets or exam processing. Call +91 85913 03477 or email sales@omr.co.in. Offices in New Delhi and Mumbai.",
       "/contact",
     ),
   component: Contact,

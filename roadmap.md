@@ -1,6 +1,7 @@
 # Roadmap
 
-- [ ] Add Holo's signed publish/update webhook, durable article storage, and public blog pages; connect Holo and verify a real delivery after deployment.
+- [x] Add Holo's signed publish/update webhook, transactional article storage, safe HTML rendering and public blog pages linked from News (23 tests pass).
+- [ ] Publish the Holo receiver (awaiting publication permission), then save Holo's signing secret and verify a Holo test and real article update.
 
 - [x] Add a site-wide chat window that continues in the visitor's WhatsApp, tested on desktop and phone.
 - [x] Confirm the WhatsApp number that receives visitors' messages (+91 85913 03477).

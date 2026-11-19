@@ -1,6 +1,7 @@
 # Roadmap
 
-- [ ] Add a site-wide chat window that continues in the visitor's WhatsApp (using the listed contact number pending confirmation).
+- [x] Add a site-wide chat window that continues in the visitor's WhatsApp, tested on desktop and phone.
+- [ ] Confirm the listed contact number receives WhatsApp messages (awaiting the user's number confirmation).
 
 - [x] Add a matching quote landing page with the supplied Bitrix24 form and home/header links.
 

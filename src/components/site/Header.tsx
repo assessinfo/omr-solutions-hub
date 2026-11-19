@@ -1,9 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ChevronDown, Menu, Phone, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { company, isScannerModel, products, solutions } from "@/lib/content";
 import { Logo } from "./Logo";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 type NavItem = { label: string; to: string; children?: { label: string; to: string; desc?: string; sub?: { label: string; to: string }[] | undefined }[] };
 
@@ -118,8 +119,13 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <a href={company.phoneHref} className="flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-foreground">
-            <Phone className="size-4 text-primary" /> {company.phone}
+          <a
+            href={company.whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-foreground"
+          >
+            <WhatsAppIcon className="size-4 text-primary" /> {company.phone}
           </a>
           <Button asChild>
             <Link to="/get-a-quote">Get a quote</Link>

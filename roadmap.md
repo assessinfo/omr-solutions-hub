@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Add a secure webhook to update posts and blogs and display received content on the website (awaiting the sending service to define its payload and verification).
+
 - [x] Add a site-wide chat window that continues in the visitor's WhatsApp, tested on desktop and phone.
 - [x] Confirm the WhatsApp number that receives visitors' messages (+91 85913 03477).
 - [x] Use +91 85913 03477 as the contact number shown across the site.

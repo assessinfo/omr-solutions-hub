@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { company, isScannerModel, products, solutions } from "@/lib/content";
 import { Logo } from "./Logo";
+import { openCookieSettings } from "./CookieBanner";
 
 export function Footer() {
   return (
@@ -67,6 +68,7 @@ export function Footer() {
             <Link to="/applications" className="hover:text-primary">Application areas</Link>
             <Link to="/case-studies" className="hover:text-primary">Case studies</Link>
             <Link to="/privacy-policy" className="hover:text-primary">Privacy policy</Link>
+            <button type="button" onClick={openCookieSettings} className="hover:text-primary">Cookie settings</button>
           </div>
         </div>
       </div>

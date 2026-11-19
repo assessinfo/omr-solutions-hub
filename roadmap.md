@@ -1,7 +1,8 @@
 # Roadmap
 
 - [x] Add a site-wide chat window that continues in the visitor's WhatsApp, tested on desktop and phone.
-- [ ] Confirm the listed contact number receives WhatsApp messages (awaiting the user's number confirmation).
+- [x] Confirm the WhatsApp number that receives visitors' messages (+91 85913 03477).
+- [x] Use +91 85913 03477 as the contact number shown across the site.
 
 - [x] Add a matching quote landing page with the supplied Bitrix24 form and home/header links.
 

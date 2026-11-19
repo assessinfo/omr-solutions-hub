@@ -9,7 +9,7 @@ import { buildWhatsAppChatUrl } from "@/lib/whatsapp-chat";
 export function WhatsAppChat() {
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("");
-  const chatUrl = message.trim() ? buildWhatsAppChatUrl(company.phone, message) : null;
+  const chatUrl = message.trim() ? buildWhatsAppChatUrl(company.whatsapp, message) : null;
 
   return (
     <div className="fixed bottom-5 right-5 z-50 pb-[env(safe-area-inset-bottom)]">
@@ -65,7 +65,7 @@ export function WhatsAppChat() {
               ) : (
                 <Button disabled className="h-11 w-full">Continue in WhatsApp <ArrowUpRight aria-hidden="true" /></Button>
               )}
-              <p className="text-center text-xs leading-relaxed text-muted-foreground">Send and receive replies in WhatsApp.<br />{company.phone}</p>
+              <p className="text-center text-xs leading-relaxed text-muted-foreground">Send and receive replies in WhatsApp.<br />{company.whatsapp}</p>
             </div>
           </div>
         </PopoverContent>

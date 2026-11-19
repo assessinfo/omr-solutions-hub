@@ -3,11 +3,12 @@ import { PageHero, seo } from "@/components/site/Blocks";
 import { company } from "@/lib/content";
 
 export const Route = createFileRoute("/privacy-policy")({
-  head: () => seo("Privacy Policy | OMR Solutions", "How OMR Solutions collects, uses and protects information you share through our website and enquiries.", "/privacy-policy"),
+  head: () => seo("Privacy Policy | OMR Solutions", "How OMR India Outsources Pvt Ltd, owner of the OMR Solutions brand, collects, uses and protects information you share through our website and enquiries.", "/privacy-policy"),
   component: Privacy,
 });
 
 const sections = [
+  { h: "Who we are", p: `This website and the OMR Solutions brand are owned and operated by OMR India Outsources Pvt Ltd, with offices in New Delhi (head office) and Mumbai, India. In this policy, "we", "us" and "our" mean OMR India Outsources Pvt Ltd. For any privacy question, contact us at ${company.email}.` },
   { h: "Information we collect", p: "Details you provide in enquiries (name, email, phone, city, organisation), the products or services you ask about, basic technical data such as browser and pages visited, and any messages you send us." },
   { h: "How we use it", p: "To respond to enquiries, share product and service information, provide quotes and support, and improve our website. We do not sell your personal information." },
   { h: "Website analytics", p: "Lovable, which hosts this website, counts visits for us. It uses no cookies, stores nothing on your device, doesn't keep IP addresses and doesn't identify visitors. It records the pages visited, where visitors came from, their country, browser, operating system and device type, how long they stay, how fast pages load, and errors. It also records which buttons and links are clicked. For visitors in the EU/EEA, the UK, Switzerland and Canada, clicks are recorded only after they accept analytics; page visits, time on page, page speed and errors are recorded for every visitor, without cookies and without identifying anyone. If your browser sends Global Privacy Control, clicks are never recorded. Detailed data is kept for 90 days and daily summaries for a year. Lovable collects this data for us. Lovable's privacy policy at lovable.dev/privacy explains how it handles it." },
@@ -21,7 +22,7 @@ const sections = [
 function Privacy() {
   return (
     <>
-      <PageHero eyebrow="Legal" title="Privacy policy" intro="Your privacy matters to us. Last updated November 19, 2026." />
+      <PageHero eyebrow="Legal" title="Privacy policy" intro="How OMR India Outsources Pvt Ltd, owner of the OMR Solutions brand, handles your information. Last updated November 19, 2026." />
       <section className="container-x max-w-3xl space-y-10 py-20">
         {sections.map((s, i) => (
           <div key={s.h}>

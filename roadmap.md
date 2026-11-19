@@ -38,3 +38,6 @@
 - [x] Add a cookie notice shown only in privacy regions (EU/EEA, UK, Switzerland, Canada) with a footer "Cookie settings" link; update privacy policy.
 - [x] Create the OMR scanner Google Search campaign (created paused, id 24513728855).
 - [x] Shift the call icon at the phone number to a WhatsApp icon site-wide (header, footer, contact, quote page, hero/CTA banners); number opens WhatsApp.
+
+- [ ] Auto-share new Holo blog articles to LinkedIn (waiting: personal profile vs company page; connection only allows personal posting)
+- [ ] Facebook page and X auto-posting (blocked: no posting connection available)

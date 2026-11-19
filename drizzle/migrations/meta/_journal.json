@@ -1,5 +1,13 @@
 {
   "version": "7",
   "dialect": "postgresql",
-  "entries": []
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1795113678778,
+      "tag": "0000_holo_blog_webhook",
+      "breakpoints": true
+    }
+  ]
 }

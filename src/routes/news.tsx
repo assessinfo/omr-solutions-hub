@@ -1,8 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CtaBand, PageHero, seo } from "@/components/site/Blocks";
 import { news } from "@/lib/content";
+import { blogQuery } from "@/lib/blog";
+import { useSuspenseQuery } from "@tanstack/react-query";
 
 export const Route = createFileRoute("/news")({
+  loader: ({ context }) => context.queryClient.ensureQueryData(blogQuery),
   head: () =>
     seo(
       "News & Milestones | OMR Solutions",
@@ -13,11 +16,21 @@ export const Route = createFileRoute("/news")({
 });
 
 function News() {
+  const { data: posts } = useSuspenseQuery(blogQuery);
   return (
     <>
       <PageHero eyebrow="Press & media" title="Milestones along the way" intro="Launches, exhibitions and partnerships from our archive.">
         <Link to="/case-studies" className="font-semibold text-primary">Read our case studies →</Link>
       </PageHero>
+      {posts.length > 0 && <section className="container-x pt-16">
+        <h2 className="mb-8 text-3xl font-semibold">Latest articles</h2>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post) => <Link key={post.slug} to="/blog/$slug" params={{ slug: post.slug }} className="overflow-hidden rounded-lg border bg-card">
+            {post.featured_image && <img src={post.featured_image} alt={post.title} loading="lazy" className="aspect-video w-full object-cover" />}
+            <div className="p-6"><h3 className="text-xl font-semibold">{post.title}</h3><p className="mt-3 text-muted-foreground">{post.excerpt}</p><span className="mt-5 inline-block font-semibold text-primary">Read article →</span></div>
+          </Link>)}
+        </div>
+      </section>}
       <section className="container-x py-20">
         <ol className="relative space-y-6 border-l-2 border-border pl-8">
           {news.map((n) => (

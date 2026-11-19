@@ -19,11 +19,13 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as GetAQuoteRouteImport } from './routes/get-a-quote'
 import { Route as NewsRouteImport } from './routes/news'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as Omr_webSplatRouteImport } from './routes/omr_web.$'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
 import { Route as SolutionsIndexRouteImport } from './routes/solutions.index'
 import { Route as SolutionsSlugRouteImport } from './routes/solutions.$slug'
+import { Route as ApiPublicHoloWebhookRouteImport } from './routes/api/public/holo/webhook'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -75,6 +77,11 @@ const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
   path: '/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const Omr_webSplatRoute = Omr_webSplatRouteImport.update({
   id: '/omr_web/$',
   path: '/omr_web/$',
@@ -100,6 +107,11 @@ const SolutionsSlugRoute = SolutionsSlugRouteImport.update({
   path: '/solutions/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicHoloWebhookRoute = ApiPublicHoloWebhookRouteImport.update({
+  id: '/api/public/holo/webhook',
+  path: '/api/public/holo/webhook',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -112,11 +124,13 @@ export interface FileRoutesByFullPath {
   '/get-a-quote': typeof GetAQuoteRoute
   '/news': typeof NewsRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/omr_web/$': typeof Omr_webSplatRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
   '/products/': typeof ProductsIndexRoute
   '/solutions/': typeof SolutionsIndexRoute
+  '/api/public/holo/webhook': typeof ApiPublicHoloWebhookRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -129,11 +143,13 @@ export interface FileRoutesByTo {
   '/get-a-quote': typeof GetAQuoteRoute
   '/news': typeof NewsRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/omr_web/$': typeof Omr_webSplatRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
   '/products': typeof ProductsIndexRoute
   '/solutions': typeof SolutionsIndexRoute
+  '/api/public/holo/webhook': typeof ApiPublicHoloWebhookRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -147,11 +163,13 @@ export interface FileRoutesById {
   '/get-a-quote': typeof GetAQuoteRoute
   '/news': typeof NewsRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/omr_web/$': typeof Omr_webSplatRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
   '/products/': typeof ProductsIndexRoute
   '/solutions/': typeof SolutionsIndexRoute
+  '/api/public/holo/webhook': typeof ApiPublicHoloWebhookRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -166,11 +184,13 @@ export interface FileRouteTypes {
     | '/get-a-quote'
     | '/news'
     | '/privacy-policy'
+    | '/blog/$slug'
     | '/omr_web/$'
     | '/products/$slug'
     | '/solutions/$slug'
     | '/products/'
     | '/solutions/'
+    | '/api/public/holo/webhook'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -183,11 +203,13 @@ export interface FileRouteTypes {
     | '/get-a-quote'
     | '/news'
     | '/privacy-policy'
+    | '/blog/$slug'
     | '/omr_web/$'
     | '/products/$slug'
     | '/solutions/$slug'
     | '/products'
     | '/solutions'
+    | '/api/public/holo/webhook'
   id:
     | '__root__'
     | '/'
@@ -200,11 +222,13 @@ export interface FileRouteTypes {
     | '/get-a-quote'
     | '/news'
     | '/privacy-policy'
+    | '/blog/$slug'
     | '/omr_web/$'
     | '/products/$slug'
     | '/solutions/$slug'
     | '/products/'
     | '/solutions/'
+    | '/api/public/holo/webhook'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -218,11 +242,13 @@ export interface RootRouteChildren {
   GetAQuoteRoute: typeof GetAQuoteRoute
   NewsRoute: typeof NewsRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   Omr_webSplatRoute: typeof Omr_webSplatRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
   SolutionsSlugRoute: typeof SolutionsSlugRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
   SolutionsIndexRoute: typeof SolutionsIndexRoute
+  ApiPublicHoloWebhookRoute: typeof ApiPublicHoloWebhookRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -297,6 +323,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/omr_web/$': {
       id: '/omr_web/$'
       path: '/omr_web/$'
@@ -332,6 +365,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolutionsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/holo/webhook': {
+      id: '/api/public/holo/webhook'
+      path: '/api/public/holo/webhook'
+      fullPath: '/api/public/holo/webhook'
+      preLoaderRoute: typeof ApiPublicHoloWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -346,11 +386,13 @@ const rootRouteChildren: RootRouteChildren = {
   GetAQuoteRoute: GetAQuoteRoute,
   NewsRoute: NewsRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
+  BlogSlugRoute: BlogSlugRoute,
   Omr_webSplatRoute: Omr_webSplatRoute,
   ProductsSlugRoute: ProductsSlugRoute,
   SolutionsSlugRoute: SolutionsSlugRoute,
   ProductsIndexRoute: ProductsIndexRoute,
   SolutionsIndexRoute: SolutionsIndexRoute,
+  ApiPublicHoloWebhookRoute: ApiPublicHoloWebhookRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

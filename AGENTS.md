@@ -36,3 +36,4 @@ use the editor.
 - Product-specific presentations use the shared DetailView hero/afterHero slots; Remark resource tabs contain local summaries rather than embedding third-party websites, so navigation stays on-site.
 - The quote landing page embeds the externally hosted CRM form and offers its direct link as a fallback; submissions stay owned by the CRM rather than duplicating lead capture locally.
 - WhatsApp chat is a shared client-side contact widget using a validated wa.me handoff; do not imply messages are sent or replies happen inside the website.
+- Google Ads tag and conversions load only through `src/lib/google-ads.ts`, gated by the shared consent module `src/lib/consent.ts` and the single `CookieBanner`; Consent Mode defaults run first in `__root` head — so no tag fires before regional consent is resolved.

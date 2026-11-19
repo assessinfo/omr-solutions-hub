@@ -31,6 +31,6 @@
 - [x] Add SR-8000 Hybrid photo gallery + SR-6500 photos
 - [x] Group scanner models under OMR Scanners in the menu and footer (no standalone model links)
 
-- [ ] Google Ads: count WhatsApp chats started from the site as conversions (Google tag + conversion on "Continue in WhatsApp").
-- [ ] Add a cookie notice shown only in privacy regions (EU/EEA, UK, Switzerland, Canada) with a footer "Cookie settings" link; update privacy policy.
+- [x] Google Ads: count WhatsApp chats started from the site as conversions (Google tag + conversion on "Continue in WhatsApp").
+- [x] Add a cookie notice shown only in privacy regions (EU/EEA, UK, Switzerland, Canada) with a footer "Cookie settings" link; update privacy policy.
 - [ ] Create the OMR scanner Google Search campaign (paused until billing clears) after approval.

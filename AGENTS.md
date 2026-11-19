@@ -35,3 +35,4 @@ use the editor.
 - Scanner advice uses a public validated server function and server-only AI Gateway Responses helpers; ground recommendations in catalogue data and never infer specifications from model numbers.
 - Product-specific presentations use the shared DetailView hero/afterHero slots; Remark resource tabs contain local summaries rather than embedding third-party websites, so navigation stays on-site.
 - The quote landing page embeds the externally hosted CRM form and offers its direct link as a fallback; submissions stay owned by the CRM rather than duplicating lead capture locally.
+- WhatsApp chat is a shared client-side contact widget using a validated wa.me handoff; do not imply messages are sent or replies happen inside the website.

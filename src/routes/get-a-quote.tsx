@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowDown, ArrowRight, ExternalLink, Mail, Phone } from "lucide-react";
+import { ArrowDown, ArrowRight, ExternalLink, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { seo } from "@/components/site/Blocks";
+import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 import { company } from "@/lib/content";
 import corporate from "@/assets/corporate.jpg";
 
@@ -25,7 +26,7 @@ function EnquiryLanding() {
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-muted md:text-lg">Sekonic OMR scanners, Remark Office OMR, answer sheet printing and exam processing — let's talk about what your institution needs.</p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Button asChild size="lg"><a href="#enquiry">Request a callback <ArrowDown /></a></Button>
-            <Button asChild size="lg" variant="outline" className="border-ink-border bg-transparent text-ink-foreground hover:bg-ink-border hover:text-ink-foreground"><a href={company.phoneHref}><Phone /> {company.phone}</a></Button>
+            <Button asChild size="lg" variant="outline" className="border-ink-border bg-transparent text-ink-foreground hover:bg-ink-border hover:text-ink-foreground"><a href={company.whatsappHref} target="_blank" rel="noopener noreferrer"><WhatsAppIcon className="size-4" /> {company.phone}</a></Button>
           </div>
         </div>
       </section>
@@ -36,7 +37,7 @@ function EnquiryLanding() {
             <h2 className="mt-4 text-3xl font-bold tracking-normal">Let's discuss your requirements</h2>
             <p className="mt-4 leading-relaxed text-muted-foreground">Share your name and phone number, and our team can contact you about your OMR requirements.</p>
             <div className="mt-8 space-y-5 border-t pt-7">
-              <a href={company.phoneHref} className="flex items-center gap-3 font-semibold hover:text-primary"><Phone className="size-5 shrink-0 text-primary" /> {company.phone}</a>
+              <a href={company.whatsappHref} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 font-semibold hover:text-primary"><WhatsAppIcon className="size-5 shrink-0 text-primary" /> {company.phone}</a>
               <a href={`mailto:${company.email}`} className="flex items-center gap-3 break-all font-semibold hover:text-primary"><Mail className="size-5 shrink-0 text-primary" /> {company.email}</a>
             </div>
             <Button asChild variant="outline" className="mt-8"><a href={enquiryUrl} target="_blank" rel="noopener noreferrer">Open enquiry form <ExternalLink /></a></Button>

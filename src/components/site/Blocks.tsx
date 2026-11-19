@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
-import { ArrowRight, Check, Download, ExternalLink, Phone } from "lucide-react";
+import { ArrowRight, Check, Download, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { company, type DetailPage } from "@/lib/content";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 export function PageHero({
   eyebrow,
@@ -34,7 +35,9 @@ export function PageHero({
                   <Link to="/contact">Get a quote <ArrowRight /></Link>
                 </Button>
                 <Button asChild size="lg" variant="outline">
-                  <a href={company.phoneHref}><Phone /> Call {company.phone}</a>
+                  <a href={company.whatsappHref} target="_blank" rel="noopener noreferrer">
+                    <WhatsAppIcon className="size-4" /> WhatsApp {company.phone}
+                  </a>
                 </Button>
               </>
             )}
@@ -89,7 +92,7 @@ export function CtaBand({ title = "Let's find the right OMR setup for you", text
               <Link to="/contact">Contact us <ArrowRight /></Link>
             </Button>
             <Button asChild size="lg" variant="ghost" className="text-ink-foreground hover:bg-ink-border hover:text-ink-foreground">
-              <a href={company.phoneHref}><Phone /> {company.phone}</a>
+              <a href={company.whatsappHref} target="_blank" rel="noopener noreferrer"><WhatsAppIcon className="size-4" /> {company.phone}</a>
             </Button>
           </div>
         </div>

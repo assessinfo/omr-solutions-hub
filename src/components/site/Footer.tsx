@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { company, isScannerModel, products, solutions } from "@/lib/content";
 import { Logo } from "./Logo";
 import { openCookieSettings } from "./CookieBanner";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 export function Footer() {
   return (
@@ -50,7 +51,7 @@ export function Footer() {
           <h3 className="text-sm font-semibold text-ink-foreground">Contact</h3>
           <ul className="mt-4 space-y-3 text-sm">
             <li>
-              <a href={company.phoneHref} className="flex gap-2 hover:text-primary"><Phone className="mt-0.5 size-4 shrink-0 text-primary" />{company.phone}</a>
+              <a href={company.whatsappHref} target="_blank" rel="noopener noreferrer" className="flex gap-2 hover:text-primary"><WhatsAppIcon className="mt-0.5 size-4 shrink-0 text-primary" />{company.phone}</a>
             </li>
             <li>
               <a href={`mailto:${company.email}`} className="flex gap-2 hover:text-primary"><Mail className="mt-0.5 size-4 shrink-0 text-primary" />{company.email}</a>

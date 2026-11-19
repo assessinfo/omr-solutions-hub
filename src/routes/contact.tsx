@@ -1,11 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { PageHero, seo } from "@/components/site/Blocks";
+import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 import { company } from "@/lib/content";
 
 export const Route = createFileRoute("/contact")({
@@ -32,9 +33,9 @@ function Contact() {
       <PageHero eyebrow="Contact" title="Let's start a conversation" intro="Questions about scanners, software or a custom project? Our team replies within 24 hours." />
       <section className="container-x grid gap-10 py-20 lg:grid-cols-[1fr_1.3fr]">
         <div className="space-y-4">
-          <a href={company.phoneHref} className="flex gap-4 rounded-2xl border bg-card p-6 shadow-card hover:border-primary">
-            <Phone className="size-6 text-primary" />
-            <div><div className="font-semibold">Call us</div><div className="text-muted-foreground">{company.phone} · {company.phoneAlt}</div></div>
+          <a href={company.whatsappHref} target="_blank" rel="noopener noreferrer" className="flex gap-4 rounded-2xl border bg-card p-6 shadow-card hover:border-primary">
+            <WhatsAppIcon className="size-6 shrink-0 text-primary" />
+            <div><div className="font-semibold">WhatsApp us</div><div className="text-muted-foreground">{company.phone} · {company.phoneAlt}</div></div>
           </a>
           <a href={`mailto:${company.email}`} className="flex gap-4 rounded-2xl border bg-card p-6 shadow-card hover:border-primary">
             <Mail className="size-6 text-primary" />

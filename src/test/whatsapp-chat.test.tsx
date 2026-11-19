@@ -11,12 +11,12 @@ describe("WhatsApp contact handoff", () => {
 
   it("preserves the visitor's message including special characters", () => {
     const message = "I need 5,000 sheets/day & a quote for SR-8000.\nCan you help?";
-    const url = new URL(buildWhatsAppChatUrl("+91 93191 23429", message));
+    const url = new URL(buildWhatsAppChatUrl(company.whatsapp, message));
     expect(url.searchParams.get("text")).toBe(message);
   });
 
   it("rejects blank messages", () => {
-    expect(() => buildWhatsAppChatUrl("+91 93191 23429", "  ")).toThrow();
+    expect(() => buildWhatsAppChatUrl(company.whatsapp, "  ")).toThrow();
   });
 
   it("rejects invalid destination numbers", () => {

@@ -16,6 +16,8 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppChat } from "@/components/site/WhatsAppChat";
 import { company } from "@/lib/content";
+import { CookieBanner } from "@/components/site/CookieBanner";
+import consentDefaults from "@/lib/consent-defaults.js?raw";
 
 function NotFoundComponent() {
   return (
@@ -100,7 +102,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
-    scripts: [{ type: "application/ld+json", children: JSON.stringify(orgJsonLd) }],
+    scripts: [{ children: consentDefaults }, { type: "application/ld+json", children: JSON.stringify(orgJsonLd) }],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -133,6 +135,7 @@ function RootComponent() {
       </main>
       <Footer />
       <WhatsAppChat />
+      <CookieBanner />
     </QueryClientProvider>
   );
 }

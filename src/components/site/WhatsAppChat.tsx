@@ -5,6 +5,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Textarea } from "@/components/ui/textarea";
 import { company } from "@/lib/content";
 import { buildWhatsAppChatUrl } from "@/lib/whatsapp-chat";
+import { reportWhatsAppChatStarted } from "@/lib/google-ads";
 
 export function WhatsAppChat() {
   const [open, setOpen] = useState(false);
@@ -60,7 +61,7 @@ export function WhatsAppChat() {
             <div className="space-y-3">
               {chatUrl ? (
                 <Button asChild className="h-11 w-full">
-                  <a href={chatUrl} target="_blank" rel="noopener noreferrer">Continue in WhatsApp <ArrowUpRight aria-hidden="true" /></a>
+                  <a href={chatUrl} target="_blank" rel="noopener noreferrer" onClick={() => void reportWhatsAppChatStarted()}>Continue in WhatsApp <ArrowUpRight aria-hidden="true" /></a>
                 </Button>
               ) : (
                 <Button disabled className="h-11 w-full">Continue in WhatsApp <ArrowUpRight aria-hidden="true" /></Button>

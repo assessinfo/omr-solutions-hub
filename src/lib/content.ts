@@ -45,6 +45,8 @@ export const company = {
   phone: "+91 93191 23429",
   phoneHref: "tel:+919319123429",
   phoneAlt: "+91 89548 00532",
+  whatsapp: "+91 85913 03477",
+  whatsappHref: "https://wa.me/918591303477",
   email: "sales@omr.co.in",
   founded: 2004,
   offices: [

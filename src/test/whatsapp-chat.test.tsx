@@ -1,11 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { buildWhatsAppChatUrl } from "@/lib/whatsapp-chat";
+import { company } from "@/lib/content";
 
 describe("WhatsApp contact handoff", () => {
-  it("addresses the listed company number, not the visitor's number", () => {
-    const url = new URL(buildWhatsAppChatUrl("+91 93191 23429", "Hello"));
+  it("addresses the company's WhatsApp number, not the visitor's number", () => {
+    const url = new URL(buildWhatsAppChatUrl(company.whatsapp, "Hello"));
     expect(url.hostname).toBe("wa.me");
-    expect(url.pathname).toBe("/919319123429");
+    expect(url.pathname).toBe("/918591303477");
   });
 
   it("preserves the visitor's message including special characters", () => {

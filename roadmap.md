@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Add a site-wide chat window that continues in the visitor's WhatsApp (using the listed contact number pending confirmation).
+
 - [x] Add a matching quote landing page with the supplied Bitrix24 form and home/header links.
 
 - [x] Add cPanel Node.js deployment configuration for `public_html/web`.

@@ -17,7 +17,7 @@ import { Footer } from "@/components/site/Footer";
 import { WhatsAppChat } from "@/components/site/WhatsAppChat";
 import { company } from "@/lib/content";
 import { CookieBanner } from "@/components/site/CookieBanner";
-import consentDefaults from "@/lib/consent-defaults.js?raw";
+import { consentDefaults } from "@/lib/consent-defaults";
 
 function NotFoundComponent() {
   return (

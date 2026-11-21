@@ -1,13 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
-import { ArrowDown, ArrowRight, ExternalLink, Mail } from "lucide-react";
+import { ArrowDown, ArrowRight, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { seo } from "@/components/site/Blocks";
 import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 import { company } from "@/lib/content";
 import corporate from "@/assets/corporate.jpg";
-
-const enquiryUrl = "https://b24-3mkqec.bitrix24.site/crm_form_60f1e/";
 
 function BitrixInlineForm() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -58,7 +56,6 @@ function EnquiryLanding() {
               <a href={company.whatsappHref} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 font-semibold hover:text-primary"><WhatsAppIcon className="size-5 shrink-0 text-primary" /> {company.phone}</a>
               <a href={`mailto:${company.email}`} className="flex items-center gap-3 break-all font-semibold hover:text-primary"><Mail className="size-5 shrink-0 text-primary" /> {company.email}</a>
             </div>
-            <Button asChild variant="outline" className="mt-8"><a href={enquiryUrl} target="_blank" rel="noopener noreferrer">Open enquiry form <ExternalLink /></a></Button>
           </div>
           <div className="min-w-0"><BitrixInlineForm /></div>
         </div>

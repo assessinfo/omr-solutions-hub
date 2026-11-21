@@ -26,8 +26,8 @@ import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
 import { Route as SolutionsIndexRouteImport } from './routes/solutions.index'
 import { Route as SolutionsSlugRouteImport } from './routes/solutions.$slug'
+import { Route as ApiPublicRssDotxmlRouteImport } from './routes/api/public/rss[.]xml'
 import { Route as ApiPublicHoloWebhookRouteImport } from './routes/api/public/holo/webhook'
-import { Route as ApiPublicRssXmlRouteImport } from './routes/api/public/rss.xml'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -114,14 +114,14 @@ const SolutionsSlugRoute = SolutionsSlugRouteImport.update({
   path: '/solutions/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicRssDotxmlRoute = ApiPublicRssDotxmlRouteImport.update({
+  id: '/api/public/rss.xml',
+  path: '/api/public/rss.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicHoloWebhookRoute = ApiPublicHoloWebhookRouteImport.update({
   id: '/api/public/holo/webhook',
   path: '/api/public/holo/webhook',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiPublicRssXmlRoute = ApiPublicRssXmlRouteImport.update({
-  id: '/api/public/rss/xml',
-  path: '/api/public/rss/xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -143,8 +143,8 @@ export interface FileRoutesByFullPath {
   '/solutions/$slug': typeof SolutionsSlugRoute
   '/products/': typeof ProductsIndexRoute
   '/solutions/': typeof SolutionsIndexRoute
+  '/api/public/rss.xml': typeof ApiPublicRssDotxmlRoute
   '/api/public/holo/webhook': typeof ApiPublicHoloWebhookRoute
-  '/api/public/rss/xml': typeof ApiPublicRssXmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -164,8 +164,8 @@ export interface FileRoutesByTo {
   '/solutions/$slug': typeof SolutionsSlugRoute
   '/products': typeof ProductsIndexRoute
   '/solutions': typeof SolutionsIndexRoute
+  '/api/public/rss.xml': typeof ApiPublicRssDotxmlRoute
   '/api/public/holo/webhook': typeof ApiPublicHoloWebhookRoute
-  '/api/public/rss/xml': typeof ApiPublicRssXmlRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -186,8 +186,8 @@ export interface FileRoutesById {
   '/solutions/$slug': typeof SolutionsSlugRoute
   '/products/': typeof ProductsIndexRoute
   '/solutions/': typeof SolutionsIndexRoute
+  '/api/public/rss.xml': typeof ApiPublicRssDotxmlRoute
   '/api/public/holo/webhook': typeof ApiPublicHoloWebhookRoute
-  '/api/public/rss/xml': typeof ApiPublicRssXmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -209,8 +209,8 @@ export interface FileRouteTypes {
     | '/solutions/$slug'
     | '/products/'
     | '/solutions/'
+    | '/api/public/rss.xml'
     | '/api/public/holo/webhook'
-    | '/api/public/rss/xml'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -230,8 +230,8 @@ export interface FileRouteTypes {
     | '/solutions/$slug'
     | '/products'
     | '/solutions'
+    | '/api/public/rss.xml'
     | '/api/public/holo/webhook'
-    | '/api/public/rss/xml'
   id:
     | '__root__'
     | '/'
@@ -251,8 +251,8 @@ export interface FileRouteTypes {
     | '/solutions/$slug'
     | '/products/'
     | '/solutions/'
+    | '/api/public/rss.xml'
     | '/api/public/holo/webhook'
-    | '/api/public/rss/xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -273,8 +273,8 @@ export interface RootRouteChildren {
   SolutionsSlugRoute: typeof SolutionsSlugRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
   SolutionsIndexRoute: typeof SolutionsIndexRoute
+  ApiPublicRssDotxmlRoute: typeof ApiPublicRssDotxmlRoute
   ApiPublicHoloWebhookRoute: typeof ApiPublicHoloWebhookRoute
-  ApiPublicRssXmlRoute: typeof ApiPublicRssXmlRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -398,18 +398,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolutionsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/rss.xml': {
+      id: '/api/public/rss.xml'
+      path: '/api/public/rss.xml'
+      fullPath: '/api/public/rss.xml'
+      preLoaderRoute: typeof ApiPublicRssDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/holo/webhook': {
       id: '/api/public/holo/webhook'
       path: '/api/public/holo/webhook'
       fullPath: '/api/public/holo/webhook'
       preLoaderRoute: typeof ApiPublicHoloWebhookRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/public/rss/xml': {
-      id: '/api/public/rss/xml'
-      path: '/api/public/rss/xml'
-      fullPath: '/api/public/rss/xml'
-      preLoaderRoute: typeof ApiPublicRssXmlRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -433,8 +433,8 @@ const rootRouteChildren: RootRouteChildren = {
   SolutionsSlugRoute: SolutionsSlugRoute,
   ProductsIndexRoute: ProductsIndexRoute,
   SolutionsIndexRoute: SolutionsIndexRoute,
+  ApiPublicRssDotxmlRoute: ApiPublicRssDotxmlRoute,
   ApiPublicHoloWebhookRoute: ApiPublicHoloWebhookRoute,
-  ApiPublicRssXmlRoute: ApiPublicRssXmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

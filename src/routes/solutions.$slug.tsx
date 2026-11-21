@@ -3,6 +3,7 @@ import { DetailView, seo } from "@/components/site/Blocks";
 import { solutions } from "@/lib/content";
 
 export const Route = createFileRoute("/solutions/$slug")({
+  staticData: { sitemap: true },
   loader: ({ params }) => {
     const page = solutions.find((s) => s.slug === params.slug);
     if (!page) throw notFound();

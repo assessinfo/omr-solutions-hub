@@ -5,6 +5,7 @@ import { blogQuery } from "@/lib/blog";
 import { useSuspenseQuery } from "@tanstack/react-query";
 
 export const Route = createFileRoute("/news")({
+  staticData: { sitemap: true },
   loader: ({ context }) => context.queryClient.ensureQueryData(blogQuery),
   head: () => {
     const base = seo(

@@ -10,6 +10,7 @@ import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 import { company } from "@/lib/content";
 
 export const Route = createFileRoute("/contact")({
+  staticData: { sitemap: true },
   head: () =>
     seo(
       "Contact OMR Solutions — Delhi & Mumbai Offices | +91 85913 03477",

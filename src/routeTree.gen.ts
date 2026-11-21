@@ -20,6 +20,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as GetAQuoteRouteImport } from './routes/get-a-quote'
 import { Route as NewsRouteImport } from './routes/news'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as Omr_webSplatRouteImport } from './routes/omr_web.$'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
@@ -84,6 +85,11 @@ const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
   path: '/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/blog/$slug',
   path: '/blog/$slug',
@@ -137,6 +143,7 @@ export interface FileRoutesByFullPath {
   '/get-a-quote': typeof GetAQuoteRoute
   '/news': typeof NewsRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/omr_web/$': typeof Omr_webSplatRoute
   '/products/$slug': typeof ProductsSlugRoute
@@ -158,6 +165,7 @@ export interface FileRoutesByTo {
   '/get-a-quote': typeof GetAQuoteRoute
   '/news': typeof NewsRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/omr_web/$': typeof Omr_webSplatRoute
   '/products/$slug': typeof ProductsSlugRoute
@@ -180,6 +188,7 @@ export interface FileRoutesById {
   '/get-a-quote': typeof GetAQuoteRoute
   '/news': typeof NewsRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/omr_web/$': typeof Omr_webSplatRoute
   '/products/$slug': typeof ProductsSlugRoute
@@ -203,6 +212,7 @@ export interface FileRouteTypes {
     | '/get-a-quote'
     | '/news'
     | '/privacy-policy'
+    | '/sitemap.xml'
     | '/blog/$slug'
     | '/omr_web/$'
     | '/products/$slug'
@@ -224,6 +234,7 @@ export interface FileRouteTypes {
     | '/get-a-quote'
     | '/news'
     | '/privacy-policy'
+    | '/sitemap.xml'
     | '/blog/$slug'
     | '/omr_web/$'
     | '/products/$slug'
@@ -245,6 +256,7 @@ export interface FileRouteTypes {
     | '/get-a-quote'
     | '/news'
     | '/privacy-policy'
+    | '/sitemap.xml'
     | '/blog/$slug'
     | '/omr_web/$'
     | '/products/$slug'
@@ -267,6 +279,7 @@ export interface RootRouteChildren {
   GetAQuoteRoute: typeof GetAQuoteRoute
   NewsRoute: typeof NewsRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   BlogSlugRoute: typeof BlogSlugRoute
   Omr_webSplatRoute: typeof Omr_webSplatRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
@@ -356,6 +369,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog/$slug': {
       id: '/blog/$slug'
       path: '/blog/$slug'
@@ -427,6 +447,7 @@ const rootRouteChildren: RootRouteChildren = {
   GetAQuoteRoute: GetAQuoteRoute,
   NewsRoute: NewsRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   BlogSlugRoute: BlogSlugRoute,
   Omr_webSplatRoute: Omr_webSplatRoute,
   ProductsSlugRoute: ProductsSlugRoute,

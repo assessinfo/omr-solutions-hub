@@ -3,6 +3,7 @@ import { seo } from "@/components/site/Blocks";
 import { blogQuery } from "@/lib/blog";
 
 export const Route = createFileRoute("/blog/$slug")({
+  staticData: { sitemap: true },
   loader: async ({ context, params }) => {
     const posts = await context.queryClient.ensureQueryData(blogQuery);
     const post = posts.find((item) => item.slug === params.slug);
@@ -11,8 +12,7 @@ export const Route = createFileRoute("/blog/$slug")({
   },
   head: ({ loaderData }) => {
     const title = loaderData?.meta_title || loaderData?.title || "Article";
-    const head = seo(`${title} | OMR Solutions`, loaderData?.meta_description || loaderData?.excerpt || "OMR Solutions articles and insights.", `/blog/${loaderData?.slug || ""}`, "article");
-    if (loaderData?.featured_image) head.meta.push({ property: "og:image", content: loaderData.featured_image }, { name: "twitter:image", content: loaderData.featured_image });
+    const head = seo(`${title} | OMR Solutions`, loaderData?.meta_description || loaderData?.excerpt || "OMR Solutions articles and insights.", `/blog/${loaderData?.slug || ""}`, "article", loaderData?.featured_image || undefined);
     return head;
   },
   component: BlogArticle,

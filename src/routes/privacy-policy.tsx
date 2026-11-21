@@ -3,6 +3,7 @@ import { PageHero, seo } from "@/components/site/Blocks";
 import { company } from "@/lib/content";
 
 export const Route = createFileRoute("/privacy-policy")({
+  staticData: { sitemap: true },
   head: () => seo("Privacy Policy | OMR Solutions", "How OMR India Outsources Pvt Ltd, owner of the OMR Solutions brand, collects, uses and protects information you share through our website and enquiries.", "/privacy-policy"),
   component: Privacy,
 });

@@ -7,6 +7,7 @@ import { company } from "@/lib/content";
 import { CareerGrowth, OrgChart } from "@/components/site/CareerGrowth";
 
 export const Route = createFileRoute("/company-policy")({
+  staticData: { sitemap: true },
   head: () =>
     seo(
       "Company Policy — Employee-Friendly Workplace | OMR Solutions",

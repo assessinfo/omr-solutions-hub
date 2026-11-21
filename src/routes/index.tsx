@@ -7,6 +7,7 @@ import hero from "@/assets/sr8000-hybrid-clean.jpg";
 import { ScannerAdvisor } from "@/components/site/ScannerAdvisor";
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () =>
     seo(
       "OMR Scanners, OMR Software & Exam Processing in India | OMR Solutions",

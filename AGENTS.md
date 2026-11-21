@@ -38,3 +38,7 @@ use the editor.
 - The quote landing page embeds the externally hosted CRM form and offers its direct link as a fallback; submissions stay owned by the CRM rather than duplicating lead capture locally.
 - WhatsApp chat is a shared client-side contact widget using a validated wa.me handoff; do not imply messages are sent or replies happen inside the website.
 - Google Ads tag and conversions load only through `src/lib/google-ads.ts`, gated by the shared consent module `src/lib/consent.ts` and the single `CookieBanner`; Consent Mode defaults run first in `__root` head — so no tag fires before regional consent is resolved.
+
+- Production canonical, breadcrumb, feed, webhook and default share URLs use `src/lib/site.ts` so the public origin has one source of truth.
+- Sitemap static paths follow required route inclusion settings; catalogue slugs and all publicly readable blog slugs are expanded at request time with pagination and page-specific publication dates only.
+- Leaf SEO metadata owns one share image pair; blog featured images override the shared scanner fallback without inheriting its dimensions.

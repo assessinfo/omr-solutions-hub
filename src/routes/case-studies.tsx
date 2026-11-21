@@ -5,6 +5,7 @@ import { CtaBand, PageHero, seo } from "@/components/site/Blocks";
 import { caseStudies, company } from "@/lib/content";
 
 export const Route = createFileRoute("/case-studies")({
+  staticData: { sitemap: true },
   head: () =>
     seo(
       "Remark Office OMR Case Studies — Universities, Coaching, Healthcare",

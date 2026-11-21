@@ -4,6 +4,7 @@ import { CtaBand, PageHero, Stats, seo } from "@/components/site/Blocks";
 import { clientSectors } from "@/lib/content";
 
 export const Route = createFileRoute("/clients")({
+  staticData: { sitemap: true },
   head: () =>
     seo(
       "Our Clients — Universities, PSCs, Corporates & Schools | OMR Solutions",

@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { createClient } from "@supabase/supabase-js";
 import type { Database } from "@/integrations/supabase/types";
 
-const SITE = "https://omrsolutions.co.in";
+import { SITE_URL } from "@/lib/site";
 
 function escapeXml(value: string): string {
   return value
@@ -14,6 +14,7 @@ function escapeXml(value: string): string {
 }
 
 export const Route = createFileRoute("/api/public/rss.xml")({
+  staticData: { sitemap: false },
   server: {
     handlers: {
       GET: async () => {
@@ -40,7 +41,7 @@ export const Route = createFileRoute("/api/public/rss.xml")({
 
         const items = (data ?? [])
           .map((post) => {
-            const link = `${SITE}/blog/${post.slug}`;
+            const link = `${SITE_URL}/blog/${post.slug}`;
             const pubDate = post.published_at ? new Date(post.published_at).toUTCString() : "";
             const image = post.featured_image
               ? `\n      <enclosure url="${escapeXml(post.featured_image)}" type="image/jpeg" />`
@@ -59,10 +60,10 @@ export const Route = createFileRoute("/api/public/rss.xml")({
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>OMR Solutions — News &amp; Articles</title>
-  <link>${SITE}/news</link>
+  <link>${SITE_URL}/news</link>
   <description>Latest articles, product news and milestones from OMR Solutions (OMR India Outsources Pvt Ltd).</description>
   <language>en-in</language>
-  <atom:link href="${SITE}/api/public/rss.xml" rel="self" type="application/rss+xml" />
+  <atom:link href="${SITE_URL}/api/public/rss.xml" rel="self" type="application/rss+xml" />
 ${items}
 </channel>
 </rss>`;

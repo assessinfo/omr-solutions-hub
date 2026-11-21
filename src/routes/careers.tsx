@@ -5,6 +5,7 @@ import { CtaBand, PageHero, SectionHead, seo } from "@/components/site/Blocks";
 import { company } from "@/lib/content";
 
 export const Route = createFileRoute("/careers")({
+  staticData: { sitemap: true },
   head: () =>
     seo(
       "Careers at OMR Solutions — Business Development Manager, Mumbai",

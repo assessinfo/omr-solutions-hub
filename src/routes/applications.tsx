@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { CtaBand, PageHero, seo } from "@/components/site/Blocks";
 
 export const Route = createFileRoute("/applications")({
+  staticData: { sitemap: true },
   head: () =>
     seo(
       "OMR Application Areas — Exams, Surveys, Registrations & Census",

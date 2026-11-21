@@ -6,12 +6,20 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 
 export const Route = createFileRoute("/news")({
   loader: ({ context }) => context.queryClient.ensureQueryData(blogQuery),
-  head: () =>
-    seo(
+  head: () => {
+    const base = seo(
       "News & Milestones | OMR Solutions",
       "Product launches, exhibitions and partnerships from OMR Solutions — from Asia IT Expo to GESS Dubai and the Vision OMR launch.",
       "/news",
-    ),
+    );
+    return {
+      ...base,
+      links: [
+        ...base.links,
+        { rel: "alternate", type: "application/rss+xml", title: "OMR Solutions — News & Articles", href: "/api/public/rss.xml" },
+      ],
+    };
+  },
   component: News,
 });
 
@@ -20,7 +28,10 @@ function News() {
   return (
     <>
       <PageHero eyebrow="Press & media" title="Milestones along the way" intro="Launches, exhibitions and partnerships from our archive.">
-        <Link to="/case-studies" className="font-semibold text-primary">Read our case studies →</Link>
+        <span className="flex flex-wrap gap-6">
+          <Link to="/case-studies" className="font-semibold text-primary">Read our case studies →</Link>
+          <a href="/api/public/rss.xml" className="font-semibold text-primary">Subscribe via RSS →</a>
+        </span>
       </PageHero>
       {posts.length > 0 && <section className="container-x pt-16">
         <h2 className="mb-8 text-3xl font-semibold">Latest articles</h2>

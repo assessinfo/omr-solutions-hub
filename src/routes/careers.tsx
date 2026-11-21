@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Briefcase, CalendarDays, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CtaBand, PageHero, SectionHead, seo } from "@/components/site/Blocks";
@@ -74,6 +74,15 @@ function Careers() {
             ))}
           </ol>
           <p className="mt-8 text-sm text-muted-foreground">Send your CV to <a className="font-semibold text-primary" href={apply}>{company.email}</a>.</p>
+        </div>
+      </section>
+      <section className="container-x pb-20">
+        <div className="flex flex-col items-start justify-between gap-4 rounded-2xl bg-secondary p-8 sm:flex-row sm:items-center">
+          <div>
+            <h2 className="text-xl font-bold">How we treat our people</h2>
+            <p className="mt-1 text-sm text-muted-foreground">Hybrid work, real leave, learning support and an open door — read our employee-friendly company policy.</p>
+          </div>
+          <Button asChild variant="outline"><Link to="/company-policy">Read our company policy <ArrowRight /></Link></Button>
         </div>
       </section>
       <CtaBand title="Not the right role?" text="We're always glad to hear from people who care about fair exams. Drop us a line." />

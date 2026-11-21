@@ -3,6 +3,7 @@ import { DetailView, seo } from "@/components/site/Blocks";
 import { company, products } from "@/lib/content";
 import { SITE_URL } from "@/lib/site";
 import { RemarkHero, RemarkResources } from "@/components/site/RemarkOffice";
+import { SheetPrintingMedia } from "@/components/site/SheetPrinting";
 
 export const Route = createFileRoute("/products/$slug")({
   staticData: { sitemap: true },
@@ -77,5 +78,8 @@ function ProductPage() {
       : p.slug !== page.slug && p.group === page.group)
     .slice(0, 3)
     .map((p) => ({ label: p.name, to: `/products/${p.slug}`, summary: p.summary }));
+  if (page.slug === "omr-sheets") {
+    return <DetailView page={page} related={related} afterHero={<SheetPrintingMedia />} />;
+  }
   return <DetailView page={page} related={related} {...(page.slug === "remark-office-omr" ? { hero: <RemarkHero page={page} />, afterHero: <RemarkResources /> } : {})} />;
 }

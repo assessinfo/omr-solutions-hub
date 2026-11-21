@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CtaBand, PageHero, seo } from "@/components/site/Blocks";
+import { CompanyUpdates } from "@/components/site/CompanyUpdates";
 import { news } from "@/lib/content";
 import { blogQuery } from "@/lib/blog";
 import { useSuspenseQuery } from "@tanstack/react-query";
@@ -34,6 +35,7 @@ function News() {
           <a href="/api/public/rss.xml" className="font-semibold text-primary">Subscribe via RSS →</a>
         </span>
       </PageHero>
+      <CompanyUpdates compact />
       {posts.length > 0 && <section className="container-x pt-16">
         <h2 className="mb-8 text-3xl font-semibold">Latest articles</h2>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

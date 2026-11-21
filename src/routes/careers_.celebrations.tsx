@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, CalendarHeart, Camera, Palette, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CtaBand, PageHero, SectionHead, seo } from "@/components/site/Blocks";
+import { CompanyUpdates } from "@/components/site/CompanyUpdates";
 import { company } from "@/lib/content";
 import holi from "@/assets/IMG_1385.jpeg.asset.json";
 import ganpati from "@/assets/IMG_3856.JPG.asset.json";
@@ -152,6 +153,8 @@ function Celebrations() {
           </p>
         </div>
       </section>
+
+      <CompanyUpdates />
 
       <section className="container-x py-16">
         <SectionHead eyebrow="Why we make time for it" title="Because the year is long and the work is hard" />

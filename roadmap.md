@@ -48,5 +48,5 @@
 
 - [x] Complete the three requested SEO fixes: shared production domain, sitemap and default share image; 27 tests pass and 41 sitemap URLs verified in preview without changing designs/content/redirects.
 
-- [ ] Add staff training, promotions & incentives, Japan/abroad visits and partner visits in India to both the News page and the Life at OMR page (photos uploaded, block being built).
-- [ ] Add the newly uploaded photo and video to the OMR Printing Sheets page (media being inspected).
+- [x] Add staff training, promotions & incentives, Japan/abroad visits and partner visits in India to both the News page and the Life at OMR page (six photos, verified in preview).
+- [x] Add the newly uploaded photo and video to the OMR Printing Sheets page (video plays, sample sheet shown, verified in preview).

@@ -4,6 +4,7 @@ import { ArrowRight, CalendarHeart, GraduationCap, HandHeart, HeartPulse, Home, 
 import { Button } from "@/components/ui/button";
 import { CtaBand, PageHero, SectionHead, seo } from "@/components/site/Blocks";
 import { company } from "@/lib/content";
+import { CareerGrowth, OrgChart } from "@/components/site/CareerGrowth";
 
 export const Route = createFileRoute("/company-policy")({
   head: () =>
@@ -88,6 +89,9 @@ function CompanyPolicy() {
           ))}
         </div>
       </section>
+
+      <CareerGrowth />
+      <OrgChart />
 
       <section className="container-x grid gap-12 pb-20 lg:grid-cols-2">
         <div>

@@ -7,8 +7,8 @@ export function SheetPrintingMedia() {
       <div className="grid gap-8 lg:grid-cols-[1fr_1.15fr] lg:items-center">
         <div className="mx-auto w-full max-w-[300px] overflow-hidden rounded-2xl border bg-black shadow-lift">
           <video
-            src={printingVideo.src}
-            poster={sampleSheet.src}
+            src={printingVideo.url}
+            poster={sampleSheet.url}
             autoPlay
             muted
             loop
@@ -41,13 +41,13 @@ export function SheetPrintingMedia() {
 
       <div className="mt-10 grid gap-6 md:grid-cols-[minmax(0,320px)_1fr] md:items-center">
         <a
-          href={sampleSheet.src}
+          href={sampleSheet.url}
           target="_blank"
           rel="noopener"
           className="group overflow-hidden rounded-2xl border bg-card shadow-card transition-shadow hover:shadow-lift"
         >
           <img
-            src={sampleSheet.src}
+            src={sampleSheet.url}
             alt="Sample OMR candidate data sheet printed in three detachable parts: main answer book, valuer's record and the part detached for scanning"
             loading="lazy"
             className="aspect-[4/5] w-full object-contain bg-secondary p-3 transition-transform duration-300 group-hover:scale-[1.02]"

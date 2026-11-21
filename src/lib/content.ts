@@ -631,7 +631,7 @@ export const products: DetailPage[] = [
     summary: "Custom OMR answer sheet design and security printing.",
     image: education,
     gallery: [
-      { src: sampleSheet.src, alt: "Sample OMR candidate data sheet printed in three detachable parts" },
+      { src: sampleSheet.url, alt: "Sample OMR candidate data sheet printed in three detachable parts" },
     ],
     highlights: [
       { title: "What is an OMR sheet?", text: "An OMR sheet is a paper form with predefined response areas, usually bubbles, that people fill to record answers or information. OMR stands for Optical Mark Recognition: a reader or compatible software detects those marks and turns them into data for grading or analysis. An OMR answer sheet records multiple-choice responses separately from the question paper." },

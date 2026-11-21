@@ -22,6 +22,7 @@ import { Route as NewsRouteImport } from './routes/news'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as CareersCelebrationsRouteImport } from './routes/careers_.celebrations'
 import { Route as Omr_webSplatRouteImport } from './routes/omr_web.$'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
@@ -95,6 +96,11 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CareersCelebrationsRoute = CareersCelebrationsRouteImport.update({
+  id: '/careers_/celebrations',
+  path: '/careers/celebrations',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const Omr_webSplatRoute = Omr_webSplatRouteImport.update({
   id: '/omr_web/$',
   path: '/omr_web/$',
@@ -145,6 +151,7 @@ export interface FileRoutesByFullPath {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/careers/celebrations': typeof CareersCelebrationsRoute
   '/omr_web/$': typeof Omr_webSplatRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
@@ -167,6 +174,7 @@ export interface FileRoutesByTo {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/careers/celebrations': typeof CareersCelebrationsRoute
   '/omr_web/$': typeof Omr_webSplatRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
@@ -190,6 +198,7 @@ export interface FileRoutesById {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/careers_/celebrations': typeof CareersCelebrationsRoute
   '/omr_web/$': typeof Omr_webSplatRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
@@ -214,6 +223,7 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/blog/$slug'
+    | '/careers/celebrations'
     | '/omr_web/$'
     | '/products/$slug'
     | '/solutions/$slug'
@@ -236,6 +246,7 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/blog/$slug'
+    | '/careers/celebrations'
     | '/omr_web/$'
     | '/products/$slug'
     | '/solutions/$slug'
@@ -258,6 +269,7 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/blog/$slug'
+    | '/careers_/celebrations'
     | '/omr_web/$'
     | '/products/$slug'
     | '/solutions/$slug'
@@ -281,6 +293,7 @@ export interface RootRouteChildren {
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   BlogSlugRoute: typeof BlogSlugRoute
+  CareersCelebrationsRoute: typeof CareersCelebrationsRoute
   Omr_webSplatRoute: typeof Omr_webSplatRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
   SolutionsSlugRoute: typeof SolutionsSlugRoute
@@ -383,6 +396,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/careers_/celebrations': {
+      id: '/careers_/celebrations'
+      path: '/careers/celebrations'
+      fullPath: '/careers/celebrations'
+      preLoaderRoute: typeof CareersCelebrationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/omr_web/$': {
       id: '/omr_web/$'
       path: '/omr_web/$'
@@ -449,6 +469,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   BlogSlugRoute: BlogSlugRoute,
+  CareersCelebrationsRoute: CareersCelebrationsRoute,
   Omr_webSplatRoute: Omr_webSplatRoute,
   ProductsSlugRoute: ProductsSlugRoute,
   SolutionsSlugRoute: SolutionsSlugRoute,

@@ -46,4 +46,4 @@
 - [ ] Facebook page and X auto-posting (blocked: no posting connection available)
 - [x] Add RSS feed for blog articles at /api/public/rss.xml and publish it live
 
-- [ ] Complete the three requested SEO fixes: shared production domain, sitemap and default share image; verify without changing designs/content/redirects.
+- [x] Complete the three requested SEO fixes: shared production domain, sitemap and default share image; 27 tests pass and 41 sitemap URLs verified in preview without changing designs/content/redirects.

@@ -42,3 +42,4 @@ use the editor.
 - Production canonical, breadcrumb, feed, webhook and default share URLs use `src/lib/site.ts` so the public origin has one source of truth.
 - Sitemap static paths follow required route inclusion settings; catalogue slugs and all publicly readable blog slugs are expanded at request time with pagination and page-specific publication dates only.
 - Leaf SEO metadata owns one share image pair; blog featured images override the shared scanner fallback without inheriting its dimensions.
+- Company-life content lives in `src/components/site/CompanyUpdates.tsx` (compact on `/news`, full sections on `/careers/celebrations`) and the printing clip plus sample sheet on the OMR Answer Sheets page come from `src/components/site/SheetPrinting.tsx`; use the company's own photographs only, never stock or AI imagery, and never imply the people shown endorse a product.

@@ -1,7 +1,8 @@
 # Roadmap
 
 - [x] Add Holo's signed publish/update webhook, transactional article storage, safe HTML rendering and public blog pages linked from News (23 tests pass).
-- [ ] Confirm the Holo receiver deployment (publication requested), then save Holo's signing secret and verify a Holo test and real article update.
+- [x] Confirm the Holo receiver is live on omrsolutions.co.in and save Holo's signing secret.
+- [ ] Verify a Holo test delivery and a real article update (awaiting Holo sending one).
 
 - [x] Add a site-wide chat window that continues in the visitor's WhatsApp, tested on desktop and phone.
 - [x] Confirm the WhatsApp number that receives visitors' messages (+91 85913 03477).
@@ -38,6 +39,8 @@
 - [x] Add a cookie notice shown only in privacy regions (EU/EEA, UK, Switzerland, Canada) with a footer "Cookie settings" link; update privacy policy.
 - [x] Create the OMR scanner Google Search campaign (created paused, id 24513728855).
 - [x] Shift the call icon at the phone number to a WhatsApp icon site-wide (header, footer, contact, quote page, hero/CTA banners); number opens WhatsApp.
+
+- [x] Add the Company Policy page and link it from Careers and the footer; published to omrsolutions.co.in.
 
 - [ ] Auto-share new Holo blog articles to LinkedIn company page (on hold: user declined personal profile; connection lacks company page permission)
 - [ ] Facebook page and X auto-posting (blocked: no posting connection available)

@@ -130,7 +130,7 @@ export function CompanyUpdates({ compact = false }: { compact?: boolean }) {
                 <h2 className="mt-4 text-3xl font-bold leading-tight md:text-4xl">{u.title}</h2>
                 <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{u.text}</p>
               </div>
-              <div className={`grid gap-4 ${u.photos.length > 1 ? "sm:grid-cols-2" : ""}`}>
+              <div className={`grid items-start gap-4 ${u.photos.length > 1 ? "sm:grid-cols-2" : ""}`}>
                 {u.photos.map((p) => (
                   <a
                     key={p.url}
@@ -143,7 +143,7 @@ export function CompanyUpdates({ compact = false }: { compact?: boolean }) {
                       src={p.url}
                       alt={p.alt}
                       loading="lazy"
-                      className={`w-full object-cover transition-transform duration-300 group-hover:scale-[1.02] ${p.portrait ? "aspect-[3/4]" : "aspect-[4/3]"}`}
+                      className={`w-full object-cover transition-transform duration-300 group-hover:scale-[1.02] ${u.photos.length > 1 ? "aspect-[4/5]" : p.portrait ? "aspect-[3/4]" : "aspect-[4/3]"}`}
                     />
                     <p className="border-t px-4 py-3 text-sm text-muted-foreground">{p.caption}</p>
                   </a>

@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useRef } from "react";
 import { ArrowDown, ArrowRight, ExternalLink, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { seo } from "@/components/site/Blocks";
@@ -7,6 +8,23 @@ import { company } from "@/lib/content";
 import corporate from "@/assets/corporate.jpg";
 
 const enquiryUrl = "https://b24-3mkqec.bitrix24.site/crm_form_60f1e/";
+
+function BitrixInlineForm() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    const script = document.createElement("script");
+    script.async = true;
+    script.setAttribute("data-b24-form", "inline/13/1t2chc");
+    script.setAttribute("data-b24-form-telemetry-sign", "v1:13:site.ca9182e60b6a93f22014c77664d9bc65e294244808beec4d694067369a48b27f");
+    script.setAttribute("data-skip-moving", "true");
+    script.src = `https://cdn.bitrix24.in/b1291759/crm/form/loader_13.js?${Math.floor(Date.now() / 180000)}`;
+    container.appendChild(script);
+    return () => { container.replaceChildren(); };
+  }, []);
+  return <div ref={containerRef} className="min-h-[680px] w-full rounded-lg border bg-card p-2" />;
+}
 
 export const Route = createFileRoute("/get-a-quote")({
   head: () => seo("Get an OMR Quote | OMR Solutions", "Contact OMR Solutions for Sekonic scanners, Remark Office OMR, answer sheet printing and exam processing. Share your details to discuss your requirements.", "/get-a-quote"),
@@ -42,7 +60,7 @@ function EnquiryLanding() {
             </div>
             <Button asChild variant="outline" className="mt-8"><a href={enquiryUrl} target="_blank" rel="noopener noreferrer">Open enquiry form <ExternalLink /></a></Button>
           </div>
-          <div className="min-w-0"><iframe src={enquiryUrl} title="OMR Solutions callback enquiry form" className="h-[680px] w-full rounded-lg border bg-card" referrerPolicy="strict-origin-when-cross-origin" /></div>
+          <div className="min-w-0"><BitrixInlineForm /></div>
         </div>
       </section>
       <section className="bg-secondary">

@@ -6,6 +6,7 @@ import ngo from "@/assets/ngo.jpg";
 import corporate from "@/assets/corporate.jpg";
 import ewaste from "@/assets/ewaste.jpg";
 import documents from "@/assets/documents.jpg";
+import sampleSheet from "@/assets/sample-answer-sheet.jpg.asset.json";
 import img11000 from "@/assets/scanners/sr11000.jpg.asset.json";
 import img6500h from "@/assets/scanners/sr6500h.jpg.asset.json";
 import img6500 from "@/assets/scanners/sr6500.jpg.asset.json";
@@ -629,6 +630,9 @@ export const products: DetailPage[] = [
       "Custom OMR sheet design and printing for exams, surveys and feedback forms in India. Match your answer layout, candidate fields and printing requirements to the reader or software you use.",
     summary: "Custom OMR answer sheet design and security printing.",
     image: education,
+    gallery: [
+      { src: sampleSheet.url, alt: "Sample OMR candidate data sheet printed in three detachable parts" },
+    ],
     highlights: [
       { title: "What is an OMR sheet?", text: "An OMR sheet is a paper form with predefined response areas, usually bubbles, that people fill to record answers or information. OMR stands for Optical Mark Recognition: a reader or compatible software detects those marks and turns them into data for grading or analysis. An OMR answer sheet records multiple-choice responses separately from the question paper." },
       { title: "OMR answer sheets for exams", text: "Schools, coaching institutes, universities and recruitment teams use OMR sheets to collect multiple-choice answers in a consistent format. A layout can include question numbers, answer options and candidate identification fields. The question count, number of options and marking instructions should be agreed before the form is printed." },

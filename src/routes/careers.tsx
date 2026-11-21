@@ -77,6 +77,15 @@ function Careers() {
           <p className="mt-8 text-sm text-muted-foreground">Send your CV to <a className="font-semibold text-primary" href={apply}>{company.email}</a>.</p>
         </div>
       </section>
+      <section className="container-x pb-10">
+        <div className="flex flex-col items-start justify-between gap-4 rounded-2xl bg-secondary p-8 sm:flex-row sm:items-center">
+          <div>
+            <h2 className="text-xl font-bold">Life at OMR</h2>
+            <p className="mt-1 text-sm text-muted-foreground">Birthdays in the office, Holi in the yard, Ganpati in the lobby — we celebrate as a family.</p>
+          </div>
+          <Button asChild variant="outline"><Link to="/careers/celebrations">See how we celebrate <ArrowRight /></Link></Button>
+        </div>
+      </section>
       <section className="container-x pb-20">
         <div className="flex flex-col items-start justify-between gap-4 rounded-2xl bg-secondary p-8 sm:flex-row sm:items-center">
           <div>

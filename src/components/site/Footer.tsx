@@ -68,6 +68,7 @@ export function Footer() {
           <div className="flex gap-5">
             <Link to="/applications" className="hover:text-primary">Application areas</Link>
             <Link to="/case-studies" className="hover:text-primary">Case studies</Link>
+            <Link to="/careers/celebrations" className="hover:text-primary">Life at OMR</Link>
             <Link to="/company-policy" className="hover:text-primary">Company policy</Link>
             <Link to="/privacy-policy" className="hover:text-primary">Privacy policy</Link>
             <button type="button" onClick={openCookieSettings} className="hover:text-primary">Cookie settings</button>

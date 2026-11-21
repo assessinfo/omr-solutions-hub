@@ -3,6 +3,7 @@ import { CtaBand, PageHero, SectionHead, Stats, seo } from "@/components/site/Bl
 import building from "@/assets/building.jpg";
 
 export const Route = createFileRoute("/about")({
+  staticData: { sitemap: true },
   head: () =>
     seo(
       "About OMR Solutions — OMR & Outsourcing Experts Since 2004",

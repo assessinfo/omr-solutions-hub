@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { ArrowRight, Check, Download, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { company, type DetailPage } from "@/lib/content";
+import { SITE_URL, DEFAULT_SHARE_IMAGE } from "@/lib/site";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
 export function PageHero({
@@ -221,8 +222,8 @@ export function DetailView({ page, related, relatedTitle = "Related", afterHero,
   );
 }
 
-export function seo(title: string, description: string, path: string, type = "website") {
-  const pageUrl = new URL(path, "https://omr-solutions-hub.lovable.app").href;
+export function seo(title: string, description: string, path: string, type = "website", image?: string) {
+  const pageUrl = new URL(path, SITE_URL).href;
   return {
     meta: [
       { title },
@@ -231,6 +232,12 @@ export function seo(title: string, description: string, path: string, type = "we
       { property: "og:description", content: description },
       { property: "og:url", content: pageUrl },
       { property: "og:type", content: type },
+      { property: "og:image", content: image || DEFAULT_SHARE_IMAGE },
+      { name: "twitter:image", content: image || DEFAULT_SHARE_IMAGE },
+      ...(!image ? [
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "630" },
+      ] : []),
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },

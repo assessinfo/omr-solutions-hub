@@ -25,6 +25,7 @@ function BitrixInlineForm() {
 }
 
 export const Route = createFileRoute("/get-a-quote")({
+  staticData: { sitemap: true },
   head: () => seo("Get an OMR Quote | OMR Solutions", "Contact OMR Solutions for Sekonic scanners, Remark Office OMR, answer sheet printing and exam processing. Share your details to discuss your requirements.", "/get-a-quote"),
   component: EnquiryLanding,
 });

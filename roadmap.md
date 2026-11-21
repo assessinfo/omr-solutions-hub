@@ -45,3 +45,5 @@
 - [ ] Auto-share new Holo blog articles to LinkedIn company page (on hold: user declined personal profile; connection lacks company page permission)
 - [ ] Facebook page and X auto-posting (blocked: no posting connection available)
 - [x] Add RSS feed for blog articles at /api/public/rss.xml and publish it live
+
+- [ ] Complete the three requested SEO fixes: shared production domain, sitemap and default share image; verify without changing designs/content/redirects.

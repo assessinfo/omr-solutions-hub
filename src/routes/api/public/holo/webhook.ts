@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SITE_URL } from "@/lib/site";
 
 export const Route = createFileRoute("/api/public/holo/webhook")({
+  staticData: { sitemap: false },
   server: { handlers: {
     GET: () => Response.json({ service: "OMR Solutions Holo publishing", method: "POST" }),
     POST: async ({ request }) => {
@@ -24,7 +26,7 @@ export const Route = createFileRoute("/api/public/holo/webhook")({
         const { error } = await supabaseAdmin.rpc("apply_holo_article", { p_payload: payload });
         if (error) { console.error("Holo article persistence failed", error.code); return Response.json({ message: "Article could not be saved; retry delivery" }, { status: 500 }); }
       } catch { return Response.json({ message: "Article storage unavailable; retry delivery" }, { status: 500 }); }
-      return Response.json(payload.test ? { message: "Test webhook received" } : { url: `https://omrsolutions.co.in/blog/${payload.article.slug}` });
+      return Response.json(payload.test ? { message: "Test webhook received" } : { url: `${SITE_URL}/blog/${payload.article.slug}` });
     },
   } },
 });

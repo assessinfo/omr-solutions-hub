@@ -1,9 +1,11 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { DetailView, seo } from "@/components/site/Blocks";
 import { company, products } from "@/lib/content";
+import { SITE_URL } from "@/lib/site";
 import { RemarkHero, RemarkResources } from "@/components/site/RemarkOffice";
 
 export const Route = createFileRoute("/products/$slug")({
+  staticData: { sitemap: true },
   loader: ({ params }) => {
     const page = products.find((p) => p.slug === params.slug);
     if (!page) throw notFound();
@@ -32,8 +34,8 @@ export const Route = createFileRoute("/products/$slug")({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Products", item: "https://omr-solutions-hub.lovable.app/products" },
-              { "@type": "ListItem", position: 2, name: loaderData.name, item: `https://omr-solutions-hub.lovable.app/products/${params.slug}` },
+              { "@type": "ListItem", position: 1, name: "Products", item: `${SITE_URL}/products` },
+              { "@type": "ListItem", position: 2, name: loaderData.name, item: `${SITE_URL}/products/${params.slug}` },
             ],
           }),
         },

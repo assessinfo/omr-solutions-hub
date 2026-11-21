@@ -4,6 +4,7 @@ import { CtaBand, PageHero, seo } from "@/components/site/Blocks";
 import { productGroups, products } from "@/lib/content";
 
 export const Route = createFileRoute("/products/")({
+  staticData: { sitemap: true },
   head: () =>
     seo(
       "OMR Scanners, OMR Software, Sheets & Document Scanners | Products",

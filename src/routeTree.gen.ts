@@ -15,6 +15,7 @@ import { Route as ApplicationsRouteImport } from './routes/applications'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as ClientsRouteImport } from './routes/clients'
+import { Route as CompanyPolicyRouteImport } from './routes/company-policy'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as GetAQuoteRouteImport } from './routes/get-a-quote'
 import { Route as NewsRouteImport } from './routes/news'
@@ -55,6 +56,11 @@ const CaseStudiesRoute = CaseStudiesRouteImport.update({
 const ClientsRoute = ClientsRouteImport.update({
   id: '/clients',
   path: '/clients',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompanyPolicyRoute = CompanyPolicyRouteImport.update({
+  id: '/company-policy',
+  path: '/company-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -120,6 +126,7 @@ export interface FileRoutesByFullPath {
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
   '/clients': typeof ClientsRoute
+  '/company-policy': typeof CompanyPolicyRoute
   '/contact': typeof ContactRoute
   '/get-a-quote': typeof GetAQuoteRoute
   '/news': typeof NewsRoute
@@ -139,6 +146,7 @@ export interface FileRoutesByTo {
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
   '/clients': typeof ClientsRoute
+  '/company-policy': typeof CompanyPolicyRoute
   '/contact': typeof ContactRoute
   '/get-a-quote': typeof GetAQuoteRoute
   '/news': typeof NewsRoute
@@ -159,6 +167,7 @@ export interface FileRoutesById {
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
   '/clients': typeof ClientsRoute
+  '/company-policy': typeof CompanyPolicyRoute
   '/contact': typeof ContactRoute
   '/get-a-quote': typeof GetAQuoteRoute
   '/news': typeof NewsRoute
@@ -180,6 +189,7 @@ export interface FileRouteTypes {
     | '/careers'
     | '/case-studies'
     | '/clients'
+    | '/company-policy'
     | '/contact'
     | '/get-a-quote'
     | '/news'
@@ -199,6 +209,7 @@ export interface FileRouteTypes {
     | '/careers'
     | '/case-studies'
     | '/clients'
+    | '/company-policy'
     | '/contact'
     | '/get-a-quote'
     | '/news'
@@ -218,6 +229,7 @@ export interface FileRouteTypes {
     | '/careers'
     | '/case-studies'
     | '/clients'
+    | '/company-policy'
     | '/contact'
     | '/get-a-quote'
     | '/news'
@@ -238,6 +250,7 @@ export interface RootRouteChildren {
   CareersRoute: typeof CareersRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
   ClientsRoute: typeof ClientsRoute
+  CompanyPolicyRoute: typeof CompanyPolicyRoute
   ContactRoute: typeof ContactRoute
   GetAQuoteRoute: typeof GetAQuoteRoute
   NewsRoute: typeof NewsRoute
@@ -293,6 +306,13 @@ declare module '@tanstack/react-router' {
       path: '/clients'
       fullPath: '/clients'
       preLoaderRoute: typeof ClientsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/company-policy': {
+      id: '/company-policy'
+      path: '/company-policy'
+      fullPath: '/company-policy'
+      preLoaderRoute: typeof CompanyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -382,6 +402,7 @@ const rootRouteChildren: RootRouteChildren = {
   CareersRoute: CareersRoute,
   CaseStudiesRoute: CaseStudiesRoute,
   ClientsRoute: ClientsRoute,
+  CompanyPolicyRoute: CompanyPolicyRoute,
   ContactRoute: ContactRoute,
   GetAQuoteRoute: GetAQuoteRoute,
   NewsRoute: NewsRoute,

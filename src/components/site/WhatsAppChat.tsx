@@ -8,17 +8,14 @@ import { buildWhatsAppChatUrl } from "@/lib/whatsapp-chat";
 import { reportWhatsAppChatStarted } from "@/lib/google-ads";
 
 export function WhatsAppChat() {
-  const [open, setOpen] = useState(false);
-  const [message, setMessage] = useState("");
-
   // Open the chat automatically for ad visitors (?chat=open or Google's gclid).
-  useEffect(() => {
+  // Lazy initializer: an effect-based open gets reset by the router's post-hydration remount.
+  const [open, setOpen] = useState(() => {
+    if (typeof window === "undefined") return false;
     const params = new URLSearchParams(window.location.search);
-    if (params.get("chat") === "open" || params.has("gclid")) {
-      document.documentElement.dataset.chatAuto = "fired";
-      setOpen(true);
-    }
-  }, []);
+    return params.get("chat") === "open" || params.has("gclid");
+  });
+  const [message, setMessage] = useState("");
   const chatUrl = message.trim() ? buildWhatsAppChatUrl(company.whatsapp, message) : null;
 
   return (

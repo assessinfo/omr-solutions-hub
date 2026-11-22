@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, MessageCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -10,20 +10,29 @@ import { reportWhatsAppChatStarted } from "@/lib/google-ads";
 export function WhatsAppChat() {
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("");
+  // Radix emits one spurious onOpenChange(false) right after a programmatic open;
+  // ignore closes for a short window after auto-opening.
+  const autoOpenedAt = useRef<number | null>(null);
 
   // Open the chat automatically for ad visitors (?chat=open or Google's gclid).
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    if (params.get("chat") === "open" || params.has("gclid")) setOpen(true);
+    if (params.get("chat") === "open" || params.has("gclid")) {
+      autoOpenedAt.current = Date.now();
+      setOpen(true);
+    }
   }, []);
-  useEffect(() => {
-    (window as unknown as { __openLog?: boolean[] }).__openLog?.push(open) ?? ((window as unknown as { __openLog: boolean[] }).__openLog = [open]);
-  }, [open]);
+
+  const handleOpenChange = (next: boolean) => {
+    if (!next && autoOpenedAt.current !== null && Date.now() - autoOpenedAt.current < 1500) return;
+    autoOpenedAt.current = null;
+    setOpen(next);
+  };
   const chatUrl = message.trim() ? buildWhatsAppChatUrl(company.whatsapp, message) : null;
 
   return (
-    <div className="fixed bottom-5 right-5 z-50 pb-[env(safe-area-inset-bottom)]" data-chat-open={open ? "yes" : "no"}>
-      <Popover open={open} onOpenChange={(v) => { const w = window as unknown as { __ocLog?: boolean[] }; w.__ocLog = [...(w.__ocLog ?? []), v]; setOpen(v); }}>
+    <div className="fixed bottom-5 right-5 z-50 pb-[env(safe-area-inset-bottom)]">
+      <Popover open={open} onOpenChange={handleOpenChange}>
         <PopoverTrigger asChild>
           <Button
             size="lg"

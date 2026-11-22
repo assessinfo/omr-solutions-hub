@@ -31,6 +31,10 @@ export const Route = createFileRoute("/products/$slug")({
               priceCurrency: "INR",
               offerCount: 1,
               availability: "https://schema.org/InStock",
+              areaServed: [
+                { "@type": "Country", name: "India" },
+                { "@type": "Continent", name: "Africa" },
+              ],
               url: `${SITE_URL}/get-a-quote`,
             },
             ...(loaderData.group === "Software" ? { applicationCategory: "BusinessApplication" } : {}),

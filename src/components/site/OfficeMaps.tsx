@@ -1,5 +1,6 @@
 import { MapPin, Navigation, ExternalLink } from "lucide-react";
 import { company } from "@/lib/content";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 import { officeDirectionsUrl, officeMapEmbedUrl, officeSearchUrl } from "@/lib/office-maps";
 
 export function OfficeMaps() {
@@ -30,7 +31,14 @@ export function OfficeMaps() {
                     {o.label} · {o.city}
                   </div>
                   <div className="text-muted-foreground">{o.address}</div>
-                  <div className="mt-1 text-sm text-muted-foreground">{o.phone}</div>
+                  <a
+                    href={company.whatsappHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-1 inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary"
+                  >
+                    <WhatsAppIcon className="size-3.5" /> {o.phone}
+                  </a>
                 </div>
               </div>
               <div className="mt-5 flex flex-wrap gap-3">

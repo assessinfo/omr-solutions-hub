@@ -34,7 +34,7 @@ function Contact() {
           {company.offices.map((o) => (
             <div key={o.city} className="flex gap-4 rounded-2xl border bg-card p-6 shadow-card">
               <MapPin className="size-6 shrink-0 text-primary" />
-              <div><div className="font-semibold">{o.label} · {o.city}</div><div className="text-muted-foreground">{o.address}</div><div className="text-sm text-muted-foreground">{o.phone}</div></div>
+              <div><div className="font-semibold">{o.label} · {o.city}</div><div className="text-muted-foreground">{o.address}</div><a href={company.whatsappHref} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary"><WhatsAppIcon className="size-3.5" /> {o.phone}</a></div>
             </div>
           ))}
         </div>

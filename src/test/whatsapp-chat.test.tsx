@@ -1,6 +1,8 @@
+import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { buildWhatsAppChatUrl } from "@/lib/whatsapp-chat";
 import { company } from "@/lib/content";
+import { WhatsAppChat } from "@/components/site/WhatsAppChat";
 
 describe("WhatsApp contact handoff", () => {
   it("addresses the company's WhatsApp number, not the visitor's number", () => {
@@ -21,5 +23,25 @@ describe("WhatsApp contact handoff", () => {
 
   it("rejects invalid destination numbers", () => {
     expect(() => buildWhatsAppChatUrl("not-a-number", "Hello")).toThrow();
+  });
+
+  it("opens the chat window automatically for ad visitors (?chat=open)", async () => {
+    window.history.replaceState(null, "", "/products/omr-scanners?chat=open");
+    render(<WhatsAppChat />);
+    expect(await screen.findByText(/Looking for a scanner/i)).toBeTruthy();
+    window.history.replaceState(null, "", "/");
+  });
+
+  it("opens the chat window automatically when Google adds gclid", async () => {
+    window.history.replaceState(null, "", "/products/omr-scanners?gclid=abc123");
+    render(<WhatsAppChat />);
+    expect(await screen.findByText(/Looking for a scanner/i)).toBeTruthy();
+    window.history.replaceState(null, "", "/");
+  });
+
+  it("stays closed for ordinary visitors", () => {
+    window.history.replaceState(null, "", "/products/omr-scanners");
+    render(<WhatsAppChat />);
+    expect(screen.queryByText(/Looking for a scanner/i)).toBeNull();
   });
 });

@@ -63,7 +63,7 @@ export const company = {
       city: "Mumbai",
       address: "#1609, Arc One by Lotus, 16th Floor, Off Link Road, Andheri (W), Mumbai 400053",
       mapQuery: "Arc One by Lotus, Off Link Road, Andheri West, Mumbai 400053",
-      phone: "044-48517750",
+      phone: "+91 85913 03477",
     },
   ],
   social: {

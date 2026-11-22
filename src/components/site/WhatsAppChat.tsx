@@ -14,7 +14,10 @@ export function WhatsAppChat() {
   // Open the chat automatically for ad visitors (?chat=open or Google's gclid).
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    if (params.get("chat") === "open" || params.has("gclid")) setOpen(true);
+    if (params.get("chat") === "open" || params.has("gclid")) {
+      document.documentElement.dataset.chatAuto = "fired";
+      setOpen(true);
+    }
   }, []);
   const chatUrl = message.trim() ? buildWhatsAppChatUrl(company.whatsapp, message) : null;
 

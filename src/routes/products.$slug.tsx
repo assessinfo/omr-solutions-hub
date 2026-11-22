@@ -26,6 +26,13 @@ export const Route = createFileRoute("/products/$slug")({
             name: loaderData.name,
             description: loaderData.seoDescription,
             brand: { "@type": "Organization", name: company.name },
+            offers: {
+              "@type": "AggregateOffer",
+              priceCurrency: "INR",
+              offerCount: 1,
+              availability: "https://schema.org/InStock",
+              url: `${SITE_URL}/get-a-quote`,
+            },
             ...(loaderData.group === "Software" ? { applicationCategory: "BusinessApplication" } : {}),
           }),
         },

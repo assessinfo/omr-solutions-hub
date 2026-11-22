@@ -19,7 +19,7 @@ export function WhatsAppChat() {
   const chatUrl = message.trim() ? buildWhatsAppChatUrl(company.whatsapp, message) : null;
 
   return (
-    <div className="fixed bottom-5 right-5 z-50 pb-[env(safe-area-inset-bottom)]" data-chat-open={open ? "yes" : "no"}>
+    <div className="fixed bottom-5 right-5 z-50 pb-[env(safe-area-inset-bottom)]" data-chat-open={open ? "yes" : "no"} data-search-at-render={typeof window === "undefined" ? "ssr" : window.location.search}>
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button

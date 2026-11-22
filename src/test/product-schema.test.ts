@@ -18,10 +18,15 @@ describe("product structured data", () => {
           priceCurrency: "INR",
           offerCount: 1,
           availability: "https://schema.org/InStock",
+          areaServed: [
+            { "@type": "Country", name: "India" },
+            { "@type": "Continent", name: "Africa" },
+          ],
           url: `${SITE_URL}/get-a-quote`,
         },
       };
       expect(schema.offers.priceCurrency, page.slug).toBe("INR");
+      expect(schema.offers.areaServed.map((a) => a.name), page.slug).toEqual(["India", "Africa"]);
       expect(schema.offers.url, page.slug).toBe("https://omrsolutions.co.in/get-a-quote");
     }
     expect(products.length).toBeGreaterThan(5);

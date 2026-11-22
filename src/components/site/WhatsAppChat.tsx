@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ArrowUpRight, MessageCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -19,7 +19,7 @@ export function WhatsAppChat() {
   const chatUrl = message.trim() ? buildWhatsAppChatUrl(company.whatsapp, message) : null;
 
   return (
-    <div className="fixed bottom-5 right-5 z-50 pb-[env(safe-area-inset-bottom)]" data-chat-open={open ? "yes" : "no"}>
+    <div className="fixed bottom-5 right-5 z-50 pb-[env(safe-area-inset-bottom)]">
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button

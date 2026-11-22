@@ -23,7 +23,7 @@ export function WhatsAppChat() {
 
   return (
     <div className="fixed bottom-5 right-5 z-50 pb-[env(safe-area-inset-bottom)]" data-chat-open={open ? "yes" : "no"}>
-      <Popover open={open} onOpenChange={setOpen}>
+      <Popover open={open} onOpenChange={(v) => { const w = window as unknown as { __ocLog?: boolean[] }; w.__ocLog = [...(w.__ocLog ?? []), v]; setOpen(v); }}>
         <PopoverTrigger asChild>
           <Button
             size="lg"

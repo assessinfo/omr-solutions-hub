@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Mail, MapPin } from "lucide-react";
 import { PageHero, seo } from "@/components/site/Blocks";
 import { BitrixInlineForm } from "@/components/site/BitrixInlineForm";
+import { OfficeMaps } from "@/components/site/OfficeMaps";
 import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 import { company } from "@/lib/content";
 
@@ -42,6 +43,7 @@ function Contact() {
           <BitrixInlineForm />
         </div>
       </section>
+      <OfficeMaps />
     </>
   );
 }

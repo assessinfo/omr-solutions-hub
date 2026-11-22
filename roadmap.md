@@ -31,7 +31,7 @@
 - [x] Redesign complete site (clean corporate tech, keep orange, all pages, rewritten copy)
 - [x] Search fixes: per-page titles/descriptions, structured data, old-URL redirects
 - [x] Ranking opportunities report (Semrush, India)
-- [ ] Contact form sends via visitor's email app — real form delivery needs backend (awaiting user decision)
+- [x] Contact form delivers to the CRM — Bitrix24 enquiry form on the Contact and Get a Quote pages (verified rendering in preview).
 - [x] Add SR-8000 Hybrid photo gallery + SR-6500 photos
 - [x] Group scanner models under OMR Scanners in the menu and footer (no standalone model links)
 
@@ -50,3 +50,4 @@
 
 - [x] Add staff training, promotions & incentives, Japan/abroad visits and partner visits in India to both the News page and the Life at OMR page (six photos, verified in preview).
 - [x] Add the newly uploaded photo and video to the OMR Printing Sheets page (video plays, sample sheet shown, verified in preview).
+- [x] Add Google Maps for the New Delhi head office and Mumbai branch office to the Contact page, with directions and open-in-Maps links (32 tests pass, both maps verified rendering in preview).

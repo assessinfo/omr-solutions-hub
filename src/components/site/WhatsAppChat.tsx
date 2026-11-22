@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowUpRight, MessageCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -10,6 +10,12 @@ import { reportWhatsAppChatStarted } from "@/lib/google-ads";
 export function WhatsAppChat() {
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("");
+
+  // Open the chat automatically for ad visitors (?chat=open or Google's gclid).
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("chat") === "open" || params.has("gclid")) setOpen(true);
+  }, []);
   const chatUrl = message.trim() ? buildWhatsAppChatUrl(company.whatsapp, message) : null;
 
   return (

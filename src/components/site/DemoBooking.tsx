@@ -46,10 +46,10 @@ export function DemoBookingProvider({ children }: { children: ReactNode }) {
 }
 
 /** A button that opens the demo pop-up. Pass `product` to preselect what to demo. */
-export function BookDemoButton({ product, children, ...props }: ButtonProps & { product?: DemoProduct }) {
+export function BookDemoButton({ product, children, onClick, ...props }: ButtonProps & { product?: DemoProduct }) {
   const { openDemo } = useDemoBooking();
   return (
-    <Button type="button" {...props} onClick={() => openDemo(product)}>
+    <Button type="button" {...props} onClick={(e) => { onClick?.(e); openDemo(product); }}>
       {children ?? (<><CalendarCheck /> Book a demo</>)}
     </Button>
   );

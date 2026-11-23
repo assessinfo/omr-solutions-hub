@@ -96,7 +96,7 @@ export type DetailPage = {
   links?: { label: string; href: string; text?: string }[];
   gallery?: { src: string; alt: string }[];
   /** When set, the catalogue links here instead of the generic /products/$slug page. */
-  href?: string;
+  href?: "/document-management";
 };
 
 export const isScannerModel = (slug: string) => /^sr\d/.test(slug);

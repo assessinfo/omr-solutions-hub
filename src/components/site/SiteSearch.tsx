@@ -65,7 +65,7 @@ export function SiteSearch({ className, compact = false, onOpen }: { className?:
       </button>
 
       <Dialog open={open} onOpenChange={(v) => { setOpen(v); if (!v) setQuery(""); }}>
-        <DialogContent className="top-[12%] max-w-xl translate-y-0 gap-0 overflow-hidden p-0 sm:rounded-2xl">
+        <DialogContent className="top-[8%] w-[calc(100%-1.5rem)] max-w-xl rounded-2xl translate-y-0 gap-0 overflow-hidden p-0 sm:rounded-2xl">
           <DialogTitle className="sr-only">Search OMR Solutions</DialogTitle>
           <DialogDescription className="sr-only">Find products, pages and articles across the website.</DialogDescription>
           <Command shouldFilter={false} className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-semibold [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-wider [&_[cmdk-group-heading]]:text-muted-foreground [&_[cmdk-input]]:h-14 [&_[cmdk-input]]:text-base">

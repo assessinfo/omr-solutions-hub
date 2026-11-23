@@ -56,6 +56,42 @@ export type Database = {
         }
         Relationships: []
       }
+      demo_bookings: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          name: string
+          page_path: string | null
+          phone: string
+          preferred_at: string
+          product: string
+          status: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          name: string
+          page_path?: string | null
+          phone: string
+          preferred_at: string
+          product?: string
+          status?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          name?: string
+          page_path?: string | null
+          phone?: string
+          preferred_at?: string
+          product?: string
+          status?: string
+        }
+        Relationships: []
+      }
       holo_webhook_events: {
         Row: {
           article_id: string

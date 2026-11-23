@@ -78,7 +78,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b bg-background/90 backdrop-blur-md">
-      <div className="container-x flex h-16 items-center justify-between gap-6 md:h-20 lg:gap-2 xl:gap-6">
+      <div className="container-x flex h-16 items-center justify-between gap-6 md:h-20 lg:gap-1 xl:gap-6">
         <Link to="/" aria-label="OMR Solutions home" onClick={() => setMobile(false)}>
           <Logo />
         </Link>

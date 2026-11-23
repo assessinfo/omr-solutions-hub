@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { availableSlots, demoBookingSchema, formatSlotTime, isBookableSlot, slotsForDate, upcomingDemoDates } from "@/lib/demo-booking";
+import { availableSlots, demoBookingSchema, formatSlotTime, isBookableSlot, istSlotInstant, slotsForDate, solutionForProduct, upcomingDemoDates } from "@/lib/demo-booking";
 
 // Monday 23 Nov 2026, 08:00 IST (02:30 UTC)
 const MON_MORNING = new Date("2026-11-23T02:30:00Z");
@@ -39,9 +39,51 @@ describe("demo booking hours (Mon–Fri, 10 AM–6 PM IST)", () => {
   });
 
   it("requires name, phone, email and a time", () => {
-    const base = { name: "Asha Rao", phone: "+91 98765 43210", email: "asha@example.com", product: "Not sure yet" };
-    expect(demoBookingSchema.safeParse({ ...base, preferredAt: "" }).success).toBe(false);
-    expect(demoBookingSchema.safeParse({ ...base, email: "nope", preferredAt: "x" }).success).toBe(false);
-    expect(demoBookingSchema.safeParse({ ...base, phone: "abc", preferredAt: "x" }).success).toBe(false);
+    const base = { name: "Asha Rao", phone: "+91 98765 43210", email: "asha@example.com", solution: "Examination Services", salespersonId: "1", date: "2099-11-24" };
+    expect(demoBookingSchema.safeParse({ ...base, time: "" }).success).toBe(false);
+    expect(demoBookingSchema.safeParse({ ...base, email: "nope", time: "10:30" }).success).toBe(false);
+    expect(demoBookingSchema.safeParse({ ...base, phone: "abc", time: "10:30" }).success).toBe(false);
+  });
+});
+
+describe("booking calendar fields", () => {
+  const nextTuesday = () => {
+    const d = new Date(Date.now() + 2 * 86_400_000);
+    while (d.getUTCDay() !== 2) d.setUTCDate(d.getUTCDate() + 1);
+    return d.toISOString().slice(0, 10);
+  };
+  const valid = () => ({
+    name: "Asha Rao", phone: "+91 98765 43210", email: "asha@example.com",
+    solution: "Examination Services", salespersonId: "1", date: nextTuesday(), time: "10:30",
+  });
+
+  it("accepts a valid booking", () => {
+    expect(demoBookingSchema.safeParse(valid()).success).toBe(true);
+  });
+
+  it("only accepts Examination Services or Digitisation Services", () => {
+    expect(demoBookingSchema.safeParse({ ...valid(), solution: "Digitisation Services" }).success).toBe(true);
+    expect(demoBookingSchema.safeParse({ ...valid(), solution: "OMR Scanners" }).success).toBe(false);
+  });
+
+  it("only accepts the sales staff as demo hosts", () => {
+    for (const id of ["1", "12", "1466"]) expect(demoBookingSchema.safeParse({ ...valid(), salespersonId: id }).success).toBe(true);
+    expect(demoBookingSchema.safeParse({ ...valid(), salespersonId: "1526" }).success).toBe(false); // Github Bot
+  });
+
+  it("rejects times outside Mon–Fri 10 AM–6 PM IST", () => {
+    expect(demoBookingSchema.safeParse({ ...valid(), time: "18:00" }).success).toBe(false);
+    expect(demoBookingSchema.safeParse({ ...valid(), time: "09:30" }).success).toBe(false);
+  });
+
+  it("converts an IST date and time to the right instant", () => {
+    expect(istSlotInstant("2026-11-26", "10:30")).toBe("2026-11-26T05:00:00.000Z");
+  });
+
+  it("maps document products to Digitisation and the rest to Examination", () => {
+    expect(solutionForProduct("ISDOX Document Management")).toBe("Digitisation Services");
+    expect(solutionForProduct("Document & Book Scanners")).toBe("Digitisation Services");
+    expect(solutionForProduct("IS10 Online Exams")).toBe("Examination Services");
+    expect(solutionForProduct("OMR Scanners")).toBe("Examination Services");
   });
 });

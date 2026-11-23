@@ -22,28 +22,6 @@ export const Route = createFileRoute("/products/$slug")({
           type: "application/ld+json",
           children: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": loaderData.group === "Software" ? "SoftwareApplication" : "Product",
-            name: loaderData.name,
-            description: loaderData.seoDescription,
-            brand: { "@type": "Organization", name: company.name },
-            offers: {
-              "@type": "AggregateOffer",
-              priceCurrency: "INR",
-              offerCount: 1,
-              availability: "https://schema.org/InStock",
-              areaServed: [
-                { "@type": "Country", name: "India" },
-                { "@type": "Continent", name: "Africa" },
-              ],
-              url: `${SITE_URL}/get-a-quote`,
-            },
-            ...(loaderData.group === "Software" ? { applicationCategory: "BusinessApplication" } : {}),
-          }),
-        },
-        {
-          type: "application/ld+json",
-          children: JSON.stringify({
-            "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Products", item: `${SITE_URL}/products` },

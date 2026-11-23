@@ -15,7 +15,7 @@ export const examPages = [
 
 export function ExamSubNav() {
   return (
-    <nav aria-label="Online exam software" className="sticky top-16 z-30 border-b bg-background/95 backdrop-blur">
+    <nav aria-label="Online exam software" className="sticky top-16 z-30 md:top-20 border-b bg-background/95 backdrop-blur">
       <div className="container-x flex gap-1 overflow-x-auto py-2">
         {examPages.map((p) => (
           <Link

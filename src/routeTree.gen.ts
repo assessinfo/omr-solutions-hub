@@ -19,6 +19,7 @@ import { Route as CompanyPolicyRouteImport } from './routes/company-policy'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as GetAQuoteRouteImport } from './routes/get-a-quote'
 import { Route as NewsRouteImport } from './routes/news'
+import { Route as OnlineExamRouteImport } from './routes/online-exam'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
@@ -79,6 +80,11 @@ const GetAQuoteRoute = GetAQuoteRouteImport.update({
 const NewsRoute = NewsRouteImport.update({
   id: '/news',
   path: '/news',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OnlineExamRoute = OnlineExamRouteImport.update({
+  id: '/online-exam',
+  path: '/online-exam',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
@@ -148,6 +154,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/get-a-quote': typeof GetAQuoteRoute
   '/news': typeof NewsRoute
+  '/online-exam': typeof OnlineExamRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -171,6 +178,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/get-a-quote': typeof GetAQuoteRoute
   '/news': typeof NewsRoute
+  '/online-exam': typeof OnlineExamRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -195,6 +203,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/get-a-quote': typeof GetAQuoteRoute
   '/news': typeof NewsRoute
+  '/online-exam': typeof OnlineExamRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -220,6 +229,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/get-a-quote'
     | '/news'
+    | '/online-exam'
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/blog/$slug'
@@ -243,6 +253,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/get-a-quote'
     | '/news'
+    | '/online-exam'
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/blog/$slug'
@@ -266,6 +277,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/get-a-quote'
     | '/news'
+    | '/online-exam'
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/blog/$slug'
@@ -290,6 +302,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   GetAQuoteRoute: typeof GetAQuoteRoute
   NewsRoute: typeof NewsRoute
+  OnlineExamRoute: typeof OnlineExamRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   BlogSlugRoute: typeof BlogSlugRoute
@@ -373,6 +386,13 @@ declare module '@tanstack/react-router' {
       path: '/news'
       fullPath: '/news'
       preLoaderRoute: typeof NewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/online-exam': {
+      id: '/online-exam'
+      path: '/online-exam'
+      fullPath: '/online-exam'
+      preLoaderRoute: typeof OnlineExamRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy-policy': {
@@ -466,6 +486,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   GetAQuoteRoute: GetAQuoteRoute,
   NewsRoute: NewsRoute,
+  OnlineExamRoute: OnlineExamRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   BlogSlugRoute: BlogSlugRoute,

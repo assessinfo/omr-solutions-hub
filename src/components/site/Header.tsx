@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { CalendarCheck, ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { company, isScannerModel, products, solutions } from "@/lib/content";
+import { company, isOmrSoftwareTool, isScannerModel, omrSoftwareMenu, products, solutions } from "@/lib/content";
 import { Logo } from "./Logo";
 import { BookDemoButton } from "./DemoBooking";
 import { WhatsAppIcon } from "./WhatsAppIcon";
@@ -21,13 +21,15 @@ const nav: NavItem[] = [
     label: "Products",
     to: "/products",
     children: products
-      .filter((p) => !isScannerModel(p.slug))
+      .filter((p) => !isScannerModel(p.slug) && !isOmrSoftwareTool(p.slug))
       .map((p) => ({
         label: p.name,
         to: p.href ?? `/products/${p.slug}`,
         sub: p.slug === "omr-scanners"
           ? products.filter((m) => isScannerModel(m.slug)).map((m) => ({ label: m.name.replace(" Scanner", ""), to: `/products/${m.slug}` }))
-          : undefined,
+          : p.slug === "omr-software"
+            ? omrSoftwareMenu.map((t) => ({ label: t.label, to: `/products/${t.slug}` }))
+            : undefined,
       })),
   },
   {

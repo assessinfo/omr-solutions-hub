@@ -28,6 +28,17 @@ const nav: NavItem[] = [
           : undefined,
       })),
   },
+  {
+    label: "Online Exams",
+    to: "/online-exam",
+    children: [
+      { label: "IS10 overview", to: "/online-exam", desc: "End-to-end digital examinations" },
+      { label: "Platform tour", to: "/online-exam/features", desc: "Question bank, exams and results" },
+      { label: "Security & proctoring", to: "/online-exam/security", desc: "Browser lockdown and AI invigilation" },
+      { label: "Exam centres (CBT)", to: "/online-exam/exam-centres", desc: "Registration, admit cards, local servers" },
+      { label: "Plans & pricing", to: "/online-exam/pricing", desc: "Memberships and AI add-ons" },
+    ],
+  },
   { label: "Clients", to: "/clients" },
   { label: "About", to: "/about" },
   { label: "News", to: "/news" },

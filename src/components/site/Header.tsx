@@ -109,10 +109,10 @@ export function Header() {
                   aria-expanded={open === item.label}
                   onClick={() => setOpen(open === item.label ? null : item.label)}
                   onKeyDown={(e) => e.key === "Escape" && setOpen(null)}
-                  className="flex items-center gap-1 whitespace-nowrap rounded-md px-1.5 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:text-primary xl:px-2.5"
+                  className="flex items-center gap-0.5 whitespace-nowrap rounded-md px-1 py-2 text-[13px] font-semibold text-foreground/80 transition-colors hover:text-primary xl:gap-1 xl:px-2.5 xl:text-sm"
                 >
                   {item.label}
-                  <ChevronDown className={`size-4 transition-transform ${open === item.label ? "rotate-180" : ""}`} />
+                  <ChevronDown className={`size-3.5 transition-transform xl:size-4 ${open === item.label ? "rotate-180" : ""}`} />
                 </button>
                 {open === item.label && (
                   <div className="absolute left-1/2 top-full w-[34rem] -translate-x-1/2 pt-3">
@@ -160,7 +160,7 @@ export function Header() {
               <Link
                 key={item.label}
                 to={item.to}
-                className="rounded-md px-1.5 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:text-primary xl:px-2.5"
+                className="whitespace-nowrap rounded-md px-1 py-2 text-[13px] font-semibold text-foreground/80 transition-colors hover:text-primary xl:px-2.5 xl:text-sm"
                 activeProps={{ className: "text-primary" }}
               >
                 {item.label}

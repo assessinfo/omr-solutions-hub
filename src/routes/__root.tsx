@@ -12,7 +12,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { Header } from "@/components/site/Header";
+import { Header, TopBar } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppChat } from "@/components/site/WhatsAppChat";
 import { DemoBookingProvider } from "@/components/site/DemoBooking";
@@ -132,6 +132,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <DemoBookingProvider>
+      <TopBar />
       <Header />
       <main>
         <Outlet />

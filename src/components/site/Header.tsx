@@ -56,6 +56,20 @@ const nav: NavItem[] = [
   { label: "Careers", to: "/careers" },
 ];
 
+/** Slim contact strip above the sticky header (desktop), keeping the WhatsApp number visible without crowding the menu. */
+export function TopBar() {
+  return (
+    <div className="hidden border-b bg-secondary lg:block">
+      <div className="container-x flex h-9 items-center justify-end gap-6 text-xs font-semibold text-muted-foreground">
+        <a href={company.whatsappHref} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-foreground">
+          <WhatsAppIcon className="size-3.5 text-primary" /> {company.phone}
+        </a>
+        <a href={`mailto:${company.email}`} className="hover:text-foreground">{company.email}</a>
+      </div>
+    </div>
+  );
+}
+
 export function Header() {
   const [open, setOpen] = useState<string | null>(null);
   const [mobile, setMobile] = useState(false);
@@ -141,14 +155,6 @@ export function Header() {
         </nav>
 
         <div className="hidden shrink-0 items-center gap-2 lg:flex xl:gap-3">
-          <a
-            href={company.whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-foreground 2xl:flex"
-          >
-            <WhatsAppIcon className="size-4 text-primary" /> {company.phone}
-          </a>
           <BookDemoButton variant="outline" aria-label="Book a demo" className="px-3"><CalendarCheck /><span className="hidden xl:inline">Book a demo</span></BookDemoButton>
           <Button asChild>
             <Link to="/get-a-quote">Get a quote</Link>

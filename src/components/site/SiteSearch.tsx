@@ -56,7 +56,7 @@ export function SiteSearch({ className, compact = false, onOpen }: { className?:
         className={cn(
           compact
             ? "rounded-md p-2 text-foreground/80 hover:text-primary"
-            : "flex h-9 items-center gap-2 rounded-full border bg-secondary px-3 text-sm font-semibold text-muted-foreground transition-colors hover:border-primary hover:text-foreground",
+            : "flex h-9 min-w-9 items-center justify-center gap-2 rounded-full border bg-secondary px-2.5 text-sm font-semibold text-muted-foreground transition-colors hover:border-primary hover:text-foreground",
           className,
         )}
       >

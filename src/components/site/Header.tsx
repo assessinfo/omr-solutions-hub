@@ -97,7 +97,7 @@ export function Header() {
                   aria-expanded={open === item.label}
                   onClick={() => setOpen(open === item.label ? null : item.label)}
                   onKeyDown={(e) => e.key === "Escape" && setOpen(null)}
-                  className="flex items-center gap-1 whitespace-nowrap rounded-md px-2 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:text-primary xl:px-3"
+                  className="flex items-center gap-1 whitespace-nowrap rounded-md px-1.5 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:text-primary xl:px-2.5"
                 >
                   {item.label}
                   <ChevronDown className={`size-4 transition-transform ${open === item.label ? "rotate-180" : ""}`} />
@@ -146,7 +146,7 @@ export function Header() {
               <Link
                 key={item.label}
                 to={item.to}
-                className="rounded-md px-2 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:text-primary xl:px-3"
+                className="rounded-md px-1.5 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:text-primary xl:px-2.5"
                 activeProps={{ className: "text-primary" }}
               >
                 {item.label}
@@ -155,7 +155,7 @@ export function Header() {
           )}
         </nav>
 
-        <div className="hidden shrink-0 items-center gap-2 lg:flex xl:gap-3">
+        <div className="hidden shrink-0 items-center gap-1.5 lg:flex xl:gap-3">
           <SiteSearch />
           <BookDemoButton variant="outline" aria-label="Book a demo" className="px-3"><CalendarCheck /><span className="hidden xl:inline">Book a demo</span></BookDemoButton>
           <Button asChild>

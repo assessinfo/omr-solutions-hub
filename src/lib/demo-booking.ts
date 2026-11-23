@@ -82,21 +82,63 @@ export function formatDemoDate(date: string, style: "short" | "long" = "short"):
   }).format(new Date(`${date}T00:00:00Z`));
 }
 
-export const demoBookingSchema = z.object({
-  name: z.string().trim().min(2, "Please enter your name").max(100, "Name is too long"),
-  phone: z
-    .string()
-    .trim()
-    .regex(/^\+?[0-9 ()-]{7,20}$/, "Please enter a valid phone number")
-    .refine((v) => v.replace(/\D/g, "").length >= 7, "Please enter a valid phone number"),
-  email: z.string().trim().email("Please enter a valid email").max(255, "Email is too long"),
-  product: z.enum(demoProducts),
-  preferredAt: z.string().refine((v) => isBookableSlot(v), "Please pick an available time (Mon–Fri, 10 AM–6 PM IST)"),
-  pagePath: z.string().max(300).optional(),
-  /** Honeypot: real visitors never fill this in. */
-  website: z.string().max(0).optional(),
+/** The booking calendar only accepts these two solutions. */
+export const demoSolutions = ["Examination Services", "Digitisation Services"] as const;
+export type DemoSolution = (typeof demoSolutions)[number];
+
+/**
+ * People visitors may pick as their demo host. The staff list from the booking
+ * service also contains non-sales colleagues, so only these IDs are shown and accepted.
+ */
+export const DEMO_HOST_IDS = ["1", "12", "1466"] as const;
+export const isDemoHost = (id: string) => (DEMO_HOST_IDS as readonly string[]).includes(id);
+
+const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+const TIME_RE = /^([01]\d|2[0-3]):[0-5]\d$/;
+
+/** UTC instant (ISO) of an IST calendar date + "HH:MM" clock time. */
+export function istSlotInstant(date: string, time: string): string {
+  const midnightUtc = Date.parse(`${date}T00:00:00Z`) - IST_OFFSET_MIN * 60_000;
+  return new Date(midnightUtc + toMinutes(time) * 60_000).toISOString();
+}
+
+export const demoSlotQuerySchema = z.object({
+  salespersonId: z.string().regex(/^\d{1,10}$/).refine(isDemoHost, "Please choose who should run your demo"),
+  date: z.string().regex(DATE_RE),
 });
+
+export const demoBookingSchema = z
+  .object({
+    name: z.string().trim().min(2, "Please enter your name").max(100, "Name is too long"),
+    phone: z
+      .string()
+      .trim()
+      .regex(/^\+?[0-9 ()-]{7,20}$/, "Please enter a valid phone number")
+      .refine((v) => v.replace(/\D/g, "").length >= 7, "Please enter a valid phone number"),
+    email: z.string().trim().email("Please enter a valid email").max(255, "Email is too long"),
+    company: z.string().trim().max(150, "Company name is too long").optional(),
+    message: z.string().trim().max(1000, "Message is too long").optional(),
+    solution: z.enum(demoSolutions, { message: "Please choose a solution" }),
+    salespersonId: z.string().refine(isDemoHost, "Please choose who should run your demo"),
+    date: z.string().regex(DATE_RE, "Please pick a date"),
+    time: z.string().regex(TIME_RE, "Please pick a time"),
+    product: z.enum(demoProducts).optional(),
+    pagePath: z.string().max(300).optional(),
+    /** Honeypot: real visitors never fill this in. */
+    website: z.string().max(0).optional(),
+  })
+  .refine((v) => !DATE_RE.test(v.date) || !TIME_RE.test(v.time) || isBookableSlot(istSlotInstant(v.date, v.time)), {
+    message: "Please pick an available time (Mon–Fri, 10 AM–6 PM IST)",
+    path: ["time"],
+  });
 export type DemoBookingInput = z.infer<typeof demoBookingSchema>;
+
+/** Which of the two bookable solutions a product belongs to. */
+export function solutionForProduct(product: DemoProduct): DemoSolution {
+  return product === "ISDOX Document Management" || product === "Document & Book Scanners"
+    ? "Digitisation Services"
+    : "Examination Services";
+}
 
 /** Pick a sensible default product from the page the visitor is on. */
 export function productForPath(path: string): DemoProduct {

@@ -37,7 +37,7 @@ export function DemoBookingProvider({ children }: { children: ReactNode }) {
     <DemoCtx.Provider value={value}>
       {children}
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-h-[92vh] max-w-xl overflow-y-auto rounded-3xl p-0 sm:rounded-3xl">
+        <DialogContent className="max-h-[92vh] max-w-xl grid-cols-[minmax(0,1fr)] overflow-y-auto overflow-x-hidden rounded-3xl p-0 sm:rounded-3xl [&>button]:text-ink-foreground [&>button]:opacity-90">
           {open && <DemoForm key={session} initialProduct={product} onDone={() => setOpen(false)} />}
         </DialogContent>
       </Dialog>
@@ -123,7 +123,7 @@ function DemoForm({ initialProduct, onDone }: { initialProduct: DemoProduct | un
   });
 
   return (
-    <form onSubmit={onSubmit} noValidate>
+    <form onSubmit={onSubmit} noValidate className="min-w-0">
       <div className="relative overflow-hidden rounded-t-3xl bg-ink px-6 pb-6 pt-7 sm:px-8">
         <div className="absolute -right-8 -top-8 h-40 w-40 bubble-dots opacity-50" aria-hidden />
         <DialogHeader className="relative text-left">

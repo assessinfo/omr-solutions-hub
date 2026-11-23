@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { CalendarCheck, ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { company, isScannerModel, products, solutions } from "@/lib/content";
 import { Logo } from "./Logo";
@@ -82,7 +82,7 @@ export function Header() {
                   aria-expanded={open === item.label}
                   onClick={() => setOpen(open === item.label ? null : item.label)}
                   onKeyDown={(e) => e.key === "Escape" && setOpen(null)}
-                  className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:text-primary"
+                  className="flex items-center gap-1 rounded-md px-2 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:text-primary xl:px-3"
                 >
                   {item.label}
                   <ChevronDown className={`size-4 transition-transform ${open === item.label ? "rotate-180" : ""}`} />
@@ -131,7 +131,7 @@ export function Header() {
               <Link
                 key={item.label}
                 to={item.to}
-                className="rounded-md px-3 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:text-primary"
+                className="rounded-md px-2 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:text-primary xl:px-3"
                 activeProps={{ className: "text-primary" }}
               >
                 {item.label}
@@ -140,7 +140,7 @@ export function Header() {
           )}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden shrink-0 items-center gap-2 lg:flex xl:gap-3">
           <a
             href={company.whatsappHref}
             target="_blank"
@@ -149,7 +149,7 @@ export function Header() {
           >
             <WhatsAppIcon className="size-4 text-primary" /> {company.phone}
           </a>
-          <BookDemoButton variant="outline" />
+          <BookDemoButton variant="outline" aria-label="Book a demo" className="px-3"><CalendarCheck /><span className="hidden xl:inline">Book a demo</span></BookDemoButton>
           <Button asChild>
             <Link to="/get-a-quote">Get a quote</Link>
           </Button>

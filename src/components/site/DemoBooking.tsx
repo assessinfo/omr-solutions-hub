@@ -37,7 +37,7 @@ export function DemoBookingProvider({ children }: { children: ReactNode }) {
     <DemoCtx.Provider value={value}>
       {children}
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-h-[92vh] max-w-xl grid-cols-[minmax(0,1fr)] overflow-y-auto overflow-x-hidden rounded-3xl p-0 sm:rounded-3xl [&>button]:text-ink-foreground [&>button]:opacity-90">
+        <DialogContent className="max-h-[92vh] w-[calc(100%-1.5rem)] max-w-xl grid-cols-[minmax(0,1fr)] overflow-y-auto overflow-x-hidden rounded-3xl p-0 sm:rounded-3xl [&>button]:text-ink-foreground [&>button]:opacity-90">
           {open && <DemoForm key={session} initialProduct={product} onDone={() => setOpen(false)} />}
         </DialogContent>
       </Dialog>

@@ -95,7 +95,7 @@ export function Header() {
           <Logo />
         </Link>
 
-        <nav className="hidden items-center lg:flex xl:gap-1" aria-label="Main">
+        <nav className="hidden items-center lg:flex xl:gap-0.5" aria-label="Main">
           {nav.map((item) =>
             item.children ? (
               <div
@@ -109,7 +109,7 @@ export function Header() {
                   aria-expanded={open === item.label}
                   onClick={() => setOpen(open === item.label ? null : item.label)}
                   onKeyDown={(e) => e.key === "Escape" && setOpen(null)}
-                  className="flex items-center gap-0.5 whitespace-nowrap rounded-md px-1 py-2 text-[13px] font-semibold text-foreground/80 transition-colors hover:text-primary xl:gap-1 xl:px-2.5 xl:text-sm"
+                  className="flex items-center gap-0.5 whitespace-nowrap rounded-md px-1 py-2 text-[13px] font-semibold text-foreground/80 transition-colors hover:text-primary xl:gap-1 xl:px-1.5 xl:text-sm 2xl:px-2.5"
                 >
                   {item.label}
                   <ChevronDown className={`size-3.5 transition-transform xl:size-4 ${open === item.label ? "rotate-180" : ""}`} />
@@ -160,7 +160,7 @@ export function Header() {
               <Link
                 key={item.label}
                 to={item.to}
-                className="whitespace-nowrap rounded-md px-1 py-2 text-[13px] font-semibold text-foreground/80 transition-colors hover:text-primary xl:px-2.5 xl:text-sm"
+                className="whitespace-nowrap rounded-md px-1 py-2 text-[13px] font-semibold text-foreground/80 transition-colors hover:text-primary xl:px-1.5 xl:text-sm 2xl:px-2.5"
                 activeProps={{ className: "text-primary" }}
               >
                 {item.label}

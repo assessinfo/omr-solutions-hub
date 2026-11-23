@@ -13,6 +13,7 @@ export function PageHero({
   intro,
   image,
   imageAlt,
+  imageFit = "cover",
   children,
 }: {
   eyebrow: string;
@@ -20,6 +21,8 @@ export function PageHero({
   intro: string;
   image?: string;
   imageAlt?: string;
+  /** "contain" shows the whole image (use for software screenshots). */
+  imageFit?: "cover" | "contain";
   children?: ReactNode;
 }) {
   return (
@@ -49,7 +52,7 @@ export function PageHero({
         {image && (
           <div className="relative">
             <div className="absolute -bottom-5 -right-5 h-2/3 w-2/3 rounded-3xl bubble-dots" aria-hidden />
-            <img src={image} alt={imageAlt ?? ""} width={1400} height={1000} className="relative aspect-[4/3] w-full rounded-3xl object-cover shadow-lift" />
+            <img src={image} alt={imageAlt ?? ""} width={1400} height={1000} className={`relative w-full rounded-3xl shadow-lift ${imageFit === "contain" ? "border bg-card object-contain" : "aspect-[4/3] object-cover"}`} />
           </div>
         )}
       </div>

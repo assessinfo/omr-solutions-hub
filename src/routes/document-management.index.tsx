@@ -40,6 +40,7 @@ function Overview() {
         intro="ISDOX is a secure, web-based, AI-powered Document Management System that gives your organisation one place to upload, organise, search and control every document — with full visibility into who did what, and when."
         image={dashboard.url}
         imageAlt="ISDOX dashboard showing total documents, storage used, recent activity and storage overview"
+        imageFit="contain"
       >
         <DmsActions />
       </PageHero>

@@ -102,7 +102,7 @@ function DemoForm({ initialProduct, onDone }: { initialProduct: DemoProduct | un
         <div className="mx-auto grid size-16 place-items-center rounded-full bg-primary/10 text-primary"><CheckCircle2 className="size-8" /></div>
         <DialogTitle className="mt-5 text-2xl font-bold">Demo request received</DialogTitle>
         <DialogDescription className="mt-3 text-base">
-          Thank you, {form.name.trim().split(" ")[0]}. You asked for a {product === "Not sure yet" ? "product" : product} demo on{" "}
+          Thank you, {form.name.trim().split(" ")[0]}. You asked for a demo{product === "Not sure yet" ? "" : ` of ${product}`} on{" "}
           <strong className="text-foreground">{formatDemoDate(date, "long")} at {formatSlotTime(slot)} IST</strong>.
           Our team will contact you to confirm the time.
         </DialogDescription>

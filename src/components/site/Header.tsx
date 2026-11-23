@@ -39,7 +39,7 @@ const nav: NavItem[] = [
     children: printingMenu.map((t) => ({
       label: t.label,
       to: `/products/${t.slug}`,
-      desc: products.find((p) => p.slug === t.slug)?.summary,
+      desc: products.find((p) => p.slug === t.slug)?.summary ?? "",
     })),
   },
   {

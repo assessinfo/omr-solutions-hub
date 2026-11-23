@@ -6,6 +6,7 @@ import { company, isScannerModel, products, solutions } from "@/lib/content";
 import { Logo } from "./Logo";
 import { BookDemoButton } from "./DemoBooking";
 import { WhatsAppIcon } from "./WhatsAppIcon";
+import { SiteSearch } from "./SiteSearch";
 
 type NavItem = { label: string; to: string; children?: { label: string; to: string; desc?: string; sub?: { label: string; to: string }[] | undefined }[] };
 
@@ -77,7 +78,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b bg-background/90 backdrop-blur-md">
-      <div className="container-x flex h-16 items-center justify-between gap-6 md:h-20 lg:gap-2 xl:gap-6">
+      <div className="container-x flex h-16 items-center justify-between gap-6 md:h-20 lg:gap-1 xl:gap-6">
         <Link to="/" aria-label="OMR Solutions home" onClick={() => setMobile(false)}>
           <Logo />
         </Link>
@@ -96,7 +97,7 @@ export function Header() {
                   aria-expanded={open === item.label}
                   onClick={() => setOpen(open === item.label ? null : item.label)}
                   onKeyDown={(e) => e.key === "Escape" && setOpen(null)}
-                  className="flex items-center gap-1 whitespace-nowrap rounded-md px-2 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:text-primary xl:px-3"
+                  className="flex items-center gap-1 whitespace-nowrap rounded-md px-1.5 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:text-primary xl:px-2.5"
                 >
                   {item.label}
                   <ChevronDown className={`size-4 transition-transform ${open === item.label ? "rotate-180" : ""}`} />
@@ -145,7 +146,7 @@ export function Header() {
               <Link
                 key={item.label}
                 to={item.to}
-                className="rounded-md px-2 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:text-primary xl:px-3"
+                className="rounded-md px-1.5 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:text-primary xl:px-2.5"
                 activeProps={{ className: "text-primary" }}
               >
                 {item.label}
@@ -154,22 +155,26 @@ export function Header() {
           )}
         </nav>
 
-        <div className="hidden shrink-0 items-center gap-2 lg:flex xl:gap-3">
+        <div className="hidden shrink-0 items-center gap-1.5 lg:flex xl:gap-3">
+          <SiteSearch />
           <BookDemoButton variant="outline" aria-label="Book a demo" className="px-3"><CalendarCheck /><span className="hidden xl:inline">Book a demo</span></BookDemoButton>
           <Button asChild>
             <Link to="/get-a-quote">Get a quote</Link>
           </Button>
         </div>
 
+        <div className="flex items-center gap-1 lg:hidden">
+        <SiteSearch compact onOpen={() => setMobile(false)} />
         <button
           type="button"
-          className="rounded-md p-2 lg:hidden"
+          className="rounded-md p-2"
           aria-label={mobile ? "Close menu" : "Open menu"}
           aria-expanded={mobile}
           onClick={() => setMobile(!mobile)}
         >
           {mobile ? <X className="size-6" /> : <Menu className="size-6" />}
         </button>
+        </div>
       </div>
 
       {mobile && (

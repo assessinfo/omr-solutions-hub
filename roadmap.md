@@ -55,3 +55,5 @@
 - [x] Build the full ISDOX Document Management section from the presentation (overview, product tour, users & permissions, security), verified in preview.
 - [x] Add a site-wide "Book a demo" pop-up (name, phone, email, preferred date and time, Mon–Fri 10 AM–6 PM IST) storing every request in Demo bookings; test booking saved and removed.
 - [ ] Email the team about each new demo booking (blocked: needs a verified email domain).
+
+- [x] Add a site-wide search button (header, desktop and phone) covering pages, products, solutions and articles.

@@ -77,12 +77,12 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b bg-background/90 backdrop-blur-md">
-      <div className="container-x flex h-16 items-center justify-between gap-6 md:h-20">
+      <div className="container-x flex h-16 items-center justify-between gap-6 md:h-20 lg:gap-2 xl:gap-6">
         <Link to="/" aria-label="OMR Solutions home" onClick={() => setMobile(false)}>
           <Logo />
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
+        <nav className="hidden items-center lg:flex xl:gap-1" aria-label="Main">
           {nav.map((item) =>
             item.children ? (
               <div
@@ -96,7 +96,7 @@ export function Header() {
                   aria-expanded={open === item.label}
                   onClick={() => setOpen(open === item.label ? null : item.label)}
                   onKeyDown={(e) => e.key === "Escape" && setOpen(null)}
-                  className="flex items-center gap-1 rounded-md px-2 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:text-primary xl:px-3"
+                  className="flex items-center gap-1 whitespace-nowrap rounded-md px-2 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:text-primary xl:px-3"
                 >
                   {item.label}
                   <ChevronDown className={`size-4 transition-transform ${open === item.label ? "rotate-180" : ""}`} />

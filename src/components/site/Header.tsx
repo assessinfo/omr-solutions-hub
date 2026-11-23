@@ -90,7 +90,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b bg-background/90 backdrop-blur-md">
-      <div className="container-x flex h-16 items-center justify-between gap-6 md:h-20 lg:gap-1 xl:gap-6">
+      <div className="container-x flex h-16 items-center justify-between gap-6 md:h-20 lg:gap-1 xl:gap-3">
         <Link to="/" aria-label="OMR Solutions home" onClick={() => setMobile(false)}>
           <Logo />
         </Link>
@@ -109,7 +109,7 @@ export function Header() {
                   aria-expanded={open === item.label}
                   onClick={() => setOpen(open === item.label ? null : item.label)}
                   onKeyDown={(e) => e.key === "Escape" && setOpen(null)}
-                  className="flex items-center gap-0.5 whitespace-nowrap rounded-md px-1 py-2 text-[13px] font-semibold text-foreground/80 transition-colors hover:text-primary xl:gap-1 xl:px-1.5 xl:text-sm 2xl:px-2.5"
+                  className="flex items-center gap-0.5 whitespace-nowrap rounded-md px-1 py-2 text-[13px] font-semibold text-foreground/80 transition-colors hover:text-primary xl:gap-1 xl:px-1.5 xl:text-sm"
                 >
                   {item.label}
                   <ChevronDown className={`size-3.5 transition-transform xl:size-4 ${open === item.label ? "rotate-180" : ""}`} />
@@ -160,7 +160,7 @@ export function Header() {
               <Link
                 key={item.label}
                 to={item.to}
-                className="whitespace-nowrap rounded-md px-1 py-2 text-[13px] font-semibold text-foreground/80 transition-colors hover:text-primary xl:px-1.5 xl:text-sm 2xl:px-2.5"
+                className="whitespace-nowrap rounded-md px-1 py-2 text-[13px] font-semibold text-foreground/80 transition-colors hover:text-primary xl:px-1.5 xl:text-sm"
                 activeProps={{ className: "text-primary" }}
               >
                 {item.label}

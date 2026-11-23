@@ -97,7 +97,7 @@ function DemoForm({ initialProduct, onDone }: { initialProduct: DemoProduct | un
     staleTime: 60_000,
   });
   const slots = slotsQ.data?.slots ?? [];
-  const slotLabel = slots.find((s) => s.time === time)?.label ?? formatSlotTime(time ? istSlotInstant(date, time) : "");
+  const slotLabel = slots.find((s) => s.time === time)?.label ?? (time ? formatSlotTime(istSlotInstant(date, time)) : "");
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

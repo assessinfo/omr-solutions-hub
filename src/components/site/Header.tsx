@@ -2,13 +2,13 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { CalendarCheck, ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { company, isOmrSoftwareTool, isScannerModel, omrSoftwareMenu, products, solutions } from "@/lib/content";
+import { company, isOmrSoftwareTool, isPrintingPage, isScannerModel, omrSoftwareMenu, printingMenu, products, solutions } from "@/lib/content";
 import { Logo } from "./Logo";
 import { BookDemoButton } from "./DemoBooking";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 import { SiteSearch } from "./SiteSearch";
 
-type NavItem = { label: string; to: string; children?: { label: string; to: string; desc?: string; sub?: { label: string; to: string }[] | undefined }[] };
+type NavItem = { label: string; to: string; viewAll?: false; children?: { label: string; to: string; desc?: string; sub?: { label: string; to: string }[] | undefined }[] };
 
 
 const nav: NavItem[] = [
@@ -21,7 +21,7 @@ const nav: NavItem[] = [
     label: "Products",
     to: "/products",
     children: products
-      .filter((p) => !isScannerModel(p.slug) && !isOmrSoftwareTool(p.slug))
+      .filter((p) => !isScannerModel(p.slug) && !isOmrSoftwareTool(p.slug) && !isPrintingPage(p.slug))
       .map((p) => ({
         label: p.name,
         to: p.href ?? `/products/${p.slug}`,
@@ -31,6 +31,16 @@ const nav: NavItem[] = [
             ? omrSoftwareMenu.map((t) => ({ label: t.label, to: `/products/${t.slug}` }))
             : undefined,
       })),
+  },
+  {
+    label: "Printing",
+    to: "/products/omr-sheets",
+    viewAll: false,
+    children: printingMenu.map((t) => ({
+      label: t.label,
+      to: `/products/${t.slug}`,
+      desc: products.find((p) => p.slug === t.slug)?.summary ?? "",
+    })),
   },
   {
     label: "Online Exams",
@@ -80,12 +90,12 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b bg-background/90 backdrop-blur-md">
-      <div className="container-x flex h-16 items-center justify-between gap-6 md:h-20 lg:gap-1 xl:gap-6">
+      <div className="container-x flex h-16 items-center justify-between gap-6 md:h-20 lg:gap-1 xl:gap-3">
         <Link to="/" aria-label="OMR Solutions home" onClick={() => setMobile(false)}>
           <Logo />
         </Link>
 
-        <nav className="hidden items-center lg:flex xl:gap-1" aria-label="Main">
+        <nav className="hidden items-center lg:flex xl:gap-0.5" aria-label="Main">
           {nav.map((item) =>
             item.children ? (
               <div
@@ -99,10 +109,10 @@ export function Header() {
                   aria-expanded={open === item.label}
                   onClick={() => setOpen(open === item.label ? null : item.label)}
                   onKeyDown={(e) => e.key === "Escape" && setOpen(null)}
-                  className="flex items-center gap-1 whitespace-nowrap rounded-md px-1.5 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:text-primary xl:px-2.5"
+                  className="flex items-center gap-0.5 whitespace-nowrap rounded-md px-1 py-2 text-[13px] font-semibold text-foreground/80 transition-colors hover:text-primary xl:gap-1 xl:px-1.5 xl:text-sm"
                 >
                   {item.label}
-                  <ChevronDown className={`size-4 transition-transform ${open === item.label ? "rotate-180" : ""}`} />
+                  <ChevronDown className={`size-3.5 transition-transform xl:size-4 ${open === item.label ? "rotate-180" : ""}`} />
                 </button>
                 {open === item.label && (
                   <div className="absolute left-1/2 top-full w-[34rem] -translate-x-1/2 pt-3">
@@ -133,13 +143,15 @@ export function Header() {
                           </Link>
                         ),
                       )}
-                      <Link
-                        to={item.to}
-                        onClick={() => setOpen(null)}
-                        className="col-span-2 mt-1 rounded-lg border-t px-3 pt-3 pb-1 text-sm font-semibold text-primary"
-                      >
-                        View all {item.label.toLowerCase()} →
-                      </Link>
+                      {item.viewAll !== false && (
+                        <Link
+                          to={item.to}
+                          onClick={() => setOpen(null)}
+                          className="col-span-2 mt-1 rounded-lg border-t px-3 pt-3 pb-1 text-sm font-semibold text-primary"
+                        >
+                          View all {item.label.toLowerCase()} →
+                        </Link>
+                      )}
                     </div>
                   </div>
                 )}
@@ -148,7 +160,7 @@ export function Header() {
               <Link
                 key={item.label}
                 to={item.to}
-                className="rounded-md px-1.5 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:text-primary xl:px-2.5"
+                className="whitespace-nowrap rounded-md px-1 py-2 text-[13px] font-semibold text-foreground/80 transition-colors hover:text-primary xl:px-1.5 xl:text-sm"
                 activeProps={{ className: "text-primary" }}
               >
                 {item.label}
@@ -213,9 +225,11 @@ export function Header() {
                             )}
                           </div>
                         ))}
-                        <Link to={item.to} onClick={() => setMobile(false)} className="py-2 text-sm font-semibold text-primary">
-                          View all
-                        </Link>
+                        {item.viewAll !== false && (
+                          <Link to={item.to} onClick={() => setMobile(false)} className="py-2 text-sm font-semibold text-primary">
+                            View all
+                          </Link>
+                        )}
                       </div>
                     )}
                   </>

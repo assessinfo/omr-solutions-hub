@@ -111,6 +111,14 @@ export const omrSoftwareMenu = [
 ] as const;
 export const isOmrSoftwareTool = (slug: string) => omrSoftwareMenu.some((t) => t.slug === slug);
 
+/** Pages grouped under the "Printing" menu, in the order they are listed there. */
+export const printingMenu = [
+  { slug: "omr-form-design", label: "OMR Sheet Design" },
+  { slug: "omr-sheets", label: "OMR Sheet Printing" },
+  { slug: "marksheet-certificate-printing", label: "Marksheet & Certificate Printing" },
+] as const;
+export const isPrintingPage = (slug: string) => printingMenu.some((t) => t.slug === slug);
+
 export const solutions: DetailPage[] = [
   {
     slug: "education",
@@ -683,6 +691,31 @@ export const products: DetailPage[] = [
     seoTitle: "OMR Form Design Services | Exam & Survey Forms",
     seoDescription:
       "Professional OMR form design for exams, surveys and registrations. Forms built for accurate scanning with Remark and Sekonic.",
+  },
+  {
+    slug: "marksheet-certificate-printing",
+    name: "Marksheet & Certificate Printing",
+    group: "Printing",
+    title: "Marksheet & certificate printing for schools, universities and boards",
+    intro:
+      "Marksheets, grade cards, degree certificates and other result documents printed to your approved design and student data, with security printing for documents that must be hard to copy.",
+    summary: "Result marksheets, grade cards and certificates printed from your data.",
+    image: education,
+    imageAlt: "Students at an educational institution",
+    highlights: [
+      { title: "Your design, your data", text: "We print to your approved layout, logo and signatures, merging each student's details and results from the data file you supply." },
+      { title: "Security printing", text: "Protect documents against copying and tampering with watermark paper, UV ink and microtext, and a unique serial number or QR code on every sheet." },
+      { title: "Proof before print", text: "A sample proof is shared for checking names, marks, subjects and layout before the full batch is printed." },
+      { title: "From exam to certificate", text: "Pair printing with our OMR scanning and result processing, so the same results flow from answer sheet to marksheet." },
+    ],
+    features: [
+      { title: "What we print", items: ["Marksheets and statements of marks", "Grade cards and report cards", "Degree, diploma and provisional certificates", "Course completion and training certificates", "Transfer and migration certificates", "Merit and participation certificates"] },
+      { title: "Security features", items: ["Watermark paper", "UV (invisible) ink", "Microtext printing", "Unique serial numbering", "QR code on each document"] },
+      { title: "Plan your order", items: ["Document type and approved design", "Student data file and field list", "Paper size and stock", "Security printing requirements", "Quantity and delivery date", "Proof approval contact"] },
+    ],
+    seoTitle: "Marksheet & Certificate Printing in India | OMR Solutions",
+    seoDescription:
+      "Secure marksheet, grade card and degree certificate printing in India with watermark paper, UV ink, microtext and serial numbers or QR codes, printed from your student data.",
   },
   {
     slug: "document-scanners",

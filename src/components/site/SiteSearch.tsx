@@ -61,7 +61,6 @@ export function SiteSearch({ className, compact = false, onOpen }: { className?:
         )}
       >
         <Search className={compact ? "size-5" : "size-4"} />
-        {!compact && <span className="hidden 2xl:inline">Search</span>}
       </button>
 
       <Dialog open={open} onOpenChange={(v) => { setOpen(v); if (!v) setQuery(""); }}>

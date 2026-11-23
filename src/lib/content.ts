@@ -704,17 +704,18 @@ export const products: DetailPage[] = [
     imageAlt: "Students at an educational institution",
     highlights: [
       { title: "Your design, your data", text: "We print to your approved layout, logo and signatures, merging each student's details and results from the data file you supply." },
-      { title: "Security printing", text: "Marksheets and certificates can be produced as security-printed documents. Discuss the security features you need with our team before ordering." },
+      { title: "Security printing", text: "Protect documents against copying and tampering with watermark paper, UV ink and microtext, and a unique serial number or QR code on every sheet." },
       { title: "Proof before print", text: "A sample proof is shared for checking names, marks, subjects and layout before the full batch is printed." },
       { title: "From exam to certificate", text: "Pair printing with our OMR scanning and result processing, so the same results flow from answer sheet to marksheet." },
     ],
     features: [
       { title: "What we print", items: ["Marksheets and statements of marks", "Grade cards and report cards", "Degree, diploma and provisional certificates", "Course completion and training certificates", "Transfer and migration certificates", "Merit and participation certificates"] },
+      { title: "Security features", items: ["Watermark paper", "UV (invisible) ink", "Microtext printing", "Unique serial numbering", "QR code on each document"] },
       { title: "Plan your order", items: ["Document type and approved design", "Student data file and field list", "Paper size and stock", "Security printing requirements", "Quantity and delivery date", "Proof approval contact"] },
     ],
     seoTitle: "Marksheet & Certificate Printing in India | OMR Solutions",
     seoDescription:
-      "Secure marksheet, grade card and degree certificate printing for schools, universities and exam boards in India, printed from your design and student data.",
+      "Secure marksheet, grade card and degree certificate printing in India with watermark paper, UV ink, microtext and serial numbers or QR codes, printed from your student data.",
   },
   {
     slug: "document-scanners",

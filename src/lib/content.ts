@@ -71,6 +71,7 @@ export const company = {
     youtube: "https://www.youtube.com/@omrsolutions",
     instagram: "https://www.instagram.com/omrindiaoutsources/",
     linkedin: "https://www.linkedin.com/company/omr-india-outsources-pvt-ltd/",
+    x: "https://x.com/omr_ios",
   },
 };
 

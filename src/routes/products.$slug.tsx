@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { DetailView, seo } from "@/components/site/Blocks";
-import { company, products } from "@/lib/content";
+import { products } from "@/lib/content";
 import { SITE_URL } from "@/lib/site";
 import { RemarkHero, RemarkResources } from "@/components/site/RemarkOffice";
 import { SheetPrintingMedia } from "@/components/site/SheetPrinting";

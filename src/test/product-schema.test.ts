@@ -2,33 +2,44 @@ import { describe, expect, it } from "vitest";
 import { products } from "@/lib/content";
 import { SITE_URL } from "@/lib/site";
 
-// Google Search Console requires every Product / SoftwareApplication page to
-// carry "offers", "review" or "aggregateRating". Prices are enquiry-based, so
-// each product page must emit an AggregateOffer pointing at the quote page.
+// Product pages are quote-only: no public prices, reviews or ratings, so they
+// must NOT emit Product / SoftwareApplication / offers JSON-LD (Google's
+// "Product snippets" requirement). They keep only the BreadcrumbList.
 describe("product structured data", () => {
-  it("every product page builds a schema with an offers block", () => {
+  it("product pages emit no Product, SoftwareApplication or offers schema", () => {
     for (const page of products) {
       const schema = {
         "@context": "https://schema.org",
-        "@type": page.group === "Software" ? "SoftwareApplication" : "Product",
-        name: page.name,
-        description: page.seoDescription,
-        offers: {
-          "@type": "AggregateOffer",
-          priceCurrency: "INR",
-          offerCount: 1,
-          availability: "https://schema.org/InStock",
-          areaServed: [
-            { "@type": "Country", name: "India" },
-            { "@type": "Continent", name: "Africa" },
-          ],
-          url: `${SITE_URL}/get-a-quote`,
-        },
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Products", item: `${SITE_URL}/products` },
+          { "@type": "ListItem", position: 2, name: page.name, item: `${SITE_URL}/products/${page.slug}` },
+        ],
       };
-      expect(schema.offers.priceCurrency, page.slug).toBe("INR");
-      expect(schema.offers.areaServed.map((a) => a.name), page.slug).toEqual(["India", "Africa"]);
-      expect(schema.offers.url, page.slug).toBe("https://omrsolutions.co.in/get-a-quote");
+      const json = JSON.stringify(schema);
+      expect(json, page.slug).not.toContain('"Product"');
+      expect(json, page.slug).not.toContain("SoftwareApplication");
+      expect(json, page.slug).not.toContain('"offers"');
     }
     expect(products.length).toBeGreaterThan(5);
+  });
+
+  it("product pages still emit a correct BreadcrumbList", () => {
+    for (const page of products) {
+      const breadcrumb = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Products", item: `${SITE_URL}/products` },
+          { "@type": "ListItem", position: 2, name: page.name, item: `${SITE_URL}/products/${page.slug}` },
+        ],
+      };
+      expect(breadcrumb["@type"], page.slug).toBe("BreadcrumbList");
+      expect(breadcrumb.itemListElement, page.slug).toHaveLength(2);
+      expect(breadcrumb.itemListElement[1]?.name, page.slug).toBe(page.name);
+      expect(breadcrumb.itemListElement[1]?.item, page.slug).toBe(
+        `https://omrsolutions.co.in/products/${page.slug}`,
+      );
+    }
   });
 });

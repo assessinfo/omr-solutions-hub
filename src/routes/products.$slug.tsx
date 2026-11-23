@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { DetailView, seo } from "@/components/site/Blocks";
-import { company, products } from "@/lib/content";
+import { products } from "@/lib/content";
 import { SITE_URL } from "@/lib/site";
 import { RemarkHero, RemarkResources } from "@/components/site/RemarkOffice";
 import { SheetPrintingMedia } from "@/components/site/SheetPrinting";
@@ -18,28 +18,6 @@ export const Route = createFileRoute("/products/$slug")({
     return {
       ...base,
       scripts: [
-        {
-          type: "application/ld+json",
-          children: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": loaderData.group === "Software" ? "SoftwareApplication" : "Product",
-            name: loaderData.name,
-            description: loaderData.seoDescription,
-            brand: { "@type": "Organization", name: company.name },
-            offers: {
-              "@type": "AggregateOffer",
-              priceCurrency: "INR",
-              offerCount: 1,
-              availability: "https://schema.org/InStock",
-              areaServed: [
-                { "@type": "Country", name: "India" },
-                { "@type": "Continent", name: "Africa" },
-              ],
-              url: `${SITE_URL}/get-a-quote`,
-            },
-            ...(loaderData.group === "Software" ? { applicationCategory: "BusinessApplication" } : {}),
-          }),
-        },
         {
           type: "application/ld+json",
           children: JSON.stringify({

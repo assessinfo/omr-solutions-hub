@@ -25,6 +25,11 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as CareersCelebrationsRouteImport } from './routes/careers_.celebrations'
 import { Route as Omr_webSplatRouteImport } from './routes/omr_web.$'
+import { Route as OnlineExamIndexRouteImport } from './routes/online-exam.index'
+import { Route as OnlineExamExamCentresRouteImport } from './routes/online-exam.exam-centres'
+import { Route as OnlineExamFeaturesRouteImport } from './routes/online-exam.features'
+import { Route as OnlineExamPricingRouteImport } from './routes/online-exam.pricing'
+import { Route as OnlineExamSecurityRouteImport } from './routes/online-exam.security'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
 import { Route as SolutionsIndexRouteImport } from './routes/solutions.index'
@@ -112,6 +117,31 @@ const Omr_webSplatRoute = Omr_webSplatRouteImport.update({
   path: '/omr_web/$',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OnlineExamIndexRoute = OnlineExamIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => OnlineExamRoute,
+} as any)
+const OnlineExamExamCentresRoute = OnlineExamExamCentresRouteImport.update({
+  id: '/exam-centres',
+  path: '/exam-centres',
+  getParentRoute: () => OnlineExamRoute,
+} as any)
+const OnlineExamFeaturesRoute = OnlineExamFeaturesRouteImport.update({
+  id: '/features',
+  path: '/features',
+  getParentRoute: () => OnlineExamRoute,
+} as any)
+const OnlineExamPricingRoute = OnlineExamPricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => OnlineExamRoute,
+} as any)
+const OnlineExamSecurityRoute = OnlineExamSecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
+  getParentRoute: () => OnlineExamRoute,
+} as any)
 const ProductsIndexRoute = ProductsIndexRouteImport.update({
   id: '/products/',
   path: '/products/',
@@ -154,14 +184,19 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/get-a-quote': typeof GetAQuoteRoute
   '/news': typeof NewsRoute
-  '/online-exam': typeof OnlineExamRoute
+  '/online-exam': typeof OnlineExamRouteWithChildren
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/careers/celebrations': typeof CareersCelebrationsRoute
   '/omr_web/$': typeof Omr_webSplatRoute
+  '/online-exam/exam-centres': typeof OnlineExamExamCentresRoute
+  '/online-exam/features': typeof OnlineExamFeaturesRoute
+  '/online-exam/pricing': typeof OnlineExamPricingRoute
+  '/online-exam/security': typeof OnlineExamSecurityRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
+  '/online-exam/': typeof OnlineExamIndexRoute
   '/products/': typeof ProductsIndexRoute
   '/solutions/': typeof SolutionsIndexRoute
   '/api/public/rss.xml': typeof ApiPublicRssDotxmlRoute
@@ -178,14 +213,18 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/get-a-quote': typeof GetAQuoteRoute
   '/news': typeof NewsRoute
-  '/online-exam': typeof OnlineExamRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/careers/celebrations': typeof CareersCelebrationsRoute
   '/omr_web/$': typeof Omr_webSplatRoute
+  '/online-exam/exam-centres': typeof OnlineExamExamCentresRoute
+  '/online-exam/features': typeof OnlineExamFeaturesRoute
+  '/online-exam/pricing': typeof OnlineExamPricingRoute
+  '/online-exam/security': typeof OnlineExamSecurityRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
+  '/online-exam': typeof OnlineExamIndexRoute
   '/products': typeof ProductsIndexRoute
   '/solutions': typeof SolutionsIndexRoute
   '/api/public/rss.xml': typeof ApiPublicRssDotxmlRoute
@@ -203,14 +242,19 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/get-a-quote': typeof GetAQuoteRoute
   '/news': typeof NewsRoute
-  '/online-exam': typeof OnlineExamRoute
+  '/online-exam': typeof OnlineExamRouteWithChildren
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/careers_/celebrations': typeof CareersCelebrationsRoute
   '/omr_web/$': typeof Omr_webSplatRoute
+  '/online-exam/exam-centres': typeof OnlineExamExamCentresRoute
+  '/online-exam/features': typeof OnlineExamFeaturesRoute
+  '/online-exam/pricing': typeof OnlineExamPricingRoute
+  '/online-exam/security': typeof OnlineExamSecurityRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
+  '/online-exam/': typeof OnlineExamIndexRoute
   '/products/': typeof ProductsIndexRoute
   '/solutions/': typeof SolutionsIndexRoute
   '/api/public/rss.xml': typeof ApiPublicRssDotxmlRoute
@@ -235,8 +279,13 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/careers/celebrations'
     | '/omr_web/$'
+    | '/online-exam/exam-centres'
+    | '/online-exam/features'
+    | '/online-exam/pricing'
+    | '/online-exam/security'
     | '/products/$slug'
     | '/solutions/$slug'
+    | '/online-exam/'
     | '/products/'
     | '/solutions/'
     | '/api/public/rss.xml'
@@ -253,14 +302,18 @@ export interface FileRouteTypes {
     | '/contact'
     | '/get-a-quote'
     | '/news'
-    | '/online-exam'
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/blog/$slug'
     | '/careers/celebrations'
     | '/omr_web/$'
+    | '/online-exam/exam-centres'
+    | '/online-exam/features'
+    | '/online-exam/pricing'
+    | '/online-exam/security'
     | '/products/$slug'
     | '/solutions/$slug'
+    | '/online-exam'
     | '/products'
     | '/solutions'
     | '/api/public/rss.xml'
@@ -283,8 +336,13 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/careers_/celebrations'
     | '/omr_web/$'
+    | '/online-exam/exam-centres'
+    | '/online-exam/features'
+    | '/online-exam/pricing'
+    | '/online-exam/security'
     | '/products/$slug'
     | '/solutions/$slug'
+    | '/online-exam/'
     | '/products/'
     | '/solutions/'
     | '/api/public/rss.xml'
@@ -302,7 +360,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   GetAQuoteRoute: typeof GetAQuoteRoute
   NewsRoute: typeof NewsRoute
-  OnlineExamRoute: typeof OnlineExamRoute
+  OnlineExamRoute: typeof OnlineExamRouteWithChildren
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   BlogSlugRoute: typeof BlogSlugRoute
@@ -430,6 +488,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Omr_webSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/online-exam/': {
+      id: '/online-exam/'
+      path: '/'
+      fullPath: '/online-exam/'
+      preLoaderRoute: typeof OnlineExamIndexRouteImport
+      parentRoute: typeof OnlineExamRoute
+    }
+    '/online-exam/exam-centres': {
+      id: '/online-exam/exam-centres'
+      path: '/exam-centres'
+      fullPath: '/online-exam/exam-centres'
+      preLoaderRoute: typeof OnlineExamExamCentresRouteImport
+      parentRoute: typeof OnlineExamRoute
+    }
+    '/online-exam/features': {
+      id: '/online-exam/features'
+      path: '/features'
+      fullPath: '/online-exam/features'
+      preLoaderRoute: typeof OnlineExamFeaturesRouteImport
+      parentRoute: typeof OnlineExamRoute
+    }
+    '/online-exam/pricing': {
+      id: '/online-exam/pricing'
+      path: '/pricing'
+      fullPath: '/online-exam/pricing'
+      preLoaderRoute: typeof OnlineExamPricingRouteImport
+      parentRoute: typeof OnlineExamRoute
+    }
+    '/online-exam/security': {
+      id: '/online-exam/security'
+      path: '/security'
+      fullPath: '/online-exam/security'
+      preLoaderRoute: typeof OnlineExamSecurityRouteImport
+      parentRoute: typeof OnlineExamRoute
+    }
     '/products/': {
       id: '/products/'
       path: '/products'
@@ -475,6 +568,26 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface OnlineExamRouteChildren {
+  OnlineExamExamCentresRoute: typeof OnlineExamExamCentresRoute
+  OnlineExamFeaturesRoute: typeof OnlineExamFeaturesRoute
+  OnlineExamPricingRoute: typeof OnlineExamPricingRoute
+  OnlineExamSecurityRoute: typeof OnlineExamSecurityRoute
+  OnlineExamIndexRoute: typeof OnlineExamIndexRoute
+}
+
+const OnlineExamRouteChildren: OnlineExamRouteChildren = {
+  OnlineExamExamCentresRoute: OnlineExamExamCentresRoute,
+  OnlineExamFeaturesRoute: OnlineExamFeaturesRoute,
+  OnlineExamPricingRoute: OnlineExamPricingRoute,
+  OnlineExamSecurityRoute: OnlineExamSecurityRoute,
+  OnlineExamIndexRoute: OnlineExamIndexRoute,
+}
+
+const OnlineExamRouteWithChildren = OnlineExamRoute._addFileChildren(
+  OnlineExamRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
@@ -486,7 +599,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   GetAQuoteRoute: GetAQuoteRoute,
   NewsRoute: NewsRoute,
-  OnlineExamRoute: OnlineExamRoute,
+  OnlineExamRoute: OnlineExamRouteWithChildren,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   BlogSlugRoute: BlogSlugRoute,

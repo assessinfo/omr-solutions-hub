@@ -1,4 +1,4 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound, redirect } from "@tanstack/react-router";
 import { DetailView, seo } from "@/components/site/Blocks";
 import { products } from "@/lib/content";
 import { SITE_URL } from "@/lib/site";
@@ -10,6 +10,7 @@ export const Route = createFileRoute("/products/$slug")({
   loader: ({ params }) => {
     const page = products.find((p) => p.slug === params.slug);
     if (!page) throw notFound();
+    if (page.slug === "document-management") throw redirect({ to: "/document-management", statusCode: 301 });
     return page;
   },
   head: ({ loaderData, params }) => {
@@ -62,6 +63,7 @@ function ProductPage() {
     );
   }
   const related = products
+    .filter((p) => !p.href)
     .filter((p) => page.slug === "omr-sheets"
       ? ["omr-form-design", "omr-scanners", "omr-software"].includes(p.slug)
       : p.slug !== page.slug && p.group === page.group)

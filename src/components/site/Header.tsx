@@ -4,6 +4,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { company, isScannerModel, products, solutions } from "@/lib/content";
 import { Logo } from "./Logo";
+import { BookDemoButton } from "./DemoBooking";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
 type NavItem = { label: string; to: string; children?: { label: string; to: string; desc?: string; sub?: { label: string; to: string }[] | undefined }[] };
@@ -22,7 +23,7 @@ const nav: NavItem[] = [
       .filter((p) => !isScannerModel(p.slug))
       .map((p) => ({
         label: p.name,
-        to: `/products/${p.slug}`,
+        to: p.href ?? `/products/${p.slug}`,
         sub: p.slug === "omr-scanners"
           ? products.filter((m) => isScannerModel(m.slug)).map((m) => ({ label: m.name.replace(" Scanner", ""), to: `/products/${m.slug}` }))
           : undefined,
@@ -37,6 +38,16 @@ const nav: NavItem[] = [
       { label: "Security & proctoring", to: "/online-exam/security", desc: "Browser lockdown and AI invigilation" },
       { label: "Exam centres (CBT)", to: "/online-exam/exam-centres", desc: "Registration, admit cards, local servers" },
       { label: "Plans & pricing", to: "/online-exam/pricing", desc: "Memberships and AI add-ons" },
+    ],
+  },
+  {
+    label: "Documents",
+    to: "/document-management",
+    children: [
+      { label: "ISDOX overview", to: "/document-management", desc: "AI-powered document management" },
+      { label: "Product tour", to: "/document-management/features", desc: "Dashboard, documents, folders, metadata" },
+      { label: "Users & permissions", to: "/document-management/users-roles", desc: "Roles and granular access control" },
+      { label: "Security & reliability", to: "/document-management/security", desc: "Encryption, audit trail, backups" },
     ],
   },
   { label: "Clients", to: "/clients" },
@@ -134,10 +145,11 @@ export function Header() {
             href={company.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-foreground"
+            className="hidden items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-foreground 2xl:flex"
           >
             <WhatsAppIcon className="size-4 text-primary" /> {company.phone}
           </a>
+          <BookDemoButton variant="outline" />
           <Button asChild>
             <Link to="/get-a-quote">Get a quote</Link>
           </Button>
@@ -201,7 +213,8 @@ export function Header() {
                 )}
               </div>
             ))}
-            <Button asChild size="lg" className="mt-4">
+            <BookDemoButton size="lg" variant="outline" className="mt-4" onClick={() => setMobile(false)} />
+            <Button asChild size="lg" className="mt-3">
               <Link to="/get-a-quote" onClick={() => setMobile(false)}>Get a quote</Link>
             </Button>
           </nav>

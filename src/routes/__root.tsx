@@ -15,6 +15,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppChat } from "@/components/site/WhatsAppChat";
+import { DemoBookingProvider } from "@/components/site/DemoBooking";
 import { company } from "@/lib/content";
 import { CookieBanner } from "@/components/site/CookieBanner";
 import { consentDefaults } from "@/lib/consent-defaults";
@@ -130,6 +131,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <DemoBookingProvider>
       <Header />
       <main>
         <Outlet />
@@ -137,6 +139,7 @@ function RootComponent() {
       <Footer />
       <WhatsAppChat />
       <CookieBanner />
+      </DemoBookingProvider>
     </QueryClientProvider>
   );
 }

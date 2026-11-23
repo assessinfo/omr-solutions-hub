@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { company, type DetailPage } from "@/lib/content";
 import { SITE_URL, DEFAULT_SHARE_IMAGE } from "@/lib/site";
 import { WhatsAppIcon } from "./WhatsAppIcon";
+import { BookDemoButton } from "./DemoBooking";
 
 export function PageHero({
   eyebrow,
@@ -35,6 +36,7 @@ export function PageHero({
                 <Button asChild size="lg">
                   <Link to="/contact">Get a quote <ArrowRight /></Link>
                 </Button>
+                <BookDemoButton size="lg" variant="outline" />
                 <Button asChild size="lg" variant="outline">
                   <a href={company.whatsappHref} target="_blank" rel="noopener noreferrer">
                     <WhatsAppIcon className="size-4" /> WhatsApp {company.phone}
@@ -92,6 +94,7 @@ export function CtaBand({ title = "Let's find the right OMR setup for you", text
             <Button asChild size="lg">
               <Link to="/contact">Contact us <ArrowRight /></Link>
             </Button>
+            <BookDemoButton size="lg" variant="outline" className="border-ink-border bg-transparent text-ink-foreground hover:bg-ink-border hover:text-ink-foreground" />
             <Button asChild size="lg" variant="ghost" className="text-ink-foreground hover:bg-ink-border hover:text-ink-foreground">
               <a href={company.whatsappHref} target="_blank" rel="noopener noreferrer"><WhatsAppIcon className="size-4" /> {company.phone}</a>
             </Button>

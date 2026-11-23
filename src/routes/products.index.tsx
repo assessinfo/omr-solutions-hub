@@ -23,7 +23,7 @@ function ProductsIndex() {
           <h2 className="text-2xl font-bold">{g}</h2>
           <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {products.filter((p) => p.group === g).map((p) => (
-              <Link key={p.slug} to="/products/$slug" params={{ slug: p.slug }} className="group flex flex-col rounded-2xl border bg-card p-6 shadow-card transition-shadow hover:shadow-lift">
+              <Link key={p.slug} {...(p.href ? { to: p.href } : { to: "/products/$slug", params: { slug: p.slug } })} className="group flex flex-col rounded-2xl border bg-card p-6 shadow-card transition-shadow hover:shadow-lift">
                 <h3 className="text-lg font-semibold group-hover:text-primary">{p.name}</h3>
                 <p className="mt-2 flex-1 text-sm text-muted-foreground">{p.summary}</p>
                 <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">Details <ArrowRight className="size-4" /></span>

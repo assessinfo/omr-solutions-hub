@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { BookDemoButton } from "./DemoBooking";
 
 export const IS10_URL = "https://is10live.com/";
 
@@ -39,7 +40,7 @@ export function ExamSubNav() {
 export function ExamActions() {
   return (
     <div className="mt-8 flex flex-wrap gap-3">
-      <Button asChild size="lg"><Link to="/get-a-quote">Book a live demo <ArrowRight /></Link></Button>
+      <BookDemoButton size="lg" product="IS10 Online Exams">Book a live demo <ArrowRight /></BookDemoButton>
       <Button asChild size="lg" variant="outline"><a href={IS10_URL} target="_blank" rel="noopener noreferrer">Visit is10live.com <ExternalLink /></a></Button>
     </div>
   );

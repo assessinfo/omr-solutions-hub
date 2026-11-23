@@ -25,7 +25,7 @@ const map: Record<string, string> = {
   "products/omr_form_designing/newomr_form_design.php": "/products/omr-form-design",
   "products/document_scanner/new_document_scanner.php": "/products/document-scanners",
   "products/book_scanners/newbookscannerindex.php": "/products/book-scanners",
-  "products/document_managment/newdocument_managment.php": "/products/document-management",
+  "products/document_managment/newdocument_managment.php": "/document-management",
 };
 
 const sectionFallbacks: [string, string][] = [
@@ -37,7 +37,7 @@ const sectionFallbacks: [string, string][] = [
   ["form_design", "/products/omr-form-design"],
   ["document_scanner", "/products/document-scanners"],
   ["book_scanner", "/products/book-scanners"],
-  ["document_manag", "/products/document-management"],
+  ["document_manag", "/document-management"],
   ["solutions/education", "/solutions/education"],
   ["solutions/government", "/solutions/government"],
   ["solutions/corporate", "/solutions/corporate"],

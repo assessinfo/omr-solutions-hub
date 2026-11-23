@@ -2,13 +2,13 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { CalendarCheck, ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { company, isOmrSoftwareTool, isScannerModel, omrSoftwareMenu, products, solutions } from "@/lib/content";
+import { company, isOmrSoftwareTool, isPrintingPage, isScannerModel, omrSoftwareMenu, printingMenu, products, solutions } from "@/lib/content";
 import { Logo } from "./Logo";
 import { BookDemoButton } from "./DemoBooking";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 import { SiteSearch } from "./SiteSearch";
 
-type NavItem = { label: string; to: string; children?: { label: string; to: string; desc?: string; sub?: { label: string; to: string }[] | undefined }[] };
+type NavItem = { label: string; to: string; viewAll?: false; children?: { label: string; to: string; desc?: string; sub?: { label: string; to: string }[] | undefined }[] };
 
 
 const nav: NavItem[] = [
@@ -21,7 +21,7 @@ const nav: NavItem[] = [
     label: "Products",
     to: "/products",
     children: products
-      .filter((p) => !isScannerModel(p.slug) && !isOmrSoftwareTool(p.slug))
+      .filter((p) => !isScannerModel(p.slug) && !isOmrSoftwareTool(p.slug) && !isPrintingPage(p.slug))
       .map((p) => ({
         label: p.name,
         to: p.href ?? `/products/${p.slug}`,
@@ -31,6 +31,16 @@ const nav: NavItem[] = [
             ? omrSoftwareMenu.map((t) => ({ label: t.label, to: `/products/${t.slug}` }))
             : undefined,
       })),
+  },
+  {
+    label: "Printing",
+    to: "/products/omr-sheets",
+    viewAll: false,
+    children: printingMenu.map((t) => ({
+      label: t.label,
+      to: `/products/${t.slug}`,
+      desc: products.find((p) => p.slug === t.slug)?.summary,
+    })),
   },
   {
     label: "Online Exams",
@@ -133,13 +143,15 @@ export function Header() {
                           </Link>
                         ),
                       )}
-                      <Link
-                        to={item.to}
-                        onClick={() => setOpen(null)}
-                        className="col-span-2 mt-1 rounded-lg border-t px-3 pt-3 pb-1 text-sm font-semibold text-primary"
-                      >
-                        View all {item.label.toLowerCase()} →
-                      </Link>
+                      {item.viewAll !== false && (
+                        <Link
+                          to={item.to}
+                          onClick={() => setOpen(null)}
+                          className="col-span-2 mt-1 rounded-lg border-t px-3 pt-3 pb-1 text-sm font-semibold text-primary"
+                        >
+                          View all {item.label.toLowerCase()} →
+                        </Link>
+                      )}
                     </div>
                   </div>
                 )}
@@ -213,9 +225,11 @@ export function Header() {
                             )}
                           </div>
                         ))}
-                        <Link to={item.to} onClick={() => setMobile(false)} className="py-2 text-sm font-semibold text-primary">
-                          View all
-                        </Link>
+                        {item.viewAll !== false && (
+                          <Link to={item.to} onClick={() => setMobile(false)} className="py-2 text-sm font-semibold text-primary">
+                            View all
+                          </Link>
+                        )}
                       </div>
                     )}
                   </>

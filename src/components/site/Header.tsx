@@ -30,17 +30,10 @@ const nav: NavItem[] = [
           : p.slug === "omr-software"
             ? omrSoftwareMenu.map((t) => ({ label: t.label, to: `/products/${t.slug}` }))
             : undefined,
-      })),
-  },
-  {
-    label: "Printing",
-    to: "/products/omr-sheets",
-    viewAll: false,
-    children: printingMenu.map((t) => ({
-      label: t.label,
-      to: `/products/${t.slug}`,
-      desc: products.find((p) => p.slug === t.slug)?.summary ?? "",
-    })),
+      }))
+      .flatMap((c) => c.to === "/products/omr-software"
+        ? [c, { label: "Printing", to: "/products/omr-sheets", sub: printingMenu.map((t) => ({ label: t.label, to: `/products/${t.slug}` })) }]
+        : [c]),
   },
   {
     label: "Online Exams",

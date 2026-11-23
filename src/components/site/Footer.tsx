@@ -8,7 +8,7 @@ import { WhatsAppIcon } from "./WhatsAppIcon";
 export function Footer() {
   return (
     <footer className="bg-ink text-ink-muted">
-      <div className="container-x grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1.2fr_1fr_1.2fr]">
+      <div className="container-x grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1.3fr_1.3fr]">
         <div>
           <Logo inverted />
           <p className="mt-5 max-w-xs text-sm leading-relaxed">
@@ -50,6 +50,18 @@ export function Footer() {
                 ))}
               </div>
             </li>
+            <li>
+              <Link to="/products/$slug" params={{ slug: "omr-sheets" }} className="font-semibold text-ink-foreground hover:text-primary">
+                Printing
+              </Link>
+              <div className="mt-1.5 flex flex-wrap gap-x-3 gap-y-1 text-xs">
+                {printingMenu.map((t) => (
+                  <Link key={t.slug} to="/products/$slug" params={{ slug: t.slug }} className="hover:text-primary">
+                    {t.label}
+                  </Link>
+                ))}
+              </div>
+            </li>
             {products
               .filter((p) => !isScannerModel(p.slug) && !isOmrSoftwareTool(p.slug) && !isPrintingPage(p.slug) && p.slug !== "omr-scanners" && p.slug !== "omr-software")
               .map((p) => (
@@ -61,7 +73,6 @@ export function Footer() {
               ))}
           </ul>
         </div>
-        <FooterCol title="Printing" links={printingMenu.map((t) => ({ label: t.label, to: `/products/${t.slug}` }))} />
         <div>
           <h3 className="text-sm font-semibold text-ink-foreground">Contact</h3>
           <ul className="mt-4 space-y-3 text-sm">

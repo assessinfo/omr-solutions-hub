@@ -6,6 +6,7 @@ import { company, isScannerModel, products, solutions } from "@/lib/content";
 import { Logo } from "./Logo";
 import { BookDemoButton } from "./DemoBooking";
 import { WhatsAppIcon } from "./WhatsAppIcon";
+import { SiteSearch } from "./SiteSearch";
 
 type NavItem = { label: string; to: string; children?: { label: string; to: string; desc?: string; sub?: { label: string; to: string }[] | undefined }[] };
 
@@ -155,21 +156,25 @@ export function Header() {
         </nav>
 
         <div className="hidden shrink-0 items-center gap-2 lg:flex xl:gap-3">
+          <SiteSearch />
           <BookDemoButton variant="outline" aria-label="Book a demo" className="px-3"><CalendarCheck /><span className="hidden xl:inline">Book a demo</span></BookDemoButton>
           <Button asChild>
             <Link to="/get-a-quote">Get a quote</Link>
           </Button>
         </div>
 
+        <div className="flex items-center gap-1 lg:hidden">
+        <SiteSearch compact onOpen={() => setMobile(false)} />
         <button
           type="button"
-          className="rounded-md p-2 lg:hidden"
+          className="rounded-md p-2"
           aria-label={mobile ? "Close menu" : "Open menu"}
           aria-expanded={mobile}
           onClick={() => setMobile(!mobile)}
         >
           {mobile ? <X className="size-6" /> : <Menu className="size-6" />}
         </button>
+        </div>
       </div>
 
       {mobile && (

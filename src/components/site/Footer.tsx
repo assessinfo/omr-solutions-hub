@@ -42,7 +42,9 @@ export function Footer() {
               .filter((p) => !isScannerModel(p.slug) && p.slug !== "omr-scanners")
               .map((p) => (
                 <li key={p.slug}>
-                  <Link to="/products/$slug" params={{ slug: p.slug }} className="hover:text-primary">{p.name}</Link>
+                  {p.href
+                    ? <Link to={p.href} className="hover:text-primary">{p.name}</Link>
+                    : <Link to="/products/$slug" params={{ slug: p.slug }} className="hover:text-primary">{p.name}</Link>}
                 </li>
               ))}
           </ul>

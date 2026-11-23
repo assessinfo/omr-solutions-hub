@@ -1,9 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { CalendarCheck, ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { company, isScannerModel, products, solutions } from "@/lib/content";
 import { Logo } from "./Logo";
+import { BookDemoButton } from "./DemoBooking";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
 type NavItem = { label: string; to: string; children?: { label: string; to: string; desc?: string; sub?: { label: string; to: string }[] | undefined }[] };
@@ -22,7 +23,7 @@ const nav: NavItem[] = [
       .filter((p) => !isScannerModel(p.slug))
       .map((p) => ({
         label: p.name,
-        to: `/products/${p.slug}`,
+        to: p.href ?? `/products/${p.slug}`,
         sub: p.slug === "omr-scanners"
           ? products.filter((m) => isScannerModel(m.slug)).map((m) => ({ label: m.name.replace(" Scanner", ""), to: `/products/${m.slug}` }))
           : undefined,
@@ -39,11 +40,35 @@ const nav: NavItem[] = [
       { label: "Plans & pricing", to: "/online-exam/pricing", desc: "Memberships and AI add-ons" },
     ],
   },
+  {
+    label: "Documents",
+    to: "/document-management",
+    children: [
+      { label: "ISDOX overview", to: "/document-management", desc: "AI-powered document management" },
+      { label: "Product tour", to: "/document-management/features", desc: "Dashboard, documents, folders, metadata" },
+      { label: "Users & permissions", to: "/document-management/users-roles", desc: "Roles and granular access control" },
+      { label: "Security & reliability", to: "/document-management/security", desc: "Encryption, audit trail, backups" },
+    ],
+  },
   { label: "Clients", to: "/clients" },
   { label: "About", to: "/about" },
   { label: "News", to: "/news" },
   { label: "Careers", to: "/careers" },
 ];
+
+/** Slim contact strip above the sticky header (desktop), keeping the WhatsApp number visible without crowding the menu. */
+export function TopBar() {
+  return (
+    <div className="hidden border-b bg-secondary lg:block">
+      <div className="container-x flex h-9 items-center justify-end gap-6 text-xs font-semibold text-muted-foreground">
+        <a href={company.whatsappHref} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-foreground">
+          <WhatsAppIcon className="size-3.5 text-primary" /> {company.phone}
+        </a>
+        <a href={`mailto:${company.email}`} className="hover:text-foreground">{company.email}</a>
+      </div>
+    </div>
+  );
+}
 
 export function Header() {
   const [open, setOpen] = useState<string | null>(null);
@@ -52,12 +77,12 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b bg-background/90 backdrop-blur-md">
-      <div className="container-x flex h-16 items-center justify-between gap-6 md:h-20">
+      <div className="container-x flex h-16 items-center justify-between gap-6 md:h-20 lg:gap-2 xl:gap-6">
         <Link to="/" aria-label="OMR Solutions home" onClick={() => setMobile(false)}>
           <Logo />
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
+        <nav className="hidden items-center lg:flex xl:gap-1" aria-label="Main">
           {nav.map((item) =>
             item.children ? (
               <div
@@ -71,7 +96,7 @@ export function Header() {
                   aria-expanded={open === item.label}
                   onClick={() => setOpen(open === item.label ? null : item.label)}
                   onKeyDown={(e) => e.key === "Escape" && setOpen(null)}
-                  className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:text-primary"
+                  className="flex items-center gap-1 whitespace-nowrap rounded-md px-2 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:text-primary xl:px-3"
                 >
                   {item.label}
                   <ChevronDown className={`size-4 transition-transform ${open === item.label ? "rotate-180" : ""}`} />
@@ -120,7 +145,7 @@ export function Header() {
               <Link
                 key={item.label}
                 to={item.to}
-                className="rounded-md px-3 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:text-primary"
+                className="rounded-md px-2 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:text-primary xl:px-3"
                 activeProps={{ className: "text-primary" }}
               >
                 {item.label}
@@ -129,15 +154,8 @@ export function Header() {
           )}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <a
-            href={company.whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-foreground"
-          >
-            <WhatsAppIcon className="size-4 text-primary" /> {company.phone}
-          </a>
+        <div className="hidden shrink-0 items-center gap-2 lg:flex xl:gap-3">
+          <BookDemoButton variant="outline" aria-label="Book a demo" className="px-3"><CalendarCheck /><span className="hidden xl:inline">Book a demo</span></BookDemoButton>
           <Button asChild>
             <Link to="/get-a-quote">Get a quote</Link>
           </Button>
@@ -201,7 +219,8 @@ export function Header() {
                 )}
               </div>
             ))}
-            <Button asChild size="lg" className="mt-4">
+            <BookDemoButton size="lg" variant="outline" className="mt-4" onClick={() => setMobile(false)} />
+            <Button asChild size="lg" className="mt-3">
               <Link to="/get-a-quote" onClick={() => setMobile(false)}>Get a quote</Link>
             </Button>
           </nav>

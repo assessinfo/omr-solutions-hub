@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { company, type DetailPage } from "@/lib/content";
 import { SITE_URL, DEFAULT_SHARE_IMAGE } from "@/lib/site";
 import { WhatsAppIcon } from "./WhatsAppIcon";
+import { BookDemoButton } from "./DemoBooking";
 
 export function PageHero({
   eyebrow,
@@ -12,6 +13,7 @@ export function PageHero({
   intro,
   image,
   imageAlt,
+  imageFit = "cover",
   children,
 }: {
   eyebrow: string;
@@ -19,6 +21,8 @@ export function PageHero({
   intro: string;
   image?: string;
   imageAlt?: string;
+  /** "contain" shows the whole image (use for software screenshots). */
+  imageFit?: "cover" | "contain";
   children?: ReactNode;
 }) {
   return (
@@ -35,6 +39,7 @@ export function PageHero({
                 <Button asChild size="lg">
                   <Link to="/contact">Get a quote <ArrowRight /></Link>
                 </Button>
+                <BookDemoButton size="lg" variant="outline" />
                 <Button asChild size="lg" variant="outline">
                   <a href={company.whatsappHref} target="_blank" rel="noopener noreferrer">
                     <WhatsAppIcon className="size-4" /> WhatsApp {company.phone}
@@ -47,7 +52,7 @@ export function PageHero({
         {image && (
           <div className="relative">
             <div className="absolute -bottom-5 -right-5 h-2/3 w-2/3 rounded-3xl bubble-dots" aria-hidden />
-            <img src={image} alt={imageAlt ?? ""} width={1400} height={1000} className="relative aspect-[4/3] w-full rounded-3xl object-cover shadow-lift" />
+            <img src={image} alt={imageAlt ?? ""} width={1400} height={1000} className={`relative w-full rounded-3xl shadow-lift ${imageFit === "contain" ? "border bg-card object-contain" : "aspect-[4/3] object-cover"}`} />
           </div>
         )}
       </div>
@@ -92,6 +97,7 @@ export function CtaBand({ title = "Let's find the right OMR setup for you", text
             <Button asChild size="lg">
               <Link to="/contact">Contact us <ArrowRight /></Link>
             </Button>
+            <BookDemoButton size="lg" variant="outline" className="border-ink-border bg-transparent text-ink-foreground hover:bg-ink-border hover:text-ink-foreground" />
             <Button asChild size="lg" variant="ghost" className="text-ink-foreground hover:bg-ink-border hover:text-ink-foreground">
               <a href={company.whatsappHref} target="_blank" rel="noopener noreferrer"><WhatsAppIcon className="size-4" /> {company.phone}</a>
             </Button>

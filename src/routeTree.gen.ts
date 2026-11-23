@@ -17,6 +17,7 @@ import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as ClientsRouteImport } from './routes/clients'
 import { Route as CompanyPolicyRouteImport } from './routes/company-policy'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DocumentManagementRouteImport } from './routes/document-management'
 import { Route as GetAQuoteRouteImport } from './routes/get-a-quote'
 import { Route as NewsRouteImport } from './routes/news'
 import { Route as OnlineExamRouteImport } from './routes/online-exam'
@@ -24,6 +25,10 @@ import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as CareersCelebrationsRouteImport } from './routes/careers_.celebrations'
+import { Route as DocumentManagementIndexRouteImport } from './routes/document-management.index'
+import { Route as DocumentManagementFeaturesRouteImport } from './routes/document-management.features'
+import { Route as DocumentManagementSecurityRouteImport } from './routes/document-management.security'
+import { Route as DocumentManagementUsersRolesRouteImport } from './routes/document-management.users-roles'
 import { Route as Omr_webSplatRouteImport } from './routes/omr_web.$'
 import { Route as OnlineExamIndexRouteImport } from './routes/online-exam.index'
 import { Route as OnlineExamExamCentresRouteImport } from './routes/online-exam.exam-centres'
@@ -77,6 +82,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DocumentManagementRoute = DocumentManagementRouteImport.update({
+  id: '/document-management',
+  path: '/document-management',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GetAQuoteRoute = GetAQuoteRouteImport.update({
   id: '/get-a-quote',
   path: '/get-a-quote',
@@ -112,6 +122,29 @@ const CareersCelebrationsRoute = CareersCelebrationsRouteImport.update({
   path: '/careers/celebrations',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DocumentManagementIndexRoute = DocumentManagementIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DocumentManagementRoute,
+} as any)
+const DocumentManagementFeaturesRoute =
+  DocumentManagementFeaturesRouteImport.update({
+    id: '/features',
+    path: '/features',
+    getParentRoute: () => DocumentManagementRoute,
+  } as any)
+const DocumentManagementSecurityRoute =
+  DocumentManagementSecurityRouteImport.update({
+    id: '/security',
+    path: '/security',
+    getParentRoute: () => DocumentManagementRoute,
+  } as any)
+const DocumentManagementUsersRolesRoute =
+  DocumentManagementUsersRolesRouteImport.update({
+    id: '/users-roles',
+    path: '/users-roles',
+    getParentRoute: () => DocumentManagementRoute,
+  } as any)
 const Omr_webSplatRoute = Omr_webSplatRouteImport.update({
   id: '/omr_web/$',
   path: '/omr_web/$',
@@ -182,6 +215,7 @@ export interface FileRoutesByFullPath {
   '/clients': typeof ClientsRoute
   '/company-policy': typeof CompanyPolicyRoute
   '/contact': typeof ContactRoute
+  '/document-management': typeof DocumentManagementRouteWithChildren
   '/get-a-quote': typeof GetAQuoteRoute
   '/news': typeof NewsRoute
   '/online-exam': typeof OnlineExamRouteWithChildren
@@ -189,6 +223,9 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/careers/celebrations': typeof CareersCelebrationsRoute
+  '/document-management/features': typeof DocumentManagementFeaturesRoute
+  '/document-management/security': typeof DocumentManagementSecurityRoute
+  '/document-management/users-roles': typeof DocumentManagementUsersRolesRoute
   '/omr_web/$': typeof Omr_webSplatRoute
   '/online-exam/exam-centres': typeof OnlineExamExamCentresRoute
   '/online-exam/features': typeof OnlineExamFeaturesRoute
@@ -196,6 +233,7 @@ export interface FileRoutesByFullPath {
   '/online-exam/security': typeof OnlineExamSecurityRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
+  '/document-management/': typeof DocumentManagementIndexRoute
   '/online-exam/': typeof OnlineExamIndexRoute
   '/products/': typeof ProductsIndexRoute
   '/solutions/': typeof SolutionsIndexRoute
@@ -217,6 +255,9 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/careers/celebrations': typeof CareersCelebrationsRoute
+  '/document-management/features': typeof DocumentManagementFeaturesRoute
+  '/document-management/security': typeof DocumentManagementSecurityRoute
+  '/document-management/users-roles': typeof DocumentManagementUsersRolesRoute
   '/omr_web/$': typeof Omr_webSplatRoute
   '/online-exam/exam-centres': typeof OnlineExamExamCentresRoute
   '/online-exam/features': typeof OnlineExamFeaturesRoute
@@ -224,6 +265,7 @@ export interface FileRoutesByTo {
   '/online-exam/security': typeof OnlineExamSecurityRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
+  '/document-management': typeof DocumentManagementIndexRoute
   '/online-exam': typeof OnlineExamIndexRoute
   '/products': typeof ProductsIndexRoute
   '/solutions': typeof SolutionsIndexRoute
@@ -240,6 +282,7 @@ export interface FileRoutesById {
   '/clients': typeof ClientsRoute
   '/company-policy': typeof CompanyPolicyRoute
   '/contact': typeof ContactRoute
+  '/document-management': typeof DocumentManagementRouteWithChildren
   '/get-a-quote': typeof GetAQuoteRoute
   '/news': typeof NewsRoute
   '/online-exam': typeof OnlineExamRouteWithChildren
@@ -247,6 +290,9 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/careers_/celebrations': typeof CareersCelebrationsRoute
+  '/document-management/features': typeof DocumentManagementFeaturesRoute
+  '/document-management/security': typeof DocumentManagementSecurityRoute
+  '/document-management/users-roles': typeof DocumentManagementUsersRolesRoute
   '/omr_web/$': typeof Omr_webSplatRoute
   '/online-exam/exam-centres': typeof OnlineExamExamCentresRoute
   '/online-exam/features': typeof OnlineExamFeaturesRoute
@@ -254,6 +300,7 @@ export interface FileRoutesById {
   '/online-exam/security': typeof OnlineExamSecurityRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
+  '/document-management/': typeof DocumentManagementIndexRoute
   '/online-exam/': typeof OnlineExamIndexRoute
   '/products/': typeof ProductsIndexRoute
   '/solutions/': typeof SolutionsIndexRoute
@@ -271,6 +318,7 @@ export interface FileRouteTypes {
     | '/clients'
     | '/company-policy'
     | '/contact'
+    | '/document-management'
     | '/get-a-quote'
     | '/news'
     | '/online-exam'
@@ -278,6 +326,9 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/blog/$slug'
     | '/careers/celebrations'
+    | '/document-management/features'
+    | '/document-management/security'
+    | '/document-management/users-roles'
     | '/omr_web/$'
     | '/online-exam/exam-centres'
     | '/online-exam/features'
@@ -285,6 +336,7 @@ export interface FileRouteTypes {
     | '/online-exam/security'
     | '/products/$slug'
     | '/solutions/$slug'
+    | '/document-management/'
     | '/online-exam/'
     | '/products/'
     | '/solutions/'
@@ -306,6 +358,9 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/blog/$slug'
     | '/careers/celebrations'
+    | '/document-management/features'
+    | '/document-management/security'
+    | '/document-management/users-roles'
     | '/omr_web/$'
     | '/online-exam/exam-centres'
     | '/online-exam/features'
@@ -313,6 +368,7 @@ export interface FileRouteTypes {
     | '/online-exam/security'
     | '/products/$slug'
     | '/solutions/$slug'
+    | '/document-management'
     | '/online-exam'
     | '/products'
     | '/solutions'
@@ -328,6 +384,7 @@ export interface FileRouteTypes {
     | '/clients'
     | '/company-policy'
     | '/contact'
+    | '/document-management'
     | '/get-a-quote'
     | '/news'
     | '/online-exam'
@@ -335,6 +392,9 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/blog/$slug'
     | '/careers_/celebrations'
+    | '/document-management/features'
+    | '/document-management/security'
+    | '/document-management/users-roles'
     | '/omr_web/$'
     | '/online-exam/exam-centres'
     | '/online-exam/features'
@@ -342,6 +402,7 @@ export interface FileRouteTypes {
     | '/online-exam/security'
     | '/products/$slug'
     | '/solutions/$slug'
+    | '/document-management/'
     | '/online-exam/'
     | '/products/'
     | '/solutions/'
@@ -358,6 +419,7 @@ export interface RootRouteChildren {
   ClientsRoute: typeof ClientsRoute
   CompanyPolicyRoute: typeof CompanyPolicyRoute
   ContactRoute: typeof ContactRoute
+  DocumentManagementRoute: typeof DocumentManagementRouteWithChildren
   GetAQuoteRoute: typeof GetAQuoteRoute
   NewsRoute: typeof NewsRoute
   OnlineExamRoute: typeof OnlineExamRouteWithChildren
@@ -432,6 +494,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/document-management': {
+      id: '/document-management'
+      path: '/document-management'
+      fullPath: '/document-management'
+      preLoaderRoute: typeof DocumentManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/get-a-quote': {
       id: '/get-a-quote'
       path: '/get-a-quote'
@@ -480,6 +549,34 @@ declare module '@tanstack/react-router' {
       fullPath: '/careers/celebrations'
       preLoaderRoute: typeof CareersCelebrationsRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/document-management/': {
+      id: '/document-management/'
+      path: '/'
+      fullPath: '/document-management/'
+      preLoaderRoute: typeof DocumentManagementIndexRouteImport
+      parentRoute: typeof DocumentManagementRoute
+    }
+    '/document-management/features': {
+      id: '/document-management/features'
+      path: '/features'
+      fullPath: '/document-management/features'
+      preLoaderRoute: typeof DocumentManagementFeaturesRouteImport
+      parentRoute: typeof DocumentManagementRoute
+    }
+    '/document-management/security': {
+      id: '/document-management/security'
+      path: '/security'
+      fullPath: '/document-management/security'
+      preLoaderRoute: typeof DocumentManagementSecurityRouteImport
+      parentRoute: typeof DocumentManagementRoute
+    }
+    '/document-management/users-roles': {
+      id: '/document-management/users-roles'
+      path: '/users-roles'
+      fullPath: '/document-management/users-roles'
+      preLoaderRoute: typeof DocumentManagementUsersRolesRouteImport
+      parentRoute: typeof DocumentManagementRoute
     }
     '/omr_web/$': {
       id: '/omr_web/$'
@@ -568,6 +665,23 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface DocumentManagementRouteChildren {
+  DocumentManagementFeaturesRoute: typeof DocumentManagementFeaturesRoute
+  DocumentManagementSecurityRoute: typeof DocumentManagementSecurityRoute
+  DocumentManagementUsersRolesRoute: typeof DocumentManagementUsersRolesRoute
+  DocumentManagementIndexRoute: typeof DocumentManagementIndexRoute
+}
+
+const DocumentManagementRouteChildren: DocumentManagementRouteChildren = {
+  DocumentManagementFeaturesRoute: DocumentManagementFeaturesRoute,
+  DocumentManagementSecurityRoute: DocumentManagementSecurityRoute,
+  DocumentManagementUsersRolesRoute: DocumentManagementUsersRolesRoute,
+  DocumentManagementIndexRoute: DocumentManagementIndexRoute,
+}
+
+const DocumentManagementRouteWithChildren =
+  DocumentManagementRoute._addFileChildren(DocumentManagementRouteChildren)
+
 interface OnlineExamRouteChildren {
   OnlineExamExamCentresRoute: typeof OnlineExamExamCentresRoute
   OnlineExamFeaturesRoute: typeof OnlineExamFeaturesRoute
@@ -597,6 +711,7 @@ const rootRouteChildren: RootRouteChildren = {
   ClientsRoute: ClientsRoute,
   CompanyPolicyRoute: CompanyPolicyRoute,
   ContactRoute: ContactRoute,
+  DocumentManagementRoute: DocumentManagementRouteWithChildren,
   GetAQuoteRoute: GetAQuoteRoute,
   NewsRoute: NewsRoute,
   OnlineExamRoute: OnlineExamRouteWithChildren,

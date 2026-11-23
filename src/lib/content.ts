@@ -95,6 +95,8 @@ export type DetailPage = {
   imageAlt?: string;
   links?: { label: string; href: string; text?: string }[];
   gallery?: { src: string; alt: string }[];
+  /** When set, the catalogue links here instead of the generic /products/$slug page. */
+  href?: "/document-management";
 };
 
 export const isScannerModel = (slug: string) => /^sr\d/.test(slug);
@@ -722,25 +724,23 @@ export const products: DetailPage[] = [
   },
   {
     slug: "document-management",
-    name: "Document Management",
+    name: "Document Management (ISDOX)",
     group: "Software",
-    title: "Make your documents digital, secure and searchable",
+    href: "/document-management",
+    title: "A centralised home for every document",
     intro:
-      "Scan, organise and retrieve every file in seconds — with version control and retention policies that keep records audit-ready.",
-    summary: "Paperless records with version control.",
+      "ISDOX is a secure, AI-powered Document Management System to upload, organise, search and control every document, with full visibility into who did what, and when.",
+    summary: "ISDOX: folders, metadata, versions, roles and audit logs.",
     image: documents,
     highlights: [
-      { title: "Scan", text: "Supports over 300 scanner types." },
-      { title: "Organise", text: "Check-in/check-out version control prevents overwrites." },
-      { title: "Retain", text: "Retention and disposition policies for paper and digital records." },
+      { title: "Organise", text: "Hierarchical folders and reusable metadata templates." },
+      { title: "Control", text: "Role-based permissions down to the folder or document." },
+      { title: "Track", text: "Version history and a complete audit trail." },
     ],
-    features: [
-      { title: "Benefits", items: ["Free up office space", "Find any document in seconds", "Secure, backed-up records", "Access from any device"] },
-      { title: "Related", items: ["ICR software for handwritten forms", "OCR for printed text", "Built-in data validation"] },
-    ],
-    seoTitle: "Document Management Software | Paperless Office | OMR Solutions",
+    features: [],
+    seoTitle: "ISDOX Document Management System | OMR Solutions",
     seoDescription:
-      "Document management software with scanning, version control and records retention. Go paperless and find files in seconds.",
+      "ISDOX document management: upload, organise, search and control every document with folders, metadata templates, version control, roles and audit logs.",
   },
 ];
 

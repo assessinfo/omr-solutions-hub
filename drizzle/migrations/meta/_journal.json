@@ -8,6 +8,13 @@
       "when": 1795113678778,
       "tag": "0000_holo_blog_webhook",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1795421953570,
+      "tag": "0001_create_demo_bookings",
+      "breakpoints": true
     }
   ]
 }

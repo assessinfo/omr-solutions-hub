@@ -51,3 +51,7 @@
 - [x] Add staff training, promotions & incentives, Japan/abroad visits and partner visits in India to both the News page and the Life at OMR page (six photos, verified in preview).
 - [x] Add the newly uploaded photo and video to the OMR Printing Sheets page (video plays, sample sheet shown, verified in preview).
 - [x] Add Google Maps for the New Delhi head office and Mumbai branch office to the Contact page, with directions and open-in-Maps links (32 tests pass, both maps verified rendering in preview).
+
+- [x] Build the full ISDOX Document Management section from the presentation (overview, product tour, users & permissions, security), verified in preview.
+- [x] Add a site-wide "Book a demo" pop-up (name, phone, email, preferred date and time, Mon–Fri 10 AM–6 PM IST) storing every request in Demo bookings; test booking saved and removed.
+- [ ] Email the team about each new demo booking (blocked: needs a verified email domain).

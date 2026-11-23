@@ -24,6 +24,7 @@ export const Route = createFileRoute("/sitemap.xml")({
           ] as const) {
             if (!isSitemapRouteIncluded(router.routesById[routeId])) continue;
             for (const page of pages) {
+              if (page.href) continue; // served by its own section routes
               const location = router.buildLocation({
                 to: routeId, params: { slug: page.slug }, search: () => ({}), hash: "",
               });

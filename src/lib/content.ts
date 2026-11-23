@@ -101,6 +101,16 @@ export type DetailPage = {
 
 export const isScannerModel = (slug: string) => /^sr\d/.test(slug);
 
+/** Software grouped under "OMR Software" in the menus, in the order they are listed there. */
+export const omrSoftwareMenu = [
+  { slug: "remark-office-omr", label: "Remark Office OMR" },
+  { slug: "remark-classic-omr", label: "Remark Classic OMR" },
+  { slug: "remark-test-grading", label: "Remark Test Grading" },
+  { slug: "optic-view-sekonic", label: "Optic View for Sekonic" },
+  { slug: "optic-view-image", label: "Optic View for Image" },
+] as const;
+export const isOmrSoftwareTool = (slug: string) => omrSoftwareMenu.some((t) => t.slug === slug);
+
 export const solutions: DetailPage[] = [
   {
     slug: "education",

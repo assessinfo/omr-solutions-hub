@@ -122,7 +122,7 @@ function Home() {
           items={[
             { value: "20+", label: "Years in OMR" },
             { value: "1,000+", label: "Projects delivered" },
-            { value: "99.9%", label: "Read accuracy" },
+            { value: "99.99%", label: "Read accuracy" },
             { value: "15+", label: "States served" },
           ]}
         />
